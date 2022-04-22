@@ -1,3 +1,16 @@
 <resources>
-    <string name="app_name">BudgetOfFamily</string>
+    <!-- Global -->
+    <string name="app_name">Семейный бюджет</string>
+
+    <!-- Content Description -->
+    <string name="logo">Лого</string>
+
+    <!-- Action -->
+    <string name="signIn">Войти</string>
+    <string name="signUp">Зарегистрироваться</string>
+    <string name="signOut">Выйти</string>
+
+    <!-- Field -->
+    <string name="email">Email</string>
+    <string name="password">Пароль</string>
 </resources>
