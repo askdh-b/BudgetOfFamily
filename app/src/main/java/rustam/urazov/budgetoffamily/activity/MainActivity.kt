@@ -5,14 +5,14 @@ import android.os.Bundle
 import androidx.lifecycle.ViewModelProvider
 import rustam.urazov.budgetoffamily.R
 
-class LoginActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
-    private lateinit var viewModel: LoginActivityViewModel
+    private lateinit var viewModel: MainActivityViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_login)
+        setContentView(R.layout.activity_main)
 
-        viewModel = ViewModelProvider(this)[LoginActivityViewModel::class.java]
+        viewModel = ViewModelProvider(this)[MainActivityViewModel::class.java]
     }
 }

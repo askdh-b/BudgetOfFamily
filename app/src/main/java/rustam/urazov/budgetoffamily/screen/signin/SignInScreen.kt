@@ -5,8 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
 import androidx.lifecycle.ViewModelProvider
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.GlobalScope
+import kotlinx.coroutines.launch
 import rustam.urazov.budgetoffamily.R
+import rustam.urazov.domain.models.UserAuthData
 
 
 class SignInScreen : Fragment() {
@@ -18,8 +25,24 @@ class SignInScreen : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        viewModel = ViewModelProvider(this)[SignInScreenViewModel::class.java]
+        viewModel = ViewModelProvider(this, SignInScreenFactory(requireContext()))[SignInScreenViewModel::class.java]
 
-        return inflater.inflate(R.layout.fragment_sign_in, container, false)
+        val view = inflater.inflate(R.layout.fragment_sign_in, container, false)
+
+        val etEmail: EditText = view.findViewById(R.id.etEmail)
+        val etPassword: EditText = view.findViewById(R.id.etPassword)
+        val bSignIn: Button = view.findViewById(R.id.bSignIn)
+        val bSignUp: Button = view.findViewById(R.id.bSignUp)
+
+        bSignIn.setOnClickListener {
+            val userAuthData = UserAuthData(etEmail.toString(), etPassword.toString())
+            viewModel.authorize(userAuthData)
+        }
+
+        bSignUp.setOnClickListener {
+
+        }
+
+        return view
     }
 }
