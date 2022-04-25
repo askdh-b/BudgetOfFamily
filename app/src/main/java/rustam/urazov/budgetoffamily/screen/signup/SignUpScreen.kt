@@ -5,9 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.lifecycle.ViewModel
+import android.widget.EditText
 import androidx.lifecycle.ViewModelProvider
 import rustam.urazov.budgetoffamily.R
+import rustam.urazov.budgetoffamily.models.NewUser
 
 class SignUpFragment : Fragment() {
 
@@ -24,6 +25,22 @@ class SignUpFragment : Fragment() {
         )[SignUpScreenViewModel::class.java]
 
         val view = inflater.inflate(R.layout.fragment_sign_up, container, false)
+
+        val etFirstName: EditText = view.findViewById(R.id.etFirstName)
+        val etLastName: EditText = view.findViewById(R.id.etLastName)
+        val etEmail: EditText = view.findViewById(R.id.etEmail)
+        val etPassword: EditText = view.findViewById(R.id.etPassword)
+        val etPasswordAgain: EditText = view.findViewById(R.id.etPasswordAgain)
+
+        viewModel.register(
+            NewUser(
+                etFirstName.text.toString(),
+                etLastName.text.toString(),
+                etEmail.text.toString(),
+                etPassword.text.toString()
+            )
+        )
+
         return view
     }
 }
