@@ -1,8 +1,9 @@
-package rustam.urazov.budgetoffamily.repositories
+package rustam.urazov.budgetoffamily.repositories.token
 
 import rustam.urazov.budgetoffamily.storage.TokenStorageService
 import rustam.urazov.budgetoffamily.storage.models.AccessToken
-import rustam.urazov.budgetoffamily.models.Token
+import rustam.urazov.budgetoffamily.models.token.Token
+import rustam.urazov.budgetoffamily.repositories.token.TokenRepository
 
 class TokenRepositoryImpl(private val tokenStorageService: TokenStorageService): TokenRepository {
 

@@ -9,7 +9,7 @@ import android.widget.Button
 import android.widget.EditText
 import androidx.lifecycle.ViewModelProvider
 import rustam.urazov.budgetoffamily.R
-import rustam.urazov.budgetoffamily.models.UserAuthData
+import rustam.urazov.budgetoffamily.models.user.UserAuthData
 
 
 class SignInScreen : Fragment() {

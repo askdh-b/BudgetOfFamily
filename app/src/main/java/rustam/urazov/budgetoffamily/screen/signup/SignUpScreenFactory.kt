@@ -5,11 +5,11 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.coroutines.Dispatchers
 import rustam.urazov.budgetoffamily.network.API
-import rustam.urazov.budgetoffamily.repositories.TokenRepositoryImpl
+import rustam.urazov.budgetoffamily.repositories.token.TokenRepositoryImpl
 import rustam.urazov.budgetoffamily.repositories.UserRegistrationRepositoryImpl
 import rustam.urazov.budgetoffamily.storage.TokenStorageServiceImpl
-import rustam.urazov.budgetoffamily.usecases.SaveTokenUseCase
-import rustam.urazov.budgetoffamily.usecases.UserRegistrationUseCase
+import rustam.urazov.budgetoffamily.usecases.storage.SaveTokenUseCase
+import rustam.urazov.budgetoffamily.usecases.register.UserRegistrationUseCase
 
 class SignUpScreenFactory(context: Context) : ViewModelProvider.Factory {
 

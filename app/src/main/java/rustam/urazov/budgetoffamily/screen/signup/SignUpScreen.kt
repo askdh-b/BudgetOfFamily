@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.EditText
 import androidx.lifecycle.ViewModelProvider
 import rustam.urazov.budgetoffamily.R
-import rustam.urazov.budgetoffamily.models.NewUser
+import rustam.urazov.budgetoffamily.models.user.NewUser
 
 class SignUpFragment : Fragment() {
 

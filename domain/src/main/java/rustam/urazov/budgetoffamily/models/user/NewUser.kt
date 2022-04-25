@@ -1,4 +1,4 @@
-package rustam.urazov.budgetoffamily.models
+package rustam.urazov.budgetoffamily.models.user
 
 data class NewUser(
     val firstName: String,

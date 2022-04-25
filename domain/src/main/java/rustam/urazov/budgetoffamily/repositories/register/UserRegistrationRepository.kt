@@ -1,7 +1,7 @@
-package rustam.urazov.budgetoffamily.repositories
+package rustam.urazov.budgetoffamily.repositories.register
 
 import rustam.urazov.budgetoffamily.ResultWrapper
-import rustam.urazov.budgetoffamily.models.NewUser
+import rustam.urazov.budgetoffamily.models.user.NewUser
 
 interface UserRegistrationRepository {
 
