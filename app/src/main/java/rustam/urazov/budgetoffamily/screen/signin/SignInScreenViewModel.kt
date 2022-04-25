@@ -3,11 +3,11 @@ package rustam.urazov.budgetoffamily.screen.signin
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
-import rustam.urazov.domain.ResultWrapper
-import rustam.urazov.domain.models.Token
-import rustam.urazov.domain.models.UserAuthData
-import rustam.urazov.domain.usecases.SaveTokenUseCase
-import rustam.urazov.domain.usecases.UserAuthorizationUseCase
+import rustam.urazov.budgetoffamily.ResultWrapper
+import rustam.urazov.budgetoffamily.models.Token
+import rustam.urazov.budgetoffamily.models.UserAuthData
+import rustam.urazov.budgetoffamily.usecases.SaveTokenUseCase
+import rustam.urazov.budgetoffamily.usecases.UserAuthorizationUseCase
 
 class SignInScreenViewModel(
     private val userAuthorizationUseCase: UserAuthorizationUseCase,

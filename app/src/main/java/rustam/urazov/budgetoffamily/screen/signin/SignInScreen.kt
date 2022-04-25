@@ -8,12 +8,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import androidx.lifecycle.ViewModelProvider
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.GlobalScope
-import kotlinx.coroutines.launch
 import rustam.urazov.budgetoffamily.R
-import rustam.urazov.domain.models.UserAuthData
+import rustam.urazov.budgetoffamily.models.UserAuthData
 
 
 class SignInScreen : Fragment() {
@@ -25,7 +21,10 @@ class SignInScreen : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        viewModel = ViewModelProvider(this, SignInScreenFactory(requireContext()))[SignInScreenViewModel::class.java]
+        viewModel = ViewModelProvider(
+            this,
+            SignInScreenFactory(requireContext())
+        )[SignInScreenViewModel::class.java]
 
         val view = inflater.inflate(R.layout.fragment_sign_in, container, false)
 

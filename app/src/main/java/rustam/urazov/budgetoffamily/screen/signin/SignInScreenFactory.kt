@@ -4,12 +4,12 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.coroutines.Dispatchers
-import rustam.urazov.data.network.API
-import rustam.urazov.data.repositories.TokenRepositoryImpl
-import rustam.urazov.data.repositories.UserAuthorizationRepositoryImpl
-import rustam.urazov.data.storage.TokenStorageServiceImpl
-import rustam.urazov.domain.usecases.SaveTokenUseCase
-import rustam.urazov.domain.usecases.UserAuthorizationUseCase
+import rustam.urazov.budgetoffamily.network.API
+import rustam.urazov.budgetoffamily.repositories.TokenRepositoryImpl
+import rustam.urazov.budgetoffamily.repositories.UserAuthorizationRepositoryImpl
+import rustam.urazov.budgetoffamily.storage.TokenStorageServiceImpl
+import rustam.urazov.budgetoffamily.usecases.SaveTokenUseCase
+import rustam.urazov.budgetoffamily.usecases.UserAuthorizationUseCase
 
 class SignInScreenFactory(context: Context): ViewModelProvider.Factory {
 
