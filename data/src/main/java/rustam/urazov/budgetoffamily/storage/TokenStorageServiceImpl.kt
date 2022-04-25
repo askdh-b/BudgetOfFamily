@@ -1,7 +1,7 @@
 package rustam.urazov.budgetoffamily.storage
 
 import android.content.Context
-import rustam.urazov.budgetoffamily.storage.models.TokenStorage
+import rustam.urazov.budgetoffamily.storage.models.AccessToken
 
 class TokenStorageServiceImpl(private val context: Context) : TokenStorageService {
 
@@ -13,13 +13,13 @@ class TokenStorageServiceImpl(private val context: Context) : TokenStorageServic
 
     private val sharedPreferences = context.getSharedPreferences(SETTINGS, Context.MODE_PRIVATE)
 
-    override fun save(tokenStorage: TokenStorage) {
+    override fun save(accessToken: AccessToken) {
 
-        sharedPreferences.edit().putString(ACCESS_TOKEN, tokenStorage.token).apply()
+        sharedPreferences.edit().putString(ACCESS_TOKEN, accessToken.token).apply()
     }
 
-    override fun get(): TokenStorage {
+    override fun get(): AccessToken {
 
-        return TokenStorage(sharedPreferences.getString(ACCESS_TOKEN, "") ?: "")
+        return AccessToken(sharedPreferences.getString(ACCESS_TOKEN, "") ?: "")
     }
 }

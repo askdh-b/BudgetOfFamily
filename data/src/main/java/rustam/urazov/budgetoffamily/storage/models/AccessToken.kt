@@ -1,3 +1,3 @@
 package rustam.urazov.budgetoffamily.storage.models
 
-data class TokenStorage(val token: String)
+data class AccessToken(val token: String)
