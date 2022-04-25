@@ -1,22 +1,22 @@
-package rustam.urazov.budgetoffamily.screen.signin
+package rustam.urazov.budgetoffamily.screen.signup
 
 import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import rustam.urazov.budgetoffamily.ResultWrapper
+import rustam.urazov.budgetoffamily.models.NewUser
 import rustam.urazov.budgetoffamily.models.Token
-import rustam.urazov.budgetoffamily.models.UserAuthData
 import rustam.urazov.budgetoffamily.usecases.SaveTokenUseCase
-import rustam.urazov.budgetoffamily.usecases.UserAuthorizationUseCase
+import rustam.urazov.budgetoffamily.usecases.UserRegistrationUseCase
 
-class SignInScreenViewModel(
-    private val userAuthorizationUseCase: UserAuthorizationUseCase,
+class SignUpScreenViewModel(
+    private val registrationUseCase: UserRegistrationUseCase,
     private val saveTokenUseCase: SaveTokenUseCase
 ) : ViewModel() {
 
-    fun authorize(userAuthData: UserAuthData) {
+    fun register(newUser: NewUser) {
         GlobalScope.launch {
-            when (val result = userAuthorizationUseCase.execute(userAuthData)) {
+            when (val result = registrationUseCase.execute(newUser)) {
                 is ResultWrapper.Error -> {}
                 ResultWrapper.NetworkError -> {}
                 is ResultWrapper.Success -> { saveTokenUseCase.execute(Token(result.toString())) }

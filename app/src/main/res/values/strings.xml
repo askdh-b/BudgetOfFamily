@@ -8,9 +8,16 @@
     <!-- Action -->
     <string name="signIn">Войти</string>
     <string name="signUp">Зарегистрироваться</string>
+    <string name="registration">Регистрация</string>
+    <string name="have_account">У меня уже есть аккаунт</string>
     <string name="signOut">Выйти</string>
 
     <!-- Field -->
+    <string name="first_name">Имя</string>
+    <string name="last_name">Фамилия</string>
     <string name="email">Email</string>
     <string name="password">Пароль</string>
+    <string name="password_again">Повторите пароль</string>
+
+
 </resources>
