@@ -4,10 +4,10 @@ import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import rustam.urazov.budgetoffamily.ResultWrapper
-import rustam.urazov.budgetoffamily.models.Token
-import rustam.urazov.budgetoffamily.models.UserAuthData
-import rustam.urazov.budgetoffamily.usecases.SaveTokenUseCase
-import rustam.urazov.budgetoffamily.usecases.UserAuthorizationUseCase
+import rustam.urazov.budgetoffamily.models.token.Token
+import rustam.urazov.budgetoffamily.models.user.UserAuthData
+import rustam.urazov.budgetoffamily.usecases.storage.SaveTokenUseCase
+import rustam.urazov.budgetoffamily.usecases.auth.UserAuthorizationUseCase
 
 class SignInScreenViewModel(
     private val userAuthorizationUseCase: UserAuthorizationUseCase,
