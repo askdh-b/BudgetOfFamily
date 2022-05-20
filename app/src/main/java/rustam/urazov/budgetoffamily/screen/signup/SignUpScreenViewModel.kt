@@ -19,7 +19,7 @@ class SignUpScreenViewModel(
             when (val result = registrationUseCase.execute(newUser)) {
                 is ResultWrapper.Error -> {}
                 ResultWrapper.NetworkError -> {}
-                is ResultWrapper.Success -> { saveTokenUseCase.execute(Token(result.toString())) }
+                is ResultWrapper.Success -> { }
             }
         }
     }

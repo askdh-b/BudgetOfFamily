@@ -4,10 +4,11 @@ import android.content.Context
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import kotlinx.coroutines.Dispatchers
+import rustam.urazov.budgetoffamily.activity.MainActivity
 import rustam.urazov.budgetoffamily.network.API
 import rustam.urazov.budgetoffamily.repositories.token.TokenRepositoryImpl
 import rustam.urazov.budgetoffamily.repositories.auth.UserAuthorizationRepositoryImpl
-import rustam.urazov.budgetoffamily.storage.TokenStorageServiceImpl
+import rustam.urazov.budgetoffamily.storage.StorageServiceImpl
 import rustam.urazov.budgetoffamily.usecases.storage.SaveTokenUseCase
 import rustam.urazov.budgetoffamily.usecases.auth.UserAuthorizationUseCase
 
@@ -16,7 +17,7 @@ class SignInScreenFactory(context: Context): ViewModelProvider.Factory {
     private val dispatcher = Dispatchers.IO
 
     private val tokenStorageService by lazy {
-        TokenStorageServiceImpl(context)
+        StorageServiceImpl(context)
     }
     private val tokenRepository by lazy {
         TokenRepositoryImpl(tokenStorageService)
@@ -25,7 +26,9 @@ class SignInScreenFactory(context: Context): ViewModelProvider.Factory {
         SaveTokenUseCase(tokenRepository)
     }
 
-    private val service = API.mInstance.service
+    private val fragmentManager = (context as MainActivity).supportFragmentManager
+
+    private val service = API.mInstance.networkService
     private val userAuthorizationRepository by lazy {
         UserAuthorizationRepositoryImpl(service, dispatcher)
     }
@@ -34,6 +37,6 @@ class SignInScreenFactory(context: Context): ViewModelProvider.Factory {
     }
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return SignInScreenViewModel(userAuthorizationUseCase, saveTokenUseCase) as T
+        return SignInScreenViewModel(userAuthorizationUseCase, saveTokenUseCase, fragmentManager) as T
     }
 }

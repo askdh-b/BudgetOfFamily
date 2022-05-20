@@ -3,14 +3,13 @@ package rustam.urazov.budgetoffamily.repositories
 import kotlinx.coroutines.CoroutineDispatcher
 import rustam.urazov.budgetoffamily.ResultWrapper
 import rustam.urazov.budgetoffamily.models.user.NewUser
-import rustam.urazov.budgetoffamily.network.Service
+import rustam.urazov.budgetoffamily.network.NetworkService
 import rustam.urazov.budgetoffamily.network.models.register.RegistrationBody
 import rustam.urazov.budgetoffamily.network.safeCall
 import rustam.urazov.budgetoffamily.repositories.register.UserRegistrationRepository
 
 class UserRegistrationRepositoryImpl(
-
-    private val service: Service,
+    private val networkService: NetworkService,
     private val dispatcher: CoroutineDispatcher
 ) : UserRegistrationRepository {
 
@@ -20,12 +19,12 @@ class UserRegistrationRepositoryImpl(
             RegistrationBody(
                 newUser.firstName,
                 newUser.lastName,
-                newUser.email,
+                newUser.username,
                 newUser.password
             )
 
         return safeCall(dispatcher, call = {
-            service.register(registrationBody)
+            networkService.register(registrationBody)
         })
     }
 }

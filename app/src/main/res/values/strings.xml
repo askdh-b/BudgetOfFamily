@@ -15,7 +15,7 @@
     <!-- Field -->
     <string name="first_name">Имя</string>
     <string name="last_name">Фамилия</string>
-    <string name="email">Email</string>
+    <string name="username">Имя пользователя</string>
     <string name="password">Пароль</string>
     <string name="password_again">Повторите пароль</string>
 

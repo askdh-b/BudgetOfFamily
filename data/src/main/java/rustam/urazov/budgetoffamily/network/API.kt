@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 class API {
     companion object {
-        const val BASE_URL = "based"
+        const val BASE_URL = "https://budgetoffamilybackend.herokuapp.com/"
         val mInstance = API()
     }
 
@@ -14,5 +14,5 @@ class API {
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    val service: Service = retrofit.create(Service::class.java)
+    val networkService: NetworkService = retrofit.create(NetworkService::class.java)
 }

@@ -11,23 +11,22 @@
         android:layout_height="match_parent"
         android:padding="24dp">
 
-        <ImageView
+        <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/ivLogo"
             android:layout_width="144dp"
             android:layout_height="144dp"
-            android:layout_marginTop="48dp"
+            android:layout_marginTop="12dp"
             android:contentDescription="@string/logo"
             android:src="@drawable/ic_baseline_attach_money_24"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/etFirstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp"
             android:autofillHints="name"
             android:backgroundTint="@color/dark"
             android:hint="@string/first_name"
@@ -37,53 +36,50 @@
             app:layout_constraintTop_toBottomOf="@id/ivLogo"
             app:layout_constraintVertical_bias="1" />
 
-        <EditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/etLastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
             android:autofillHints="name"
             android:backgroundTint="@color/dark"
             android:hint="@string/last_name"
             android:inputType="text"
             android:textColor="@color/dark"
-            app:layout_constraintBottom_toTopOf="@id/etEmail"
+            app:layout_constraintBottom_toTopOf="@id/etUsername"
             app:layout_constraintTop_toBottomOf="@id/etFirstName"
             app:layout_constraintVertical_bias="1" />
 
-        <EditText
-            android:id="@+id/etEmail"
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/etUsername"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
             android:autofillHints="emailAddress"
             android:backgroundTint="@color/dark"
-            android:hint="@string/email"
+            android:hint="@string/username"
             android:inputType="textEmailAddress"
             android:textColor="@color/dark"
             app:layout_constraintBottom_toTopOf="@id/etPassword"
             app:layout_constraintTop_toBottomOf="@id/etLastName"
             app:layout_constraintVertical_bias="1" />
 
-        <EditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/etPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
             android:autofillHints="password"
             android:backgroundTint="@color/dark"
             android:hint="@string/password"
             android:inputType="textPassword"
             android:textColor="@color/dark"
             app:layout_constraintBottom_toTopOf="@id/etPasswordAgain"
-            app:layout_constraintTop_toBottomOf="@id/etEmail"
+            app:layout_constraintTop_toBottomOf="@id/etUsername"
             app:layout_constraintVertical_bias="1" />
 
-        <EditText
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/etPasswordAgain"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginBottom="72dp"
+            android:layout_marginBottom="24dp"
             android:autofillHints="password"
             android:backgroundTint="@color/dark"
             android:hint="@string/password_again"
@@ -91,7 +87,7 @@
             android:textColor="@color/dark"
             app:layout_constraintBottom_toTopOf="@id/bSignIn" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bSignIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -103,7 +99,7 @@
             app:backgroundTint="@color/yellow"
             app:layout_constraintBottom_toTopOf="@id/bSignUp" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bSignUp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

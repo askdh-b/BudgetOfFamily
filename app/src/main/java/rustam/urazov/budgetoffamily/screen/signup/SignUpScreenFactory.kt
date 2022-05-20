@@ -7,13 +7,13 @@ import kotlinx.coroutines.Dispatchers
 import rustam.urazov.budgetoffamily.network.API
 import rustam.urazov.budgetoffamily.repositories.token.TokenRepositoryImpl
 import rustam.urazov.budgetoffamily.repositories.UserRegistrationRepositoryImpl
-import rustam.urazov.budgetoffamily.storage.TokenStorageServiceImpl
+import rustam.urazov.budgetoffamily.storage.StorageServiceImpl
 import rustam.urazov.budgetoffamily.usecases.storage.SaveTokenUseCase
 import rustam.urazov.budgetoffamily.usecases.register.UserRegistrationUseCase
 
 class SignUpScreenFactory(context: Context) : ViewModelProvider.Factory {
 
-    private val service = API.mInstance.service
+    private val service = API.mInstance.networkService
     private val dispatcher = Dispatchers.IO
 
     private val userRegistrationRepository by lazy {
@@ -24,7 +24,7 @@ class SignUpScreenFactory(context: Context) : ViewModelProvider.Factory {
     }
 
     private val tokenStorageServiceImpl by lazy {
-        TokenStorageServiceImpl(context)
+        StorageServiceImpl(context)
     }
     private val tokenRepository by lazy {
         TokenRepositoryImpl(tokenStorageServiceImpl)

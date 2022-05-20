@@ -28,7 +28,7 @@ class SignUpFragment : Fragment() {
 
         val etFirstName: EditText = view.findViewById(R.id.etFirstName)
         val etLastName: EditText = view.findViewById(R.id.etLastName)
-        val etEmail: EditText = view.findViewById(R.id.etEmail)
+        val etEmail: EditText = view.findViewById(R.id.etUsername)
         val etPassword: EditText = view.findViewById(R.id.etPassword)
         val etPasswordAgain: EditText = view.findViewById(R.id.etPasswordAgain)
 

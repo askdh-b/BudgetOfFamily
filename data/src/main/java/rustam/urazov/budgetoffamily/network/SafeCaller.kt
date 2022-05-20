@@ -1,5 +1,6 @@
 package rustam.urazov.budgetoffamily.network
 
+import android.util.Log
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
@@ -24,7 +25,8 @@ suspend fun <T> safeCall(dispatcher: CoroutineDispatcher, call: suspend () -> T)
                     ResultWrapper.Error(code, ErrorResponse(errorResponse.orEmpty()))
                 }
                 else -> {
-                    ResultWrapper.Error(error = ErrorResponse("Нет данных, попробуйте позже"))
+                    Log.e("er", t.message.toString())
+                    ResultWrapper.Error(error = ErrorResponse("Нет данных. Попробуйте позже"))
                 }
             }
         }
