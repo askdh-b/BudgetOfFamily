@@ -33,7 +33,7 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
 
         viewModel.token.observe(requireActivity()) {
             findNavController().navigate(
-                R.id.action_signUpFragment_to_mainActivity,
+                R.id.action_signUpFragment_to_mainFragment,
                 null,
                 navOptions {
                     anim {
@@ -43,7 +43,7 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                         exit = androidx.navigation.ui.R.anim.nav_default_exit_anim
                     }
                     launchSingleTop = true
-                    popUpTo(R.id.nav_graph) {
+                    popUpTo(R.id.nav_graph_main) {
                         inclusive = true
                     }
                 })
@@ -61,7 +61,7 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                         exit = androidx.navigation.ui.R.anim.nav_default_exit_anim
                     }
                     launchSingleTop = true
-                    popUpTo(R.id.nav_graph) {
+                    popUpTo(R.id.nav_graph_main) {
                         inclusive = true
                     }
                 }

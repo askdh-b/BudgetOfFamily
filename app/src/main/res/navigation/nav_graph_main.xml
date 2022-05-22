@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph"
+    android:id="@+id/nav_graph_main"
     app:startDestination="@id/signInScreen">
 
     <fragment
@@ -16,8 +16,8 @@
             app:popUpTo="@navigation/nav_graph_main"
             app:popUpToInclusive="true" />
         <action
-            android:id="@+id/action_signInScreen_to_mainActivity"
-            app:destination="@id/mainActivity"
+            android:id="@+id/action_signInScreen_to_mainFragment"
+            app:destination="@id/mainFragment"
             app:popUpTo="@navigation/nav_graph_main"
             app:popUpToInclusive="true" />
     </fragment>
@@ -32,14 +32,14 @@
             app:popUpTo="@navigation/nav_graph_main"
             app:popUpToInclusive="true" />
         <action
-            android:id="@+id/action_signUpFragment_to_mainActivity"
-            app:destination="@id/mainActivity"
+            android:id="@+id/action_signUpFragment_to_mainFragment"
+            app:destination="@id/mainFragment"
             app:popUpTo="@navigation/nav_graph_main"
             app:popUpToInclusive="true" />
     </fragment>
-    <activity
-        android:id="@+id/mainActivity"
-        android:name="rustam.urazov.budgetoffamily.activity.MainActivity"
-        android:label="activity_main"
-        tools:layout="@layout/activity_main" />
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="rustam.urazov.budgetoffamily.screen.main.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main" />
 </navigation>

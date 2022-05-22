@@ -1,6 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/nav_graph_content">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_content"
+    app:startDestination="@id/profileFragment">
 
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="rustam.urazov.budgetoffamily.screen.profile.ProfileFragment"
+        android:label="@string/title_profile"
+        tools:layout="@layout/fragment_profile" />
+    <fragment
+        android:id="@+id/goalsFragment"
+        android:name="rustam.urazov.budgetoffamily.screen.goals.GoalsFragment"
+        android:label="@string/title_goals"
+        tools:layout="@layout/fragment_goals" />
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="rustam.urazov.budgetoffamily.screen.search.SearchFragment"
+        android:label="@string/title_search"
+        tools:layout="@layout/fragment_search" />
+    <fragment
+        android:id="@+id/transactionsFragment"
+        android:name="rustam.urazov.budgetoffamily.screen.profile.TransactionsFragment"
+        android:label="@string/title_transactions"
+        tools:layout="@layout/fragment_transactions" />
 </navigation>
