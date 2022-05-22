@@ -17,7 +17,7 @@
             android:layout_height="144dp"
             android:layout_marginTop="12dp"
             android:contentDescription="@string/logo"
-            android:src="@drawable/ic_baseline_attach_money_24"
+            android:src="@drawable/ic_logo"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
@@ -85,22 +85,22 @@
             android:hint="@string/password_again"
             android:inputType="textPassword"
             android:textColor="@color/dark"
-            app:layout_constraintBottom_toTopOf="@id/bSignIn" />
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/bSignIn"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="18dp"
-            android:background="@drawable/button_corners_12dp"
-            android:text="@string/signUp"
-            android:textColor="@color/light"
-            android:textSize="21sp"
-            app:backgroundTint="@color/yellow"
             app:layout_constraintBottom_toTopOf="@id/bSignUp" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/bSignUp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="18dp"
+            android:background="@drawable/button_corners_12dp"
+            android:text="@string/sign_up"
+            android:textColor="@color/light"
+            android:textSize="21sp"
+            app:backgroundTint="@color/yellow"
+            app:layout_constraintBottom_toTopOf="@id/bSignIn" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bSignIn"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button_corners_12dp"

@@ -10,7 +10,7 @@ import rustam.urazov.budgetoffamily.ResultWrapper
 import rustam.urazov.budgetoffamily.models.token.Token
 import rustam.urazov.budgetoffamily.models.user.UserAuthData
 import rustam.urazov.budgetoffamily.network.models.auth.TokenResponse
-import rustam.urazov.budgetoffamily.screen.ErrorDialog
+import rustam.urazov.budgetoffamily.screen.showErrorDialog
 import rustam.urazov.budgetoffamily.usecases.storage.SaveTokenUseCase
 import rustam.urazov.budgetoffamily.usecases.auth.UserAuthorizationUseCase
 
@@ -40,9 +40,4 @@ class SignInScreenViewModel(
             }
         }
     }
-}
-
-fun showErrorDialog(fragmentManager: FragmentManager, message: String) {
-    val errorDialog = ErrorDialog(message)
-    errorDialog.show(fragmentManager, "")
 }

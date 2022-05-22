@@ -2,22 +2,26 @@
     <!-- Global -->
     <string name="app_name">Семейный бюджет</string>
 
-    <!-- Content Description -->
+    <!-- Content Descriptions -->
     <string name="logo">Лого</string>
 
-    <!-- Action -->
-    <string name="signIn">Войти</string>
-    <string name="signUp">Зарегистрироваться</string>
+    <!-- Actions -->
+    <string name="sign_in">Войти</string>
+    <string name="sign_up">Зарегистрироваться</string>
     <string name="registration">Регистрация</string>
     <string name="have_account">У меня уже есть аккаунт</string>
-    <string name="signOut">Выйти</string>
+    <string name="sign_out">Выйти</string>
 
-    <!-- Field -->
+    <!-- Fields -->
     <string name="first_name">Имя</string>
     <string name="last_name">Фамилия</string>
     <string name="username">Имя пользователя</string>
     <string name="password">Пароль</string>
     <string name="password_again">Повторите пароль</string>
 
-
+    <!-- Pages -->
+    <string name="title_profile">Профиль</string>
+    <string name="title_goals">Цели</string>
+    <string name="title_search">Поиск</string>
+    <string name="title_transactions">Транзакции</string>
 </resources>

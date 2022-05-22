@@ -5,8 +5,10 @@
       <map>
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/drawable/button_corners_12dp.xml" value="0.1355" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_main.xml" value="0.225" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_sign_in.xml" value="0.2" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_sign_up.xml" value="0.25" />
+        <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/menu/bottom_menu.xml" value="0.225" />
       </map>
     </option>
   </component>

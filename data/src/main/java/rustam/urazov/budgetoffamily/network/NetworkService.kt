@@ -12,5 +12,5 @@ interface NetworkService {
     suspend fun auth(@Body authBody: AuthBody): TokenResponse
 
     @POST("register")
-    suspend fun register(@Body registrationBody: RegistrationBody): TokenResponse
+    suspend fun register(@Body registrationBody: RegistrationBody)
 }

@@ -4,6 +4,7 @@ import android.app.AlertDialog
 import android.app.Dialog
 import android.os.Bundle
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.FragmentManager
 
 class ErrorDialog(private val message: String) : DialogFragment() {
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog = activity?.let {
@@ -15,4 +16,9 @@ class ErrorDialog(private val message: String) : DialogFragment() {
             }
         builder.create()
     } ?: throw IllegalStateException("Activity cannot be null")
+}
+
+fun showErrorDialog(fragmentManager: FragmentManager, message: String) {
+    val errorDialog = ErrorDialog(message)
+    errorDialog.show(fragmentManager, "")
 }

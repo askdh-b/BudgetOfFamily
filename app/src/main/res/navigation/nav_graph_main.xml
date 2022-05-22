@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/signInScreen">
+
+    <fragment
+        android:id="@+id/signInScreen"
+        android:name="rustam.urazov.budgetoffamily.screen.signin.SignInScreen"
+        android:label="fragment_sign_in"
+        tools:layout="@layout/fragment_sign_in">
+        <action
+            android:id="@+id/action_signInScreen_to_signUpFragment"
+            app:destination="@id/signUpFragment"
+            app:popUpTo="@navigation/nav_graph_main"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_signInScreen_to_mainActivity"
+            app:destination="@id/mainActivity"
+            app:popUpTo="@navigation/nav_graph_main"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/signUpFragment"
+        android:name="rustam.urazov.budgetoffamily.screen.signup.SignUpFragment"
+        android:label="fragment_sign_up"
+        tools:layout="@layout/fragment_sign_up">
+        <action
+            android:id="@+id/action_signUpFragment_to_signInScreen"
+            app:destination="@id/signInScreen"
+            app:popUpTo="@navigation/nav_graph_main"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_signUpFragment_to_mainActivity"
+            app:destination="@id/mainActivity"
+            app:popUpTo="@navigation/nav_graph_main"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <activity
+        android:id="@+id/mainActivity"
+        android:name="rustam.urazov.budgetoffamily.activity.MainActivity"
+        android:label="activity_main"
+        tools:layout="@layout/activity_main" />
+</navigation>

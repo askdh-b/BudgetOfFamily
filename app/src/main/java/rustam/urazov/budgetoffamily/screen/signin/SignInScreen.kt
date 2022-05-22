@@ -28,7 +28,7 @@ class SignInScreen : Fragment(R.layout.fragment_sign_in) {
 
         viewModel.token.observe(requireActivity()) {
             findNavController().navigate(
-                R.id.action_signInScreen_to_signUpFragment,
+                R.id.action_signInScreen_to_mainActivity,
                 null,
                 navOptions {
                     anim {
@@ -36,6 +36,10 @@ class SignInScreen : Fragment(R.layout.fragment_sign_in) {
                         popEnter = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
                         popExit = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
                         exit = androidx.navigation.ui.R.anim.nav_default_exit_anim
+                    }
+                    launchSingleTop = true
+                    popUpTo(R.id.nav_graph) {
+                        inclusive = true
                     }
                 }
             )
@@ -59,6 +63,10 @@ class SignInScreen : Fragment(R.layout.fragment_sign_in) {
                         popEnter = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
                         popExit = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
                         exit = androidx.navigation.ui.R.anim.nav_default_exit_anim
+                    }
+                    launchSingleTop = true
+                    popUpTo(R.id.nav_graph) {
+                        inclusive = true
                     }
                 }
             )
