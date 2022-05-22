@@ -1,6 +1,8 @@
 <resources>
     <!-- Global -->
     <string name="app_name">Семейный бюджет</string>
+    <string name="ruble">руб.</string>
+    <string name="zero">0</string>
 
     <!-- Content Descriptions -->
     <string name="logo">Лого</string>
@@ -19,9 +21,14 @@
     <string name="password">Пароль</string>
     <string name="password_again">Повторите пароль</string>
 
-    <!-- Pages -->
+    <!-- Screens -->
     <string name="title_profile">Профиль</string>
     <string name="title_goals">Цели</string>
     <string name="title_search">Поиск</string>
     <string name="title_transactions">Транзакции</string>
+
+    <!-- Titles -->
+    <string name="balance">Баланс</string>
+    <string name="incomes_sources">Источники доходов</string>
+    <string name="spendings_sources">Источники расходов</string>
 </resources>

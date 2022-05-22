@@ -6,14 +6,14 @@ import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.GlobalScope
 import kotlinx.coroutines.launch
 import rustam.urazov.budgetoffamily.ResultWrapper
-import rustam.urazov.budgetoffamily.models.user.NewUser
-import rustam.urazov.budgetoffamily.models.token.Token
-import rustam.urazov.budgetoffamily.models.user.UserAuthData
-import rustam.urazov.budgetoffamily.network.models.auth.TokenResponse
+import rustam.urazov.budgetoffamily.models.NewUser
+import rustam.urazov.budgetoffamily.models.Token
+import rustam.urazov.budgetoffamily.models.UserAuthData
+import rustam.urazov.budgetoffamily.network.models.TokenResponse
 import rustam.urazov.budgetoffamily.screen.showErrorDialog
-import rustam.urazov.budgetoffamily.usecases.auth.UserAuthorizationUseCase
-import rustam.urazov.budgetoffamily.usecases.storage.SaveTokenUseCase
-import rustam.urazov.budgetoffamily.usecases.register.UserRegistrationUseCase
+import rustam.urazov.budgetoffamily.usecases.UserAuthorizationUseCase
+import rustam.urazov.budgetoffamily.usecases.SaveTokenUseCase
+import rustam.urazov.budgetoffamily.usecases.UserRegistrationUseCase
 
 class SignUpScreenViewModel(
     private val fragmentManager: FragmentManager,

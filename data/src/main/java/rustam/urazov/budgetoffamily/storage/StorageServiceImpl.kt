@@ -17,8 +17,8 @@ class StorageServiceImpl(context: Context) : StorageService {
 
     override fun saveTokens(storageToken: StorageToken) =
         sharedPreferences.edit()
-            .putString(ACCESS_TOKEN, storageToken.storageAccessToken.token)
-            .putString(REFRESH_TOKEN, storageToken.storageRefreshToken.token)
+            .putString(ACCESS_TOKEN, "Bearer ${storageToken.storageAccessToken.token}")
+            .putString(REFRESH_TOKEN, "Bearer ${storageToken.storageRefreshToken.token}")
             .apply()
 
     override fun getAccessToken(): StorageAccessToken = StorageAccessToken(

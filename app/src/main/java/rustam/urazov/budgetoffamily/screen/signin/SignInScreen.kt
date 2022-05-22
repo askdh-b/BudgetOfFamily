@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import rustam.urazov.budgetoffamily.R
-import rustam.urazov.budgetoffamily.models.user.UserAuthData
+import rustam.urazov.budgetoffamily.models.UserAuthData
 
 class SignInScreen : Fragment(R.layout.fragment_sign_in) {
 

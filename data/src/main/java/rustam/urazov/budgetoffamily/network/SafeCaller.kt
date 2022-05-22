@@ -4,7 +4,7 @@ import android.util.Log
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.withContext
 import retrofit2.HttpException
-import rustam.urazov.budgetoffamily.models.error.ErrorResponse
+import rustam.urazov.budgetoffamily.models.ErrorResponse
 import rustam.urazov.budgetoffamily.ResultWrapper
 import java.io.BufferedInputStream
 import java.io.IOException

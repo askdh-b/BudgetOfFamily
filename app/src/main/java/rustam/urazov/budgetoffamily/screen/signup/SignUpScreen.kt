@@ -9,7 +9,7 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import rustam.urazov.budgetoffamily.R
-import rustam.urazov.budgetoffamily.models.user.NewUser
+import rustam.urazov.budgetoffamily.models.NewUser
 
 class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
 

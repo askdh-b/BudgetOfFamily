@@ -1,6 +1,6 @@
 package rustam.urazov.budgetoffamily
 
-import rustam.urazov.budgetoffamily.models.error.ErrorResponse
+import rustam.urazov.budgetoffamily.models.ErrorResponse
 
 sealed class ResultWrapper<out T> {
     data class Success<out T>(val value: T): ResultWrapper<T>()
