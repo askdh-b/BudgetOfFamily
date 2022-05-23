@@ -3,6 +3,7 @@
     <string name="app_name">Семейный бюджет</string>
     <string name="ruble">руб.</string>
     <string name="zero">0</string>
+    <string name="percent">%</string>
 
     <!-- Content Descriptions -->
     <string name="logo">Лого</string>
@@ -31,4 +32,7 @@
     <string name="balance">Баланс</string>
     <string name="incomes_sources">Источники доходов</string>
     <string name="spendings_sources">Источники расходов</string>
+    <string name="current_goals">Действующие цели</string>
+    <string name="completed_goals">Завершенные цели</string>
+    <string name="income_percentage">Процент от дохода:</string>
 </resources>

@@ -43,7 +43,7 @@ class ProfileScreen : Fragment(R.layout.fragment_profile) {
 
         }
         ibSignOut.setOnClickListener {
-            
+
         }
     }
 }
