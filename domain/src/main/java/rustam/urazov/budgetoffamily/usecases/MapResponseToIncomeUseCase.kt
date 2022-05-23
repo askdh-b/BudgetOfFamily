@@ -1,9 +1,9 @@
 package rustam.urazov.budgetoffamily.usecases
 
 import rustam.urazov.budgetoffamily.models.IncomeData
-import rustam.urazov.budgetoffamily.repositories.IncomesRepository
+import rustam.urazov.budgetoffamily.repositories.IncomeRepository
 
-class MapResponseToIncomeUseCase(private val incomesRepository: IncomesRepository) {
+class MapResponseToIncomeUseCase(private val incomeRepository: IncomeRepository) {
 
-    suspend fun execute(incomes: List<*>): List<IncomeData> = incomesRepository.mapToIncome(incomes)
+    suspend fun execute(incomes: List<*>): List<IncomeData> = incomeRepository.mapToIncome(incomes)
 }

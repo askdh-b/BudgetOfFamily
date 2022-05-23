@@ -20,10 +20,18 @@ class ProfileScreenViewModel(
     private val getSpendingsUseCase: GetSpendingsUseCase,
     private val mapResponseToSpendingUseCase: MapResponseToSpendingUseCase,
     private val getSpendingsSumUseCase: GetSpendingsSumUseCase,
-    private val getBalanceUseCase: GetBalanceUseCase
+    private val getBalanceUseCase: GetBalanceUseCase,
+    private val getIncomesSourcesUseCase: GetIncomesSourcesUseCase,
+    private val mapResponseToIncomesSourceUseCase: MapResponseToIncomesSourceUseCase,
+    private val getIncomesSourcesSumUseCase: GetIncomesSourcesSumUseCase,
+    private val getSpendingsSourceUseCase: GetSpendingsSourceUseCase,
+    private val mapResponseToSpendingsSourceUseCase: MapResponseToSpendingsSourceUseCase,
+    private val getSpendingsSourceSumUseCase: GetSpendingsSourceSumUseCase
 ) : ViewModel() {
 
     val balance = MutableLiveData<Float>()
+    val incomesSourcesValue = MutableLiveData<Float>()
+    val spendingsSourcesValue = MutableLiveData<Float>()
 
     private suspend fun getIncomes(): Float {
         var sum = 0.0f
@@ -61,6 +69,42 @@ class ProfileScreenViewModel(
             }
         }
         return sum
+    }
+
+    fun getIncomesSources() = GlobalScope.launch(Dispatchers.IO) {
+        when (val result = getIncomesSourcesUseCase.execute(getAccessToken())) {
+            is ResultWrapper.Error -> showErrorDialog(
+                fragmentManager,
+                result.error?.message.toString()
+            )
+            ResultWrapper.NetworkError -> showErrorDialog(
+                fragmentManager,
+                "Ошибка с сетью. Попробуйте позже."
+            )
+            is ResultWrapper.Success -> {
+                val incomesSources = mapResponseToIncomesSourceUseCase.execute(result.value as List<*>)
+                val sum = getIncomesSourcesSumUseCase.execute(incomesSources)
+                incomesSourcesValue.postValue(sum)
+            }
+        }
+    }
+
+    fun getSpendingsSources() = GlobalScope.launch(Dispatchers.IO) {
+        when (val result = getSpendingsSourceUseCase.execute(getAccessToken())) {
+            is ResultWrapper.Error -> showErrorDialog(
+                fragmentManager,
+                result.error?.message.toString()
+            )
+            ResultWrapper.NetworkError -> showErrorDialog(
+                fragmentManager,
+                "Ошибка с сетью. Попробуйте позже."
+            )
+            is ResultWrapper.Success -> {
+                val spendingsSources = mapResponseToSpendingsSourceUseCase.execute(result.value as List<*>)
+                val sum = getSpendingsSourceSumUseCase.execute(spendingsSources)
+                spendingsSourcesValue.postValue(sum)
+            }
+        }
     }
 
     fun getBalance() = GlobalScope.launch(Dispatchers.IO) {

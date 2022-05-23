@@ -6,9 +6,7 @@ import androidx.lifecycle.ViewModelProvider
 import kotlinx.coroutines.Dispatchers
 import rustam.urazov.budgetoffamily.activity.MainActivity
 import rustam.urazov.budgetoffamily.network.API
-import rustam.urazov.budgetoffamily.repositories.IncomesRepositoryImpl
-import rustam.urazov.budgetoffamily.repositories.SpendingsRepositoryImpl
-import rustam.urazov.budgetoffamily.repositories.TokenRepositoryImpl
+import rustam.urazov.budgetoffamily.repositories.*
 import rustam.urazov.budgetoffamily.storage.StorageServiceImpl
 import rustam.urazov.budgetoffamily.usecases.*
 
@@ -29,7 +27,7 @@ class ProfileScreenFactory(context: Context) : ViewModelProvider.Factory {
     }
 
     private val incomesRepository by lazy {
-        IncomesRepositoryImpl(networkService, dispatcher)
+        IncomeRepositoryImpl(networkService, dispatcher)
     }
     private val getIncomesUseCase by lazy {
         GetIncomesUseCase(incomesRepository)
@@ -43,7 +41,7 @@ class ProfileScreenFactory(context: Context) : ViewModelProvider.Factory {
     }
 
     private val spendingsRepository by lazy {
-        SpendingsRepositoryImpl(networkService, dispatcher)
+        SpendingRepositoryImpl(networkService, dispatcher)
     }
     private val getSpendingUseCase by lazy {
         GetSpendingsUseCase(spendingsRepository)
@@ -60,6 +58,34 @@ class ProfileScreenFactory(context: Context) : ViewModelProvider.Factory {
         GetBalanceUseCase()
     }
 
+    private val incomesSourceRepository by lazy {
+        IncomesSourceRepositoryImpl(networkService, dispatcher)
+    }
+    private val getIncomesSourceUseCase by lazy {
+        GetIncomesSourcesUseCase(incomesSourceRepository)
+    }
+    private val mapResponseToIncomesSourceUseCase by lazy {
+        MapResponseToIncomesSourceUseCase(incomesSourceRepository)
+    }
+
+    private val getIncomesSourcesSumUseCase by lazy {
+        GetIncomesSourcesSumUseCase()
+    }
+
+    private val spendingsSourceRepository by lazy {
+        SpendingsSourceRepositoryImpl(networkService, dispatcher)
+    }
+    private val getSpendingsSourceUseCase by lazy {
+        GetSpendingsSourceUseCase(spendingsSourceRepository)
+    }
+    private val mapResponseToSpendingsSourceUseCase by lazy {
+        MapResponseToSpendingsSourceUseCase(spendingsSourceRepository)
+    }
+
+    private val getSpendingsSourcesSumUseCase by lazy {
+        GetSpendingsSourceSumUseCase()
+    }
+
     override fun <T : ViewModel> create(modelClass: Class<T>): T =
         ProfileScreenViewModel(fragmentManager,
         getAccessTokenUseCase,
@@ -69,5 +95,11 @@ class ProfileScreenFactory(context: Context) : ViewModelProvider.Factory {
         getSpendingUseCase,
         mapResponseToSpendingUseCase,
         getSpendingsSumUseCase,
-        getBalanceUseCase) as T
+        getBalanceUseCase,
+        getIncomesSourceUseCase,
+        mapResponseToIncomesSourceUseCase,
+        getIncomesSourcesSumUseCase,
+        getSpendingsSourceUseCase,
+        mapResponseToSpendingsSourceUseCase,
+        getSpendingsSourcesSumUseCase) as T
 }

@@ -1,9 +1,9 @@
 package rustam.urazov.budgetoffamily.usecases
 
 import rustam.urazov.budgetoffamily.models.AccessToken
-import rustam.urazov.budgetoffamily.repositories.SpendingsRepository
+import rustam.urazov.budgetoffamily.repositories.SpendingRepository
 
-class GetSpendingsUseCase(private val spendingsRepository: SpendingsRepository) {
+class GetSpendingsUseCase(private val spendingRepository: SpendingRepository) {
 
-    suspend fun execute(accessToken: AccessToken) = spendingsRepository.getSpendings(accessToken)
+    suspend fun execute(accessToken: AccessToken) = spendingRepository.getSpendings(accessToken)
 }

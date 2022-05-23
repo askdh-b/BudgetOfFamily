@@ -10,10 +10,10 @@ import rustam.urazov.budgetoffamily.network.models.IncomeBody
 import rustam.urazov.budgetoffamily.network.models.IncomeResponse
 import rustam.urazov.budgetoffamily.network.safeCall
 
-class IncomesRepositoryImpl(
+class IncomeRepositoryImpl(
     private val networkService: NetworkService,
     private val dispatcher: CoroutineDispatcher
-) : IncomesRepository {
+) : IncomeRepository {
     override suspend fun getIncomes(accessToken: AccessToken): ResultWrapper<Any> =
         safeCall(dispatcher, call = {
             networkService.getIncomes(accessToken.token)

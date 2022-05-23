@@ -1,8 +1,8 @@
 package rustam.urazov.budgetoffamily.usecases
 
-import rustam.urazov.budgetoffamily.repositories.SpendingsRepository
+import rustam.urazov.budgetoffamily.repositories.SpendingRepository
 
-class MapResponseToSpendingUseCase(private val spendingsRepository: SpendingsRepository) {
+class MapResponseToSpendingUseCase(private val spendingRepository: SpendingRepository) {
 
-    suspend fun execute(spendings: List<*>) = spendingsRepository.mapToSpending(spendings)
+    suspend fun execute(spendings: List<*>) = spendingRepository.mapToSpending(spendings)
 }

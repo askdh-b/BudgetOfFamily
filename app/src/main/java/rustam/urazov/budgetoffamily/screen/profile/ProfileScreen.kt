@@ -20,17 +20,30 @@ class ProfileScreen : Fragment(R.layout.fragment_profile) {
         val ibNotifications: ImageButton = view.findViewById(R.id.ibSignOut)
         val ibSignOut: ImageButton = view.findViewById(R.id.ibSignOut)
         val tvBalance: TextView = view.findViewById(R.id.tvBalance)
+        val tvIncomesSource: TextView = view.findViewById(R.id.tvIncomesSources)
+        val tvSpendingsSource: TextView = view.findViewById(R.id.tvSpendingsSources)
 
         viewModel.balance.observe(requireActivity()) {
             tvBalance.text = it.toString()
         }
 
+        viewModel.incomesSourcesValue.observe(requireActivity()) {
+            tvIncomesSource.text = it.toString()
+        }
+
+        viewModel.spendingsSourcesValue.observe(requireActivity()) {
+            tvSpendingsSource.text = it.toString()
+        }
+
         viewModel.getBalance()
+        viewModel.getIncomesSources()
+        viewModel.getSpendingsSources()
 
         ibNotifications.setOnClickListener {
+
         }
         ibSignOut.setOnClickListener {
-
+            
         }
     }
 }

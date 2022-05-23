@@ -5,7 +5,7 @@ import rustam.urazov.budgetoffamily.models.AccessToken
 import rustam.urazov.budgetoffamily.models.Income
 import rustam.urazov.budgetoffamily.models.IncomeData
 
-interface IncomesRepository {
+interface IncomeRepository {
 
     suspend fun getIncomes(accessToken: AccessToken): ResultWrapper<Any>
 

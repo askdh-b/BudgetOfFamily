@@ -10,10 +10,10 @@ import rustam.urazov.budgetoffamily.network.models.SpendingBody
 import rustam.urazov.budgetoffamily.network.models.SpendingResponse
 import rustam.urazov.budgetoffamily.network.safeCall
 
-class SpendingsRepositoryImpl(
+class SpendingRepositoryImpl(
     private val networkService: NetworkService,
     private val dispatcher: CoroutineDispatcher
-) : SpendingsRepository {
+) : SpendingRepository {
     override suspend fun getSpendings(accessToken: AccessToken): ResultWrapper<Any> =
         safeCall(dispatcher, call = {
             networkService.getSpendings(accessToken.token)

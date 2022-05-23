@@ -25,4 +25,10 @@ interface NetworkService {
 
     @POST("spending")
     suspend fun addSpending(@Header("Authorization") token: String, @Body spendingBody: SpendingBody)
+
+    @GET("incomesSource")
+    suspend fun getIncomesSources(@Header("Authorization") token: String): List<IncomesSourceResponse>
+
+    @GET("spendingsSource")
+    suspend fun getSpendingsSources(@Header("Authorization") token: String): List<SpendingsSourceResponse>
 }
