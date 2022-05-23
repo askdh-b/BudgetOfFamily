@@ -6,7 +6,10 @@
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/drawable/button_corners_12dp.xml" value="0.1355" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/drawable/button_corners_40dp.xml" value="0.143" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/drawable/layout_corners_12dp.xml" value="0.143" />
+        <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/drawable/layout_corners_orange_12dp.xml" value="0.1415" />
+        <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/drawable/layout_corners_yellow_12dp.xml" value="0.1415" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/enemy_transaction.xml" value="0.225" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_goals.xml" value="0.3333333333333333" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_incomes.xml" value="0.225" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_main.xml" value="0.25" />
@@ -17,6 +20,8 @@
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_spendings.xml" value="0.225" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_transactions.xml" value="0.225" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/goal.xml" value="0.25" />
+        <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/self_income.xml" value="0.25" />
+        <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/self_transaction.xml" value="0.225" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/menu/bottom_menu.xml" value="0.225" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/menu/top_menu.xml" value="0.225" />
       </map>
