@@ -22,7 +22,7 @@
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/transactionsFragment"
-        android:name="rustam.urazov.budgetoffamily.screen.profile.TransactionsScreen"
+        android:name="rustam.urazov.budgetoffamily.screen.transactions.TransactionsScreen"
         android:label="@string/title_transactions"
         tools:layout="@layout/fragment_transactions" />
 </navigation>

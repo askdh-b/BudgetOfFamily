@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_transactions"
+    app:startDestination="@id/incomesFragment">
+    <fragment
+        android:id="@+id/incomesFragment"
+        android:name="rustam.urazov.budgetoffamily.screen.incomes.IncomesFragment"
+        android:label="@string/incomes"
+        tools:layout="@layout/fragment_incomes" />
+    <fragment
+        android:id="@+id/spendingsFragment"
+        android:name="rustam.urazov.budgetoffamily.screen.spendings.SpendingsFragment"
+        android:label="@string/spendings"
+        tools:layout="@layout/fragment_spendings" />
+</navigation>

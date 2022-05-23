@@ -22,17 +22,24 @@ class GoalsScreen : Fragment(R.layout.fragment_goals) {
         val rvCurrentGoals: RecyclerView = view.findViewById(R.id.rvCurrentGoals)
         val rvCompletedGoals: RecyclerView = view.findViewById(R.id.rvCompletedGoals)
 
+        rvCurrentGoals.layoutManager = LinearLayoutManager(requireContext())
+        rvCompletedGoals.layoutManager = LinearLayoutManager(requireContext())
+
+        val context = requireContext()
+
         viewModel.currentGoals.observe(requireActivity()) { goals ->
-            rvCurrentGoals.apply {
-                layoutManager = LinearLayoutManager(requireContext())
-                adapter = GoalAdapter(requireContext(), goals)
+            if (goals.isNotEmpty()) {
+                rvCurrentGoals.apply {
+                    adapter = GoalAdapter(context, goals)
+                }
             }
         }
-        
+
         viewModel.completedGoals.observe(requireActivity()) { goals ->
-            rvCompletedGoals.apply {
-                layoutManager = LinearLayoutManager(requireContext())
-                adapter = GoalAdapter(requireContext(), goals)
+            if (goals.isNotEmpty()) {
+                rvCompletedGoals.apply {
+                    adapter = GoalAdapter(context, goals)
+                }
             }
         }
 

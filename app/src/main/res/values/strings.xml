@@ -35,4 +35,6 @@
     <string name="current_goals">Действующие цели</string>
     <string name="completed_goals">Завершенные цели</string>
     <string name="income_percentage">Процент от дохода:</string>
+    <string name="incomes">Доходы</string>
+    <string name="spendings">Расходы</string>
 </resources>
