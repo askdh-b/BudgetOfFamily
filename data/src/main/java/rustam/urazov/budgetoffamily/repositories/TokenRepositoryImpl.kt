@@ -11,18 +11,18 @@ import rustam.urazov.budgetoffamily.storage.models.StorageToken
 
 class TokenRepositoryImpl(private val storageService: StorageService) : TokenRepository {
 
-    override fun saveToken(token: Token) = storageService.saveTokens(
+    override suspend fun saveToken(token: Token) = storageService.saveTokens(
         StorageToken(
             storageAccessToken = StorageAccessToken(token.accessToken),
             storageRefreshToken = StorageRefreshToken(token.refreshToken)
         )
     )
 
-    override fun getAccessToken(): AccessToken = AccessToken(
+    override suspend fun getAccessToken(): AccessToken = AccessToken(
         token = storageService.getAccessToken().token
     )
 
-    override fun getRefreshToken(): RefreshToken = RefreshToken(
+    override suspend fun getRefreshToken(): RefreshToken = RefreshToken(
         token = storageService.getRefreshToken().token
     )
 }

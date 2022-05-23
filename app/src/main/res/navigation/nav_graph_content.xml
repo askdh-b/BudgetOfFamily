@@ -7,22 +7,22 @@
 
     <fragment
         android:id="@+id/profileFragment"
-        android:name="rustam.urazov.budgetoffamily.screen.profile.ProfileFragment"
+        android:name="rustam.urazov.budgetoffamily.screen.profile.ProfileScreen"
         android:label="@string/title_profile"
         tools:layout="@layout/fragment_profile" />
     <fragment
         android:id="@+id/goalsFragment"
-        android:name="rustam.urazov.budgetoffamily.screen.goals.GoalsFragment"
+        android:name="rustam.urazov.budgetoffamily.screen.goals.GoalsScreen"
         android:label="@string/title_goals"
         tools:layout="@layout/fragment_goals" />
     <fragment
         android:id="@+id/searchFragment"
-        android:name="rustam.urazov.budgetoffamily.screen.search.SearchFragment"
+        android:name="rustam.urazov.budgetoffamily.screen.search.SearchScreen"
         android:label="@string/title_search"
         tools:layout="@layout/fragment_search" />
     <fragment
         android:id="@+id/transactionsFragment"
-        android:name="rustam.urazov.budgetoffamily.screen.profile.TransactionsFragment"
+        android:name="rustam.urazov.budgetoffamily.screen.profile.TransactionsScreen"
         android:label="@string/title_transactions"
         tools:layout="@layout/fragment_transactions" />
 </navigation>

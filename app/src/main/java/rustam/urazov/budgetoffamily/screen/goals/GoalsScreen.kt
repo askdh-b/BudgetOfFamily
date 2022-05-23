@@ -5,7 +5,7 @@ import android.view.View
 import androidx.fragment.app.Fragment
 import rustam.urazov.budgetoffamily.R
 
-class GoalsFragment: Fragment(R.layout.fragment_goals) {
+class GoalsScreen: Fragment(R.layout.fragment_goals) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
     }

@@ -5,7 +5,7 @@ import rustam.urazov.budgetoffamily.repositories.TokenRepository
 
 class SaveTokenUseCase(private val tokenRepository: TokenRepository) {
 
-    fun execute(token: Token) {
+    suspend fun execute(token: Token) {
         tokenRepository.saveToken(token)
     }
 }

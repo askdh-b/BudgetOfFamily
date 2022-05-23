@@ -39,7 +39,7 @@
     </fragment>
     <fragment
         android:id="@+id/mainFragment"
-        android:name="rustam.urazov.budgetoffamily.screen.main.MainFragment"
+        android:name="rustam.urazov.budgetoffamily.screen.main.MainScreen"
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" />
 </navigation>

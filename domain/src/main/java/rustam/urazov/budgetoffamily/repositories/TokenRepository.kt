@@ -6,9 +6,9 @@ import rustam.urazov.budgetoffamily.models.Token
 
 interface TokenRepository {
 
-    fun saveToken(token: Token)
+    suspend fun saveToken(token: Token)
 
-    fun getAccessToken(): AccessToken
+    suspend fun getAccessToken(): AccessToken
 
-    fun getRefreshToken(): RefreshToken
+    suspend fun getRefreshToken(): RefreshToken
 }
