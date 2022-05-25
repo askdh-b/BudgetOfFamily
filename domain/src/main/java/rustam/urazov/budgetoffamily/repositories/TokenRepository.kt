@@ -11,4 +11,6 @@ interface TokenRepository {
     suspend fun getAccessToken(): AccessToken
 
     suspend fun getRefreshToken(): RefreshToken
+
+    suspend fun getUserId(): Int
 }

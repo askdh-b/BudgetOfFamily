@@ -35,6 +35,7 @@ class IncomeRepositoryImpl(
             val inc = i as IncomeResponse
             incomesData.add(IncomeData(
                 userId = inc.userId,
+                firstName = inc.firstName,
                 sum = inc.sum,
                 name = inc.name,
                 creationDate = inc.creationDate

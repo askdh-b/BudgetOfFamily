@@ -9,6 +9,7 @@ class StorageServiceImpl(context: Context) : StorageService {
 
     companion object {
         const val SETTINGS = "settings"
+        const val USER_ID = "user_id"
         const val ACCESS_TOKEN = "access_token"
         const val REFRESH_TOKEN = "refresh_token"
     }
@@ -17,6 +18,7 @@ class StorageServiceImpl(context: Context) : StorageService {
 
     override fun saveTokens(storageToken: StorageToken) =
         sharedPreferences.edit()
+            .putInt(USER_ID, storageToken.userId)
             .putString(ACCESS_TOKEN, "Bearer ${storageToken.storageAccessToken.token}")
             .putString(REFRESH_TOKEN, "Bearer ${storageToken.storageRefreshToken.token}")
             .apply()
@@ -28,4 +30,6 @@ class StorageServiceImpl(context: Context) : StorageService {
     override fun getRefreshToken(): StorageRefreshToken = StorageRefreshToken(
         token = sharedPreferences.getString(REFRESH_TOKEN, "") ?: ""
     )
+
+    override fun getUserId(): Int = sharedPreferences.getInt(USER_ID, 0)
 }

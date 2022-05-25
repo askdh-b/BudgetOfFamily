@@ -11,4 +11,6 @@ interface StorageService {
     fun getAccessToken(): StorageAccessToken
 
     fun getRefreshToken(): StorageRefreshToken
+
+    fun getUserId(): Int
 }

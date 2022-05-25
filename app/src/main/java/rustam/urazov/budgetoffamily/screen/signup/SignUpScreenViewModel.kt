@@ -55,6 +55,7 @@ class SignUpScreenViewModel(
                                 token.postValue((result2.value as TokenResponse).accessToken)
                                 saveTokenUseCase.execute(
                                     Token(
+                                        userId = (result2.value as TokenResponse).userId,
                                         accessToken = (result2.value as TokenResponse).accessToken,
                                         refreshToken = (result2.value as TokenResponse).refreshToken
                                     )

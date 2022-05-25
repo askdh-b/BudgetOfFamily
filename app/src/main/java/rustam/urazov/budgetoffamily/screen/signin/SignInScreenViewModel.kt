@@ -33,6 +33,7 @@ class SignInScreenViewModel(
                 token.postValue((result.value as TokenResponse).accessToken)
                 saveTokenUseCase.execute(
                     Token(
+                        userId = (result.value as TokenResponse).userId,
                         accessToken = (result.value as TokenResponse).accessToken,
                         refreshToken = (result.value as TokenResponse).refreshToken
                     )

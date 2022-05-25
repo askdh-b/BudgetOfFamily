@@ -6,7 +6,7 @@
     app:startDestination="@id/incomesFragment">
     <fragment
         android:id="@+id/incomesFragment"
-        android:name="rustam.urazov.budgetoffamily.screen.incomes.IncomesFragment"
+        android:name="rustam.urazov.budgetoffamily.screen.incomes.IncomesScreen"
         android:label="@string/incomes"
         tools:layout="@layout/fragment_incomes" />
     <fragment

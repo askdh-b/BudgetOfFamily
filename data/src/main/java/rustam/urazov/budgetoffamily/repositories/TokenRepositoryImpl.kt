@@ -13,6 +13,7 @@ class TokenRepositoryImpl(private val storageService: StorageService) : TokenRep
 
     override suspend fun saveToken(token: Token) = storageService.saveTokens(
         StorageToken(
+            userId = token.userId,
             storageAccessToken = StorageAccessToken(token.accessToken),
             storageRefreshToken = StorageRefreshToken(token.refreshToken)
         )
@@ -25,4 +26,6 @@ class TokenRepositoryImpl(private val storageService: StorageService) : TokenRep
     override suspend fun getRefreshToken(): RefreshToken = RefreshToken(
         token = storageService.getRefreshToken().token
     )
+
+    override suspend fun getUserId(): Int = storageService.getUserId()
 }
