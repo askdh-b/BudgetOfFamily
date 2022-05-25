@@ -26,12 +26,16 @@ class ProfileScreenViewModel(
     private val getIncomesSourcesSumUseCase: GetIncomesSourcesSumUseCase,
     private val getSpendingsSourceUseCase: GetSpendingsSourceUseCase,
     private val mapResponseToSpendingsSourceUseCase: MapResponseToSpendingsSourceUseCase,
-    private val getSpendingsSourceSumUseCase: GetSpendingsSourceSumUseCase
+    private val getSpendingsSourceSumUseCase: GetSpendingsSourceSumUseCase,
+    private val getInvitationsUseCase: GetInvitationsUseCase,
+    private val mapResponseToInvitationUseCase: MapResponseToInvitationUseCase,
+    private val getInvitationsCountUseCase: GetInvitationsCountUseCase
 ) : ViewModel() {
 
     val balance = MutableLiveData<Float>()
     val incomesSourcesValue = MutableLiveData<Float>()
     val spendingsSourcesValue = MutableLiveData<Float>()
+    val invitationsCount = MutableLiveData<Int>()
 
     private suspend fun getIncomes(): Float {
         var sum = 0.0f
@@ -103,6 +107,24 @@ class ProfileScreenViewModel(
                 val spendingsSources = mapResponseToSpendingsSourceUseCase.execute(result.value as List<*>)
                 val sum = getSpendingsSourceSumUseCase.execute(spendingsSources)
                 spendingsSourcesValue.postValue(sum)
+            }
+        }
+    }
+
+    fun getInvitations() = GlobalScope.launch(Dispatchers.IO) {
+        when (val result = getInvitationsUseCase.execute(getAccessToken())) {
+            is ResultWrapper.Error -> showErrorDialog(
+                fragmentManager,
+                result.error?.message.toString()
+            )
+            ResultWrapper.NetworkError -> showErrorDialog(
+                fragmentManager,
+                "Ошибка с сетью. Попробуйте позже."
+            )
+            is ResultWrapper.Success -> {
+                val invitations = mapResponseToInvitationUseCase.execute(result.value as List<*>)
+                val count = getInvitationsCountUseCase.execute(invitations)
+                invitationsCount.postValue(count)
             }
         }
     }

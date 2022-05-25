@@ -9,7 +9,7 @@
         android:layout_height="wrap_content"
         android:layout_marginVertical="3dp"
         android:layout_marginStart="36dp"
-        android:background="@drawable/layout_corners_orange_6dp"
+        android:background="@drawable/layout_corners_lbltrt_orange_6dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1"
         app:layout_constraintStart_toStartOf="parent"

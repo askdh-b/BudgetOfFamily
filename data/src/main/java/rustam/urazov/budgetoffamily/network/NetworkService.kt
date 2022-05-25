@@ -40,4 +40,8 @@ interface NetworkService {
     // Goals
     @GET("goal")
     suspend fun getGoals(@Header("Authorization") token: String): List<GoalResponse>
+
+    // Invitations
+    @GET("invitation")
+    suspend fun getInvitations(@Header("Authorization") token: String): List<InvitationResponse>
 }

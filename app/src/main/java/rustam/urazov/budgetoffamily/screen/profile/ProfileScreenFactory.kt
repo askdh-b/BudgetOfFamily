@@ -86,20 +86,39 @@ class ProfileScreenFactory(context: Context) : ViewModelProvider.Factory {
         GetSpendingsSourceSumUseCase()
     }
 
+    private val invitationRepository by lazy {
+        InvitationRepositoryImpl(networkService, dispatcher)
+    }
+    private val getInvitationUseCase by lazy {
+        GetInvitationsUseCase(invitationRepository)
+    }
+    private val mapResponseToInvitationUseCase by lazy {
+        MapResponseToInvitationUseCase(invitationRepository)
+    }
+
+    private val getInvitationsCountUseCase by lazy {
+        GetInvitationsCountUseCase()
+    }
+
     override fun <T : ViewModel> create(modelClass: Class<T>): T =
-        ProfileScreenViewModel(fragmentManager,
-        getAccessTokenUseCase,
-        getIncomesUseCase,
-        mapResponseToIncomeUseCase,
-        getIncomesSumUseCase,
-        getSpendingUseCase,
-        mapResponseToSpendingUseCase,
-        getSpendingsSumUseCase,
-        getBalanceUseCase,
-        getIncomesSourceUseCase,
-        mapResponseToIncomesSourceUseCase,
-        getIncomesSourcesSumUseCase,
-        getSpendingsSourceUseCase,
-        mapResponseToSpendingsSourceUseCase,
-        getSpendingsSourcesSumUseCase) as T
+        ProfileScreenViewModel(
+            fragmentManager,
+            getAccessTokenUseCase,
+            getIncomesUseCase,
+            mapResponseToIncomeUseCase,
+            getIncomesSumUseCase,
+            getSpendingUseCase,
+            mapResponseToSpendingUseCase,
+            getSpendingsSumUseCase,
+            getBalanceUseCase,
+            getIncomesSourceUseCase,
+            mapResponseToIncomesSourceUseCase,
+            getIncomesSourcesSumUseCase,
+            getSpendingsSourceUseCase,
+            mapResponseToSpendingsSourceUseCase,
+            getSpendingsSourcesSumUseCase,
+            getInvitationUseCase,
+            mapResponseToInvitationUseCase,
+            getInvitationsCountUseCase
+        ) as T
 }
