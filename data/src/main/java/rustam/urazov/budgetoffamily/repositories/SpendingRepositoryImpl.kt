@@ -37,6 +37,7 @@ class SpendingRepositoryImpl(
             val spn = s as SpendingResponse
             spendingsData.add(SpendingData(
                 userId = spn.userId,
+                firstName = spn.firstName,
                 sum = spn.sum,
                 name = spn.name,
                 creationDate = spn.creationDate

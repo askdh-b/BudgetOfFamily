@@ -7,35 +7,34 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import rustam.urazov.budgetoffamily.R
-import rustam.urazov.budgetoffamily.models.IncomeData
+import rustam.urazov.budgetoffamily.models.SpendingData
 
-class IncomeAdapter(
+class SpendingAdapter(
     private val context: Context,
-    private val incomes: List<IncomeData>,
+    private val spendings: List<SpendingData>,
     private val userId: Int
-) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
-    class SelfIncomesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    class SelfSpendingsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val tvName: TextView = itemView.findViewById(R.id.tvName)
         private val tvSum: TextView = itemView.findViewById(R.id.tvSum)
         private val tvUser: TextView = itemView.findViewById(R.id.tvUser)
 
-        fun bind(incomeData: IncomeData) {
-            tvName.text = incomeData.name
-            tvSum.text = incomeData.sum.toString()
-            tvUser.text = incomeData.firstName
+        fun bind(spendingData: SpendingData) {
+            tvName.text = spendingData.name
+            tvSum.text = spendingData.sum.toString()
+            tvUser.text = spendingData.firstName
         }
     }
 
-    class EnemyIncomesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class EnemySpendingsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val tvName: TextView = itemView.findViewById(R.id.tvName)
         private val tvSum: TextView = itemView.findViewById(R.id.tvSum)
         private val tvUser: TextView = itemView.findViewById(R.id.tvUser)
 
-        fun bind(incomeData: IncomeData) {
-            tvName.text = incomeData.name
-            tvSum.text = incomeData.sum.toString()
-            tvUser.text = incomeData.firstName
+        fun bind(spendingData: SpendingData) {
+            tvName.text = spendingData.name
+            tvSum.text = spendingData.sum.toString()
+            tvUser.text = spendingData.firstName
         }
     }
 
@@ -43,25 +42,25 @@ class IncomeAdapter(
         return if (viewType == 1) {
             val view = LayoutInflater.from(context)
                 .inflate(R.layout.self_transaction, parent, false)
-            SelfIncomesViewHolder(view)
+            SelfSpendingsViewHolder(view)
         } else {
             val view =
                 LayoutInflater.from(context).inflate(R.layout.enemy_transaction, parent, false)
-            EnemyIncomesViewHolder(view)
+            EnemySpendingsViewHolder(view)
         }
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
         if (getItemViewType(position) == 1) {
-            (holder as SelfIncomesViewHolder).bind(incomes[position])
+            (holder as SelfSpendingsViewHolder).bind(spendings[position])
         } else {
-            (holder as EnemyIncomesViewHolder).bind(incomes[position])
+            (holder as EnemySpendingsViewHolder).bind(spendings[position])
         }
     }
 
-    override fun getItemCount(): Int = incomes.size
+    override fun getItemCount(): Int = spendings.size
 
-    override fun getItemViewType(position: Int): Int = when (incomes[position].userId) {
+    override fun getItemViewType(position: Int): Int = when (spendings[position].userId) {
         userId -> 1
         else -> 2
     }

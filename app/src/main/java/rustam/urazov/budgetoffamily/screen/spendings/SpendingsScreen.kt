@@ -1,4 +1,4 @@
-package rustam.urazov.budgetoffamily.screen.incomes
+package rustam.urazov.budgetoffamily.screen.spendings
 
 import android.os.Bundle
 import android.view.View
@@ -7,30 +7,31 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import rustam.urazov.budgetoffamily.R
-import rustam.urazov.budgetoffamily.adapter.IncomeAdapter
+import rustam.urazov.budgetoffamily.adapter.SpendingAdapter
 
-class IncomesScreen : Fragment(R.layout.fragment_incomes) {
+class SpendingsScreen : Fragment(R.layout.fragment_spendings) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val context = requireContext()
         val activity = requireActivity()
 
-        val rvIncomes: RecyclerView = view.findViewById(R.id.rvIncomes)
+        val rvSpendings: RecyclerView = view.findViewById(R.id.rvSpendings)
+
 
         val viewModel = ViewModelProvider(
             this,
-            IncomesScreenFactory(context)
-        )[IncomesScreenViewModel::class.java]
+            SpendingsScreenFactory(context)
+        )[SpendingsScreenViewModel::class.java]
 
-        rvIncomes.layoutManager = LinearLayoutManager(context)
+        rvSpendings.layoutManager = LinearLayoutManager(context)
 
-        viewModel.incomes.observe(activity) { incomes ->
+        viewModel.spendings.observe(activity) { spendings ->
             viewModel.userId.observe(activity) { userId ->
-                rvIncomes.adapter = IncomeAdapter(context, incomes.reversed(), userId)
+                rvSpendings.adapter = SpendingAdapter(context, spendings.reversed(), userId)
             }
         }
 
-        viewModel.getIncomes()
+        viewModel.getSpendings()
     }
 }
