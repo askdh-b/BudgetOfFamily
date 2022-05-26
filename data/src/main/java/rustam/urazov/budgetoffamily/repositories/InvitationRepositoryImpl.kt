@@ -21,12 +21,27 @@ class InvitationRepositoryImpl(
         val invitationData = mutableListOf<InvitationData>()
         for (i in invitations) {
             val invs = i as InvitationResponse
-            invitationData.add(InvitationData(
-                senderId = invs.senderId,
-                recipientId = invs.recipientId,
-                familyId = invs.familyId
-            ))
+            invitationData.add(
+                InvitationData(
+                    id = invs.id,
+                    firstName = invs.firstName,
+                    lastName = invs.lastName,
+                    senderId = invs.senderId,
+                    recipientId = invs.recipientId,
+                    familyId = invs.familyId
+                )
+            )
         }
         return invitationData
     }
+
+    override suspend fun acceptInvitation(accessToken: AccessToken, id: Int): ResultWrapper<Any> =
+        safeCall(dispatcher, call = {
+            networkService.acceptInvitation(accessToken.token, id)
+        })
+
+    override suspend fun rejectInvitation(accessToken: AccessToken, id: Int): ResultWrapper<Any> =
+        safeCall(dispatcher, call = {
+            networkService.rejectInvitation(accessToken.token, id)
+        })
 }

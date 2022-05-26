@@ -37,4 +37,5 @@
     <string name="income_percentage">Процент от дохода:</string>
     <string name="incomes">Доходы</string>
     <string name="spendings">Расходы</string>
+    <string name="invitations">Приглашения</string>
 </resources>

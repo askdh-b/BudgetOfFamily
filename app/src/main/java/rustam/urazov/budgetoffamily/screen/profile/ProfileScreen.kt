@@ -6,6 +6,8 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import rustam.urazov.budgetoffamily.R
 
 class ProfileScreen : Fragment(R.layout.fragment_profile) {
@@ -51,7 +53,22 @@ class ProfileScreen : Fragment(R.layout.fragment_profile) {
         viewModel.getInvitations()
 
         ibNotifications.setOnClickListener {
-
+            findNavController().navigate(
+                R.id.action_profileFragment_to_invitationsFragment,
+                null,
+                navOptions {
+                    anim {
+                        enter = androidx.navigation.ui.R.anim.nav_default_enter_anim
+                        popEnter = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
+                        popExit = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
+                        exit = androidx.navigation.ui.R.anim.nav_default_exit_anim
+                    }
+                    launchSingleTop = true
+                    popUpTo(R.id.nav_graph_content) {
+                        inclusive = true
+                    }
+                }
+            )
         }
 
         ibSignOut.setOnClickListener {

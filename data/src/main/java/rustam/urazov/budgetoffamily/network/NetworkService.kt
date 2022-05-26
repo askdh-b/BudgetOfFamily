@@ -1,9 +1,6 @@
 package rustam.urazov.budgetoffamily.network
 
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.Header
-import retrofit2.http.POST
+import retrofit2.http.*
 import rustam.urazov.budgetoffamily.network.models.*
 
 interface NetworkService {
@@ -44,4 +41,10 @@ interface NetworkService {
     // Invitations
     @GET("invitation")
     suspend fun getInvitations(@Header("Authorization") token: String): List<InvitationResponse>
+
+    @POST("invitation/{id}")
+    suspend fun acceptInvitation(@Header("Authorization") token: String, @Path("id") id: Int)
+
+    @DELETE("invitation/{id}")
+    suspend fun rejectInvitation(@Header("Authorization") token: String, @Path("id") id: Int)
 }
