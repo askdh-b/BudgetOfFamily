@@ -10,6 +10,10 @@ import rustam.urazov.budgetoffamily.ResultWrapper
 import rustam.urazov.budgetoffamily.models.InvitationData
 import rustam.urazov.budgetoffamily.screen.showErrorDialog
 import rustam.urazov.budgetoffamily.usecases.*
+import rustam.urazov.budgetoffamily.usecases.invitation.AcceptInvitationUseCase
+import rustam.urazov.budgetoffamily.usecases.invitation.GetInvitationsUseCase
+import rustam.urazov.budgetoffamily.usecases.invitation.MapResponseToInvitationUseCase
+import rustam.urazov.budgetoffamily.usecases.invitation.RejectInvitationUseCase
 
 class InvitationsScreenViewModel(
     private val fragmentManager: FragmentManager,
@@ -24,7 +28,10 @@ class InvitationsScreenViewModel(
 
     fun getInvitations() = GlobalScope.launch(Dispatchers.IO) {
         when (val result = getInvitationsUseCase.execute(getAccessToken())) {
-            is ResultWrapper.Error -> showErrorDialog(fragmentManager, result.error?.message.toString())
+            is ResultWrapper.Error -> showErrorDialog(
+                fragmentManager,
+                result.error?.message.toString()
+            )
             ResultWrapper.NetworkError -> showErrorDialog(
                 fragmentManager,
                 "Ошибка с сетью. Попробуйте позже."
@@ -38,7 +45,10 @@ class InvitationsScreenViewModel(
 
     fun acceptInvitation(id: Int) = GlobalScope.launch(Dispatchers.IO) {
         when (val result = acceptInvitationUseCase.execute(getAccessToken(), id)) {
-            is ResultWrapper.Error -> showErrorDialog(fragmentManager, result.error?.message.toString())
+            is ResultWrapper.Error -> showErrorDialog(
+                fragmentManager,
+                result.error?.message.toString()
+            )
             ResultWrapper.NetworkError -> showErrorDialog(
                 fragmentManager,
                 "Ошибка с сетью. Попробуйте позже."
@@ -51,7 +61,10 @@ class InvitationsScreenViewModel(
 
     fun rejectInvitation(id: Int) = GlobalScope.launch(Dispatchers.IO) {
         when (val result = rejectInvitationUseCase.execute(getAccessToken(), id)) {
-            is ResultWrapper.Error -> showErrorDialog(fragmentManager, result.error?.message.toString())
+            is ResultWrapper.Error -> showErrorDialog(
+                fragmentManager,
+                result.error?.message.toString()
+            )
             ResultWrapper.NetworkError -> showErrorDialog(
                 fragmentManager,
                 "Ошибка с сетью. Попробуйте позже."

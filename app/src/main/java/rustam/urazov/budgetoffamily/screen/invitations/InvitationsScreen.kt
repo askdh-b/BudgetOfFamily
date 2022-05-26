@@ -14,6 +14,7 @@ import rustam.urazov.budgetoffamily.adapter.InvitationAdapter
 import rustam.urazov.budgetoffamily.observer.Observer
 
 class InvitationsScreen : Fragment(R.layout.fragment_invitations), Observer {
+
     private lateinit var adapter: InvitationAdapter
     private var flag = 0
     lateinit var viewModel: InvitationsScreenViewModel
@@ -36,14 +37,12 @@ class InvitationsScreen : Fragment(R.layout.fragment_invitations), Observer {
 
         viewModel.invitations.observe(activity) {
             if (flag == 0) {
-                adapter = InvitationAdapter(requireContext(), it)
+                adapter = InvitationAdapter(context, it)
                 adapter.attach(this)
             }
 
             rvInvitations.adapter = adapter
         }
-
-        viewModel.getInvitations()
 
         ibBack.setOnClickListener {
             findNavController().navigate(
@@ -63,6 +62,8 @@ class InvitationsScreen : Fragment(R.layout.fragment_invitations), Observer {
                 }
             )
         }
+
+        viewModel.getInvitations()
     }
 
     override fun updatePositive() {

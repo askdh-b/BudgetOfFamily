@@ -14,11 +14,13 @@ import rustam.urazov.budgetoffamily.observer.Observer
 
 class InvitationAdapter(
     private val context: Context,
-    var invitations: List<InvitationData>
+    private val invitations: List<InvitationData>
 ) : RecyclerView.Adapter<InvitationAdapter.InvitationViewHolder>(), Observable {
+
     private val observables = mutableListOf<Observer>()
     var yesId = 0
     var noId = 0
+
     class InvitationViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvFullName: TextView = itemView.findViewById(R.id.tvFullName)
         val ibYes: ImageButton = itemView.findViewById(R.id.ibYes)
@@ -34,10 +36,12 @@ class InvitationAdapter(
         "${invitations[position].firstName} ${invitations[position].lastName}".also {
             holder.tvFullName.text = it
         }
+
         holder.ibYes.setOnClickListener {
             this.yesId = invitations[position].id
             this.noticePositive()
         }
+
         holder.ibNo.setOnClickListener {
             this.noId = invitations[position].id
             this.noticeNegative()

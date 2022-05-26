@@ -1,4 +1,4 @@
-package rustam.urazov.budgetoffamily.usecases
+package rustam.urazov.budgetoffamily.usecases.invitation
 
 import rustam.urazov.budgetoffamily.repositories.InvitationRepository
 

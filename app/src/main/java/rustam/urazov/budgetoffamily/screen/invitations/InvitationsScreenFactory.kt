@@ -10,6 +10,10 @@ import rustam.urazov.budgetoffamily.repositories.InvitationRepositoryImpl
 import rustam.urazov.budgetoffamily.repositories.TokenRepositoryImpl
 import rustam.urazov.budgetoffamily.storage.StorageServiceImpl
 import rustam.urazov.budgetoffamily.usecases.*
+import rustam.urazov.budgetoffamily.usecases.invitation.AcceptInvitationUseCase
+import rustam.urazov.budgetoffamily.usecases.invitation.GetInvitationsUseCase
+import rustam.urazov.budgetoffamily.usecases.invitation.MapResponseToInvitationUseCase
+import rustam.urazov.budgetoffamily.usecases.invitation.RejectInvitationUseCase
 
 class InvitationsScreenFactory(private val context: Context) : ViewModelProvider.Factory {
 
