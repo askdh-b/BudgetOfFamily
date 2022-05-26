@@ -24,11 +24,36 @@ interface NetworkService {
     suspend fun getSpendings(@Header("Authorization") token: String): List<SpendingResponse>
 
     @POST("spending")
-    suspend fun addSpending(@Header("Authorization") token: String, @Body spendingBody: SpendingBody)
+    suspend fun addSpending(
+        @Header("Authorization") token: String,
+        @Body spendingBody: SpendingBody
+    )
 
     // Incomes Sources
     @GET("incomesSource")
     suspend fun getIncomesSources(@Header("Authorization") token: String): List<IncomesSourceResponse>
+
+    @GET("incomesSource/{id}")
+    suspend fun getIncomesSource(
+        @Header("Authorization") token: String,
+        @Path("id") id: Int
+    ): IncomesSourceResponse
+
+    @POST("incomesSource")
+    suspend fun addIncomesSource(
+        @Header("Authorization") token: String,
+        @Body incomesSourceBody: IncomesSourceBody
+    )
+
+    @PUT("incomesSource/{id}")
+    suspend fun editIncomesSource(
+        @Header("Authorization") token: String,
+        @Path("id") id: Int,
+        @Body incomesSourceBody: IncomesSourceBody
+    )
+
+    @DELETE("incomesSource/{id}")
+    suspend fun deleteIncomesSource(@Header("Authorization") token: String, @Path("id") id: Int)
 
     // Spendings Sources
     @GET("spendingsSource")

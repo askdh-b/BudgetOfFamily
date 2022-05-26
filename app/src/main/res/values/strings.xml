@@ -21,6 +21,8 @@
     <string name="username">Имя пользователя</string>
     <string name="password">Пароль</string>
     <string name="password_again">Повторите пароль</string>
+    <string name="name">Название</string>
+    <string name="sum">Сумма</string>
 
     <!-- Screens -->
     <string name="title_profile">Профиль</string>
@@ -35,7 +37,9 @@
     <string name="current_goals">Действующие цели</string>
     <string name="completed_goals">Завершенные цели</string>
     <string name="income_percentage">Процент от дохода:</string>
+    <string name="month_day">День месяца</string>
     <string name="incomes">Доходы</string>
     <string name="spendings">Расходы</string>
     <string name="invitations">Приглашения</string>
+    <string name="incomes_source">Источник доходов</string>
 </resources>

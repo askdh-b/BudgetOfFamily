@@ -1,60 +1,38 @@
-package rustam.urazov.budgetoffamily.screen.profile
+package rustam.urazov.budgetoffamily.screen.incomesSourceAdd
 
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
 import android.widget.ImageButton
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import rustam.urazov.budgetoffamily.R
+import rustam.urazov.budgetoffamily.models.IncomesSource
 
-class ProfileScreen : Fragment(R.layout.fragment_profile) {
+class IncomesSourceAddScreen : Fragment(R.layout.fragment_incomes_source_add) {
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         val context = requireContext()
         val activity = requireActivity()
 
+        val etName: EditText = view.findViewById(R.id.etName)
+        val etSum: EditText = view.findViewById(R.id.etSum)
+        val etMonthDay: EditText = view.findViewById(R.id.etMonthDay)
+        val ibSave: ImageButton = view.findViewById(R.id.ibAddIncomesSource)
+        val ibBack: ImageButton = view.findViewById(R.id.ibBack)
+
         val viewModel = ViewModelProvider(
-            this,
-            ProfileScreenFactory(context)
-        )[ProfileScreenViewModel::class.java]
+            activity,
+            IncomesSourceAddScreenFactory(context)
+        )[IncomesSourceAddScreenViewModel::class.java]
 
-        val ibNotifications: ImageButton = view.findViewById(R.id.ibNotifications)
-        val ibSignOut: ImageButton = view.findViewById(R.id.ibSignOut)
-        val ibIncomesSourcesEdit: ImageButton = view.findViewById(R.id.ibIncomesSourcesEdit)
-        val ibSpendingsSourcesEdit: ImageButton = view.findViewById(R.id.ibSpendingsSourcesEdit)
-        val tvBalance: TextView = view.findViewById(R.id.tvBalance)
-        val tvIncomesSource: TextView = view.findViewById(R.id.tvIncomesSources)
-        val tvSpendingsSource: TextView = view.findViewById(R.id.tvSpendingsSources)
-        val tvNotificationsCount: TextView = view.findViewById(R.id.tvNotificationsCount)
-
-        viewModel.balance.observe(activity) {
-            tvBalance.text = it.toString()
-        }
-
-        viewModel.incomesSourcesValue.observe(activity) {
-            tvIncomesSource.text = it.toString()
-        }
-
-        viewModel.spendingsSourcesValue.observe(activity) {
-            tvSpendingsSource.text = it.toString()
-        }
-
-        viewModel.invitationsCount.observe(activity) {
-            tvNotificationsCount.text = it.toString()
-        }
-
-        viewModel.getBalance()
-        viewModel.getIncomesSources()
-        viewModel.getSpendingsSources()
-        viewModel.getInvitations()
-
-        ibNotifications.setOnClickListener {
+        viewModel.success.observe(activity) {
             findNavController().navigate(
-                R.id.action_profileFragment_to_invitationsFragment,
+                R.id.action_incomesSourceAddFragment_to_incomesSourcesFragment,
                 null,
                 navOptions {
                     anim {
@@ -71,13 +49,19 @@ class ProfileScreen : Fragment(R.layout.fragment_profile) {
             )
         }
 
-        ibSignOut.setOnClickListener {
-
+        ibSave.setOnClickListener {
+            viewModel.addIncomesSource(
+                IncomesSource(
+                    name = etName.text.toString(),
+                    sum = etSum.text.toString().toFloat(),
+                    monthDay = etMonthDay.text.toString().toInt()
+                )
+            )
         }
 
-        ibIncomesSourcesEdit.setOnClickListener {
+        ibBack.setOnClickListener {
             findNavController().navigate(
-                R.id.action_profileFragment_to_incomesSourcesFragment,
+                R.id.action_incomesSourceAddFragment_to_incomesSourcesFragment,
                 null,
                 navOptions {
                     anim {
@@ -92,10 +76,6 @@ class ProfileScreen : Fragment(R.layout.fragment_profile) {
                     }
                 }
             )
-        }
-
-        ibSpendingsSourcesEdit.setOnClickListener {
-
         }
     }
 }

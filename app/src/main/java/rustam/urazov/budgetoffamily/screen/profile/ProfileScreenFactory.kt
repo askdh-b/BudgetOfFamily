@@ -9,6 +9,9 @@ import rustam.urazov.budgetoffamily.network.API
 import rustam.urazov.budgetoffamily.repositories.*
 import rustam.urazov.budgetoffamily.storage.StorageServiceImpl
 import rustam.urazov.budgetoffamily.usecases.*
+import rustam.urazov.budgetoffamily.usecases.incomesSource.GetIncomesSourcesSumUseCase
+import rustam.urazov.budgetoffamily.usecases.incomesSource.GetIncomesSourcesUseCase
+import rustam.urazov.budgetoffamily.usecases.incomesSource.MapResponseToIncomesSourceUseCase
 import rustam.urazov.budgetoffamily.usecases.invitation.GetInvitationsCountUseCase
 import rustam.urazov.budgetoffamily.usecases.invitation.GetInvitationsUseCase
 import rustam.urazov.budgetoffamily.usecases.invitation.MapResponseToInvitationUseCase

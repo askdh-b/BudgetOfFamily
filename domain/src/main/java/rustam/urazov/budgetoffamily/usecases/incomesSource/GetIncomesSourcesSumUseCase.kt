@@ -1,4 +1,4 @@
-package rustam.urazov.budgetoffamily.usecases
+package rustam.urazov.budgetoffamily.usecases.incomesSource
 
 import rustam.urazov.budgetoffamily.models.IncomesSourceData
 

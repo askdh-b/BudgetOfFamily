@@ -60,6 +60,7 @@
             app:layout_constraintEnd_toEndOf="parent">
 
             <androidx.appcompat.widget.AppCompatImageButton
+                android:id="@+id/ibAddGoal"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:background="?android:attr/selectableItemBackground"

@@ -15,6 +15,11 @@
             app:destination="@id/invitationsFragment"
             app:popUpTo="@navigation/nav_graph_content"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_profileFragment_to_incomesSourcesFragment"
+            app:destination="@id/incomesSourcesFragment"
+            app:popUpTo="@navigation/nav_graph_content"
+            app:popUpToInclusive="true" />
     </fragment>
     <fragment
         android:id="@+id/goalsFragment"
@@ -39,6 +44,49 @@
         <action
             android:id="@+id/action_invitationsFragment_to_profileFragment"
             app:destination="@id/profileFragment"
+            app:popUpTo="@navigation/nav_graph_content"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/incomesSourcesFragment"
+        android:name="rustam.urazov.budgetoffamily.screen.incomesSources.IncomesSourcesScreen"
+        android:label="@string/incomes_sources"
+        tools:layout="@layout/fragment_incomes_sources">
+        <action
+            android:id="@+id/action_incomesSourcesFragment_to_profileFragment"
+            app:destination="@id/profileFragment"
+            app:popUpTo="@navigation/nav_graph_content"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_incomesSourcesFragment_to_incomesSourceEditFragment"
+            app:destination="@id/incomesSourceEditFragment"
+            app:popUpTo="@navigation/nav_graph_content"
+            app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_incomesSourcesFragment_to_incomesSourceAddFragment"
+            app:destination="@id/incomesSourceAddFragment"
+            app:popUpTo="@navigation/nav_graph_content"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/incomesSourceAddFragment"
+        android:name="rustam.urazov.budgetoffamily.screen.incomesSourceAdd.IncomesSourceAddScreen"
+        android:label="@string/incomes_source"
+        tools:layout="@layout/fragment_incomes_source_add">
+        <action
+            android:id="@+id/action_incomesSourceAddFragment_to_incomesSourcesFragment"
+            app:destination="@id/incomesSourcesFragment"
+            app:popUpTo="@navigation/nav_graph_content"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/incomesSourceEditFragment"
+        android:name="rustam.urazov.budgetoffamily.screen.incomesSourceEdit.IncomesSourceEditScreen"
+        android:label="@string/incomes_source"
+        tools:layout="@layout/fragment_incomes_source_edit">
+        <action
+            android:id="@+id/action_incomesSourceEditFragment_to_incomesSourcesFragment"
+            app:destination="@id/incomesSourcesFragment"
             app:popUpTo="@navigation/nav_graph_content"
             app:popUpToInclusive="true" />
     </fragment>
