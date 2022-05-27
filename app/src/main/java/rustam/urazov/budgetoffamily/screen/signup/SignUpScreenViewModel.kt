@@ -25,46 +25,48 @@ class SignUpScreenViewModel(
     val token = MutableLiveData<String>()
 
     fun register(newUser: NewUser) {
-        if (newUser.password == newUser.passwordAgain) {
-            GlobalScope.launch {
-                when (val result = registrationUseCase.execute(newUser)) {
-                    is ResultWrapper.Error -> showErrorDialog(
-                        fragmentManager,
-                        result.error?.message.toString()
-                    )
-                    ResultWrapper.NetworkError -> showErrorDialog(
-                        fragmentManager,
-                        "Ошибка с сетью. Попробуйте позже."
-                    )
-                    is ResultWrapper.Success -> {
-                        when (val result2 = authorizationUseCase.execute(
-                            UserAuthData(
-                                username = newUser.username,
-                                password = newUser.password
-                            )
-                        )) {
-                            is ResultWrapper.Error -> showErrorDialog(
-                                fragmentManager,
-                                result2.error?.message.toString()
-                            )
-                            ResultWrapper.NetworkError -> showErrorDialog(
-                                fragmentManager,
-                                "Ошибка с сетью. Попробуйте позже."
-                            )
-                            is ResultWrapper.Success -> {
-                                token.postValue((result2.value as TokenResponse).accessToken)
-                                saveTokenUseCase.execute(
-                                    Token(
-                                        userId = (result2.value as TokenResponse).userId,
-                                        accessToken = (result2.value as TokenResponse).accessToken,
-                                        refreshToken = (result2.value as TokenResponse).refreshToken
-                                    )
+        if (newUser.firstName.length >= 2 && newUser.lastName.length >= 2 && newUser.username.length >= 5 && newUser.password.length >= 6)
+            if (newUser.password == newUser.passwordAgain) {
+                GlobalScope.launch {
+                    when (val result = registrationUseCase.execute(newUser)) {
+                        is ResultWrapper.Error -> showErrorDialog(
+                            fragmentManager,
+                            result.error?.message.toString()
+                        )
+                        ResultWrapper.NetworkError -> showErrorDialog(
+                            fragmentManager,
+                            "Ошибка с сетью. Попробуйте позже."
+                        )
+                        is ResultWrapper.Success -> {
+                            when (val result2 = authorizationUseCase.execute(
+                                UserAuthData(
+                                    username = newUser.username,
+                                    password = newUser.password
                                 )
+                            )) {
+                                is ResultWrapper.Error -> showErrorDialog(
+                                    fragmentManager,
+                                    result2.error?.message.toString()
+                                )
+                                ResultWrapper.NetworkError -> showErrorDialog(
+                                    fragmentManager,
+                                    "Ошибка с сетью. Попробуйте позже."
+                                )
+                                is ResultWrapper.Success -> {
+                                    token.postValue((result2.value as TokenResponse).accessToken)
+                                    saveTokenUseCase.execute(
+                                        Token(
+                                            userId = (result2.value as TokenResponse).userId,
+                                            accessToken = (result2.value as TokenResponse).accessToken,
+                                            refreshToken = (result2.value as TokenResponse).refreshToken
+                                        )
+                                    )
+                                }
                             }
                         }
                     }
                 }
-            }
-        } else showErrorDialog(fragmentManager, "Пожалуйста, заполните все поля")
+            } else showErrorDialog(fragmentManager, "Пожалуйста, заполните поля корректно")
+        else showErrorDialog(fragmentManager, "Пожалуйста заполните все поля")
     }
 }

@@ -28,12 +28,16 @@
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_sign_in.xml" value="0.2" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_sign_up.xml" value="0.25" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_spendings.xml" value="0.225" />
+        <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_spendings_source.xml" value="0.22" />
+        <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_spendings_source_add.xml" value="0.225" />
+        <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_spendings_source_edit.xml" value="0.225" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_transactions.xml" value="0.225" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/goal.xml" value="0.25" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/incomes_source.xml" value="0.225" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/invitation.xml" value="0.33" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/self_income.xml" value="0.25" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/self_transaction.xml" value="0.225" />
+        <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/spendings_source.xml" value="0.225" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/menu/bottom_menu.xml" value="0.225" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/menu/top_menu.xml" value="0.225" />
       </map>

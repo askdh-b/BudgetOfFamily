@@ -42,4 +42,5 @@
     <string name="spendings">Расходы</string>
     <string name="invitations">Приглашения</string>
     <string name="incomes_source">Источник доходов</string>
+    <string name="spendings_source">Источник расходов</string>
 </resources>

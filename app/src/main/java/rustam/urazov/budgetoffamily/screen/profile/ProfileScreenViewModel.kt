@@ -16,6 +16,9 @@ import rustam.urazov.budgetoffamily.usecases.incomesSource.MapResponseToIncomesS
 import rustam.urazov.budgetoffamily.usecases.invitation.GetInvitationsCountUseCase
 import rustam.urazov.budgetoffamily.usecases.invitation.GetInvitationsUseCase
 import rustam.urazov.budgetoffamily.usecases.invitation.MapResponseToInvitationUseCase
+import rustam.urazov.budgetoffamily.usecases.spendingsSource.GetSpendingsSourceSumUseCase
+import rustam.urazov.budgetoffamily.usecases.spendingsSource.GetSpendingsSourcesUseCase
+import rustam.urazov.budgetoffamily.usecases.spendingsSource.MapResponseToSpendingsSourceUseCase
 
 class ProfileScreenViewModel(
     private val fragmentManager: FragmentManager,
@@ -30,7 +33,7 @@ class ProfileScreenViewModel(
     private val getIncomesSourcesUseCase: GetIncomesSourcesUseCase,
     private val mapResponseToIncomesSourceUseCase: MapResponseToIncomesSourceUseCase,
     private val getIncomesSourcesSumUseCase: GetIncomesSourcesSumUseCase,
-    private val getSpendingsSourceUseCase: GetSpendingsSourceUseCase,
+    private val getSpendingsSourcesUseCase: GetSpendingsSourcesUseCase,
     private val mapResponseToSpendingsSourceUseCase: MapResponseToSpendingsSourceUseCase,
     private val getSpendingsSourceSumUseCase: GetSpendingsSourceSumUseCase,
     private val getInvitationsUseCase: GetInvitationsUseCase,
@@ -100,7 +103,7 @@ class ProfileScreenViewModel(
     }
 
     fun getSpendingsSources() = GlobalScope.launch(Dispatchers.IO) {
-        when (val result = getSpendingsSourceUseCase.execute(getAccessToken())) {
+        when (val result = getSpendingsSourcesUseCase.execute(getAccessToken())) {
             is ResultWrapper.Error -> showErrorDialog(
                 fragmentManager,
                 result.error?.message.toString()

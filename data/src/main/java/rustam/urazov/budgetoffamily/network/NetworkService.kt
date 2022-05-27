@@ -59,6 +59,25 @@ interface NetworkService {
     @GET("spendingsSource")
     suspend fun getSpendingsSources(@Header("Authorization") token: String): List<SpendingsSourceResponse>
 
+    @GET("spendingsSource/{id}")
+    suspend fun getSpendingsSource(@Header("Authorization") token: String, @Path("id") id: Int): SpendingsSourceResponse
+
+    @POST("spendingsSource")
+    suspend fun addSpendingsSource(
+        @Header("Authorization") token: String,
+        @Body spendingsSourceBody: SpendingsSourceBody
+    )
+
+    @PUT("spendingsSource/{id}")
+    suspend fun editSpendingsSource(
+        @Header("Authorization") token: String,
+        @Path("id") id: Int,
+        @Body spendingsSourceBody: SpendingsSourceBody
+    )
+
+    @DELETE("spendingsSource/{id}")
+    suspend fun deleteSpendingsSource(@Header("Authoriztion") token: String, @Path("id") id: Int)
+
     // Goals
     @GET("goal")
     suspend fun getGoals(@Header("Authorization") token: String): List<GoalResponse>

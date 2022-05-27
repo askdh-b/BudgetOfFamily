@@ -15,6 +15,9 @@ import rustam.urazov.budgetoffamily.usecases.incomesSource.MapResponseToIncomesS
 import rustam.urazov.budgetoffamily.usecases.invitation.GetInvitationsCountUseCase
 import rustam.urazov.budgetoffamily.usecases.invitation.GetInvitationsUseCase
 import rustam.urazov.budgetoffamily.usecases.invitation.MapResponseToInvitationUseCase
+import rustam.urazov.budgetoffamily.usecases.spendingsSource.GetSpendingsSourceSumUseCase
+import rustam.urazov.budgetoffamily.usecases.spendingsSource.GetSpendingsSourcesUseCase
+import rustam.urazov.budgetoffamily.usecases.spendingsSource.MapResponseToSpendingsSourceUseCase
 
 class ProfileScreenFactory(context: Context) : ViewModelProvider.Factory {
 
@@ -82,7 +85,7 @@ class ProfileScreenFactory(context: Context) : ViewModelProvider.Factory {
         SpendingsSourceRepositoryImpl(networkService, dispatcher)
     }
     private val getSpendingsSourceUseCase by lazy {
-        GetSpendingsSourceUseCase(spendingsSourceRepository)
+        GetSpendingsSourcesUseCase(spendingsSourceRepository)
     }
     private val mapResponseToSpendingsSourceUseCase by lazy {
         MapResponseToSpendingsSourceUseCase(spendingsSourceRepository)

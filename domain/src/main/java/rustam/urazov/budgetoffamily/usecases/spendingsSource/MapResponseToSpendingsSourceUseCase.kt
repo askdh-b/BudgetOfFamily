@@ -1,4 +1,4 @@
-package rustam.urazov.budgetoffamily.usecases
+package rustam.urazov.budgetoffamily.usecases.spendingsSource
 
 import rustam.urazov.budgetoffamily.repositories.SpendingsSourceRepository
 

@@ -1,4 +1,4 @@
-package rustam.urazov.budgetoffamily.screen.incomesSources
+package rustam.urazov.budgetoffamily.screen.spendingsSource
 
 import android.os.Bundle
 import android.view.View
@@ -12,14 +12,15 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import rustam.urazov.budgetoffamily.R
 import rustam.urazov.budgetoffamily.adapter.IncomesSourceAdapter
+import rustam.urazov.budgetoffamily.adapter.SpendingsSourceAdapter
 import rustam.urazov.budgetoffamily.observer.Observer
 import rustam.urazov.budgetoffamily.screen.incomesSourceEdit.IncomesSourceEditScreen
 
-class IncomesSourcesScreen : Fragment(R.layout.fragment_incomes_sources), Observer {
+class SpendingsSourceScreen : Fragment(R.layout.fragment_spendings), Observer {
 
-    private lateinit var adapter: IncomesSourceAdapter
+    private lateinit var adapter: SpendingsSourceAdapter
     private var flag = 0
-    lateinit var viewModel: IncomesSourcesScreenViewModel
+    lateinit var viewModel: SpendingsSourceScreenViewModel
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -27,28 +28,28 @@ class IncomesSourcesScreen : Fragment(R.layout.fragment_incomes_sources), Observ
         val context = requireContext()
         val activity = requireActivity()
 
-        val rvIncomesSources: RecyclerView = view.findViewById(R.id.rvIncomesSources)
-        val ibAddIncomesSource: ImageButton = view.findViewById(R.id.ibEditIncomesSource)
+        val rvSpendingsSources: RecyclerView = view.findViewById(R.id.rvSpendingsSources)
+        val ibAddSpendingsSource: ImageButton = view.findViewById(R.id.ibEditSpendingsSource)
 
         viewModel = ViewModelProvider(
             activity,
-            IncomesSourcesScreenFactory(context)
-        )[IncomesSourcesScreenViewModel::class.java]
+            SpendingsSourceScreenFactory(context)
+        )[SpendingsSourceScreenViewModel::class.java]
 
-        rvIncomesSources.layoutManager = LinearLayoutManager(context)
+        rvSpendingsSources.layoutManager = LinearLayoutManager(context)
 
-        viewModel.incomesSources.observe(activity) {
+        viewModel.spendingsSources.observe(activity) {
             if (flag == 0) {
-                adapter = IncomesSourceAdapter(context, it)
+                adapter = SpendingsSourceAdapter(context, it)
                 adapter.attach(this)
             }
 
-            rvIncomesSources.adapter = adapter
+            rvSpendingsSources.adapter = adapter
         }
 
-        ibAddIncomesSource.setOnClickListener {
+        ibAddSpendingsSource.setOnClickListener {
             findNavController().navigate(
-                R.id.action_incomesSourcesFragment_to_incomesSourceAddFragment,
+                R.id.action_spendingsSourcesFragment_to_spendingsSourceAddFragment,
                 null,
                 navOptions {
                     anim {
@@ -65,12 +66,12 @@ class IncomesSourcesScreen : Fragment(R.layout.fragment_incomes_sources), Observ
             )
         }
 
-        viewModel.getIncomesSources()
+        viewModel.getSpendingsSources()
     }
 
     override fun updatePositive() {
         findNavController().navigate(
-            R.id.action_incomesSourcesFragment_to_incomesSourceEditFragment,
+            R.id.action_spendingsSourcesFragment_to_spendingsSourceEditFragment,
             bundleOf(IncomesSourceEditScreen.ID to adapter.yesId),
             navOptions {
                 anim {
@@ -88,6 +89,6 @@ class IncomesSourcesScreen : Fragment(R.layout.fragment_incomes_sources), Observ
     }
 
     override fun updateNegative() {
-        viewModel.deleteIncomesSource(adapter.noId)
+        viewModel.deleteSpendingsSource(adapter.noId)
     }
 }

@@ -20,6 +20,9 @@
             app:destination="@id/incomesSourcesFragment"
             app:popUpTo="@navigation/nav_graph_content"
             app:popUpToInclusive="true" />
+        <action
+            android:id="@+id/action_profileFragment_to_spendingsSourcesFragment"
+            app:destination="@id/spendingsSourcesFragment" />
     </fragment>
     <fragment
         android:id="@+id/goalsFragment"
@@ -89,5 +92,38 @@
             app:destination="@id/incomesSourcesFragment"
             app:popUpTo="@navigation/nav_graph_content"
             app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/spendingsSourcesFragment"
+        android:name="rustam.urazov.budgetoffamily.screen.spendingsSource.SpendingsSourceScreen"
+        android:label="@string/spendings_sources"
+        tools:layout="@layout/fragment_spendings_source">
+        <action
+            android:id="@+id/action_spendingsSourcesFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+        <action
+            android:id="@+id/action_spendingsSourcesFragment_to_spendingsSourceEditFragment"
+            app:destination="@id/spendingsSourceEditFragment" />
+        <action
+            android:id="@+id/action_spendingsSourcesFragment_to_spendingsSourceAddFragment"
+            app:destination="@id/spendingsSourceAddFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/spendingsSourceAddFragment"
+        android:name="rustam.urazov.budgetoffamily.screen.spendingsSourceAdd.SpendingsSourceAddScreen"
+        android:label="@string/spendings_source"
+        tools:layout="@layout/fragment_spendings_source_add">
+        <action
+            android:id="@+id/action_spendingsSourceAddFragment_to_spendingsSourcesFragment"
+            app:destination="@id/spendingsSourcesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/spendingsSourceEditFragment"
+        android:name="rustam.urazov.budgetoffamily.screen.spendingsSourceEdit.SpendingsSourceEditScreen"
+        android:label="@string/spendings_source"
+        tools:layout="@layout/fragment_spendings_source_edit">
+        <action
+            android:id="@+id/action_spendingsSourceEditFragment_to_spendingsSourcesFragment"
+            app:destination="@id/spendingsSourcesFragment" />
     </fragment>
 </navigation>
