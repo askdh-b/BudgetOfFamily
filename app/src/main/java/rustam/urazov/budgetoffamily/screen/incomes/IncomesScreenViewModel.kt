@@ -9,9 +9,9 @@ import rustam.urazov.budgetoffamily.ResultWrapper
 import rustam.urazov.budgetoffamily.models.IncomeData
 import rustam.urazov.budgetoffamily.screen.showErrorDialog
 import rustam.urazov.budgetoffamily.usecases.GetAccessTokenUseCase
-import rustam.urazov.budgetoffamily.usecases.GetIncomesUseCase
+import rustam.urazov.budgetoffamily.usecases.income.GetIncomesUseCase
 import rustam.urazov.budgetoffamily.usecases.GetUserIdUseCase
-import rustam.urazov.budgetoffamily.usecases.MapResponseToIncomeUseCase
+import rustam.urazov.budgetoffamily.usecases.income.MapResponseToIncomeUseCase
 
 class IncomesScreenViewModel(
     private val fragmentManager: FragmentManager,

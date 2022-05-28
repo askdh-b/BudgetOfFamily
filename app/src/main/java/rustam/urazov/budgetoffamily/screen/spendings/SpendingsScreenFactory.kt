@@ -10,6 +10,8 @@ import rustam.urazov.budgetoffamily.repositories.SpendingRepositoryImpl
 import rustam.urazov.budgetoffamily.repositories.TokenRepositoryImpl
 import rustam.urazov.budgetoffamily.storage.StorageServiceImpl
 import rustam.urazov.budgetoffamily.usecases.*
+import rustam.urazov.budgetoffamily.usecases.spending.GetSpendingsUseCase
+import rustam.urazov.budgetoffamily.usecases.spending.MapResponseToSpendingUseCase
 
 class SpendingsScreenFactory(private val context: Context) : ViewModelProvider.Factory {
 

@@ -7,13 +7,12 @@ import kotlinx.coroutines.Dispatchers
 import rustam.urazov.budgetoffamily.activity.MainActivity
 import rustam.urazov.budgetoffamily.network.API
 import rustam.urazov.budgetoffamily.repositories.IncomeRepositoryImpl
-import rustam.urazov.budgetoffamily.repositories.TokenRepository
 import rustam.urazov.budgetoffamily.repositories.TokenRepositoryImpl
 import rustam.urazov.budgetoffamily.storage.StorageServiceImpl
 import rustam.urazov.budgetoffamily.usecases.GetAccessTokenUseCase
-import rustam.urazov.budgetoffamily.usecases.GetIncomesUseCase
+import rustam.urazov.budgetoffamily.usecases.income.GetIncomesUseCase
 import rustam.urazov.budgetoffamily.usecases.GetUserIdUseCase
-import rustam.urazov.budgetoffamily.usecases.MapResponseToIncomeUseCase
+import rustam.urazov.budgetoffamily.usecases.income.MapResponseToIncomeUseCase
 
 class IncomesScreenFactory(private val context: Context) : ViewModelProvider.Factory {
 

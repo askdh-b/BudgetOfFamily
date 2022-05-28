@@ -98,9 +98,16 @@ interface NetworkService {
     @GET("invitation")
     suspend fun getInvitations(@Header("Authorization") token: String): List<InvitationResponse>
 
+    @GET("invitation")
+    suspend fun sendInvitation(@Header("Authorization") token: String, invitationBody: InvitationBody)
+
     @POST("invitation/{id}")
     suspend fun acceptInvitation(@Header("Authorization") token: String, @Path("id") id: Int)
 
     @DELETE("invitation/{id}")
     suspend fun rejectInvitation(@Header("Authorization") token: String, @Path("id") id: Int)
+
+    // Search
+    @GET("search")
+    suspend fun search(@Header("authorization") token: String, @Query("q") q: String): List<UserResponse>
 }

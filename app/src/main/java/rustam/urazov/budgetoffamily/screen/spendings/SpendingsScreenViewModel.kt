@@ -9,9 +9,9 @@ import rustam.urazov.budgetoffamily.ResultWrapper
 import rustam.urazov.budgetoffamily.models.SpendingData
 import rustam.urazov.budgetoffamily.screen.showErrorDialog
 import rustam.urazov.budgetoffamily.usecases.GetAccessTokenUseCase
-import rustam.urazov.budgetoffamily.usecases.GetSpendingsUseCase
+import rustam.urazov.budgetoffamily.usecases.spending.GetSpendingsUseCase
 import rustam.urazov.budgetoffamily.usecases.GetUserIdUseCase
-import rustam.urazov.budgetoffamily.usecases.MapResponseToSpendingUseCase
+import rustam.urazov.budgetoffamily.usecases.spending.MapResponseToSpendingUseCase
 
 class SpendingsScreenViewModel(
     private val fragmentManager: FragmentManager,

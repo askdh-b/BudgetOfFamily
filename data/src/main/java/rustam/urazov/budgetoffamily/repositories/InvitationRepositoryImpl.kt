@@ -3,8 +3,10 @@ package rustam.urazov.budgetoffamily.repositories
 import kotlinx.coroutines.CoroutineDispatcher
 import rustam.urazov.budgetoffamily.ResultWrapper
 import rustam.urazov.budgetoffamily.models.AccessToken
+import rustam.urazov.budgetoffamily.models.Invitation
 import rustam.urazov.budgetoffamily.models.InvitationData
 import rustam.urazov.budgetoffamily.network.NetworkService
+import rustam.urazov.budgetoffamily.network.models.InvitationBody
 import rustam.urazov.budgetoffamily.network.models.InvitationResponse
 import rustam.urazov.budgetoffamily.network.safeCall
 
@@ -16,6 +18,17 @@ class InvitationRepositoryImpl(
         safeCall(dispatcher, call = {
             networkService.getInvitations(accessToken.token)
         })
+
+    override suspend fun sendInvitation(
+        accessToken: AccessToken,
+        invitation: Invitation
+    ): ResultWrapper<Any> = safeCall(dispatcher, call = {
+        networkService.sendInvitation(
+            accessToken.token, InvitationBody(
+                recipientId = invitation.recipientId
+            )
+        )
+    })
 
     override suspend fun mapToInvitation(invitations: List<*>): List<InvitationData> {
         val invitationData = mutableListOf<InvitationData>()
