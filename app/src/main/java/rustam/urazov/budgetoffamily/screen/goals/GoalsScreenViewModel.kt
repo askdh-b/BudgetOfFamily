@@ -10,6 +10,10 @@ import rustam.urazov.budgetoffamily.ResultWrapper
 import rustam.urazov.budgetoffamily.models.GoalData
 import rustam.urazov.budgetoffamily.screen.showErrorDialog
 import rustam.urazov.budgetoffamily.usecases.*
+import rustam.urazov.budgetoffamily.usecases.goal.GetCompletedGoalsUseCase
+import rustam.urazov.budgetoffamily.usecases.goal.GetCurrentGoalsUseCase
+import rustam.urazov.budgetoffamily.usecases.goal.GetGoalsUseCase
+import rustam.urazov.budgetoffamily.usecases.goal.MapResponseToGoalUseCase
 
 class GoalsScreenViewModel(
     private val fragmentManager: FragmentManager,

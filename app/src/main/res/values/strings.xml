@@ -43,4 +43,8 @@
     <string name="invitations">Приглашения</string>
     <string name="incomes_source">Источник доходов</string>
     <string name="spendings_source">Источник расходов</string>
+    <string name="goal">Цель</string>
+    <string name="income_percentile">Процент от дохода</string>
+    <string name="actual_sum">Собранная сумма</string>
+    <string name="necessary_sum">Необходимая сумма</string>
 </resources>

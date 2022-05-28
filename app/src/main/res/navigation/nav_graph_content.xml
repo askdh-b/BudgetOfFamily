@@ -28,7 +28,14 @@
         android:id="@+id/goalsFragment"
         android:name="rustam.urazov.budgetoffamily.screen.goals.GoalsScreen"
         android:label="@string/title_goals"
-        tools:layout="@layout/fragment_goals" />
+        tools:layout="@layout/fragment_goals" >
+        <action
+            android:id="@+id/action_goalsFragment_to_goalEditFragment"
+            app:destination="@id/goalEditFragment" />
+        <action
+            android:id="@+id/action_goalsFragment_to_goalAddFragment"
+            app:destination="@id/goalAddFragment" />
+    </fragment>
     <fragment
         android:id="@+id/searchFragment"
         android:name="rustam.urazov.budgetoffamily.screen.search.SearchScreen"
@@ -125,5 +132,23 @@
         <action
             android:id="@+id/action_spendingsSourceEditFragment_to_spendingsSourcesFragment"
             app:destination="@id/spendingsSourcesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/goalAddFragment"
+        android:name="rustam.urazov.budgetoffamily.screen.goalAdd.GoalAddScreen"
+        android:label="@string/goal"
+        tools:layout="@layout/fragment_goal_add" >
+        <action
+            android:id="@+id/action_goalAddFragment_to_goalsFragment"
+            app:destination="@id/goalsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/goalEditFragment"
+        android:name="rustam.urazov.budgetoffamily.screen.goalEdit.GoalEditScreen"
+        android:label="@string/goal"
+        tools:layout="@layout/fragment_goal_edit" >
+        <action
+            android:id="@+id/action_goalEditFragment_to_goalsFragment"
+            app:destination="@id/goalsFragment" />
     </fragment>
 </navigation>

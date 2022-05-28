@@ -1,4 +1,4 @@
-package rustam.urazov.budgetoffamily.usecases
+package rustam.urazov.budgetoffamily.usecases.goal
 
 import rustam.urazov.budgetoffamily.models.GoalData
 
