@@ -10,10 +10,7 @@ import rustam.urazov.budgetoffamily.repositories.GoalRepositoryImpl
 import rustam.urazov.budgetoffamily.repositories.TokenRepositoryImpl
 import rustam.urazov.budgetoffamily.storage.StorageServiceImpl
 import rustam.urazov.budgetoffamily.usecases.*
-import rustam.urazov.budgetoffamily.usecases.goal.GetCompletedGoalsUseCase
-import rustam.urazov.budgetoffamily.usecases.goal.GetCurrentGoalsUseCase
-import rustam.urazov.budgetoffamily.usecases.goal.GetGoalsUseCase
-import rustam.urazov.budgetoffamily.usecases.goal.MapResponseToGoalUseCase
+import rustam.urazov.budgetoffamily.usecases.goal.*
 
 class GoalsScreenFactory(context: Context) : ViewModelProvider.Factory {
 
@@ -40,6 +37,9 @@ class GoalsScreenFactory(context: Context) : ViewModelProvider.Factory {
     private val mapResponseToGoalUseCase by lazy {
         MapResponseToGoalUseCase(goalRepository)
     }
+    private val deleteGoalUseCase by lazy {
+        DeleteGoalUseCase(goalRepository)
+    }
 
     private val getCurrentGoalsUseCase by lazy {
         GetCurrentGoalsUseCase()
@@ -49,12 +49,15 @@ class GoalsScreenFactory(context: Context) : ViewModelProvider.Factory {
         GetCompletedGoalsUseCase()
     }
 
+
+
     override fun <T : ViewModel> create(modelClass: Class<T>): T = GoalsScreenViewModel(
         fragmentManager,
         getAccessTokenUseContext,
         getGoalsUseCase,
         mapResponseToGoalUseCase,
         getCurrentGoalsUseCase,
-        getCompletedGoalsUseCase
+        getCompletedGoalsUseCase,
+        deleteGoalUseCase
     ) as T
 }

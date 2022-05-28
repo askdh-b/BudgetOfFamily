@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -10,6 +12,21 @@
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/rvSpendings"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toTopOf="@id/bAddSpending"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginBottom="12dp"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/bAddSpending"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="12dp"
+            android:background="@drawable/button_corners_12dp"
+            android:text="@string/spending_add"
+            android:textColor="@color/light"
+            android:textSize="21sp"
+            app:backgroundTint="@color/orange"
+            app:layout_constraintBottom_toBottomOf="parent" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

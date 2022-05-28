@@ -49,6 +49,7 @@ class IncomesSourceAdapter(
     }
 
     override fun getItemCount(): Int = incomesSources.size
+
     override fun attach(observer: Observer) {
         observables.add(observer)
     }

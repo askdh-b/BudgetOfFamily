@@ -1,4 +1,4 @@
-package rustam.urazov.budgetoffamily.screen.spendingsSourceAdd
+package rustam.urazov.budgetoffamily.screen.incomeAdd
 
 import android.os.Bundle
 import android.view.View
@@ -9,12 +9,10 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import rustam.urazov.budgetoffamily.R
-import rustam.urazov.budgetoffamily.models.IncomesSource
-import rustam.urazov.budgetoffamily.models.SpendingsSource
-import rustam.urazov.budgetoffamily.screen.incomesSourceAdd.IncomesSourceAddScreenFactory
-import rustam.urazov.budgetoffamily.screen.incomesSourceAdd.IncomesSourceAddScreenViewModel
+import rustam.urazov.budgetoffamily.models.Income
 
-class SpendingsSourceAddScreen : Fragment(R.layout.fragment_spendings_source_add) {
+class IncomeAddScreen : Fragment(R.layout.fragment_income_add) {
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -23,18 +21,26 @@ class SpendingsSourceAddScreen : Fragment(R.layout.fragment_spendings_source_add
 
         val etName: EditText = view.findViewById(R.id.etName)
         val etSum: EditText = view.findViewById(R.id.etSum)
-        val etMonthDay: EditText = view.findViewById(R.id.etMonthDay)
-        val ibSave: ImageButton = view.findViewById(R.id.ibAddSpendingsSource)
+        val ibAddIncome: ImageButton = view.findViewById(R.id.ibAddIncome)
         val ibBack: ImageButton = view.findViewById(R.id.ibBack)
 
         val viewModel = ViewModelProvider(
             activity,
-            SpendingsSourceAddScreenFactory(context)
-        )[SpendingsSourceAddScreenViewModel::class.java]
+            IncomeAddScreenFactory(context)
+        )[IncomeAddScreenViewModel::class.java]
+
+        ibAddIncome.setOnClickListener {
+            viewModel.addIncome(
+                Income(
+                    name = etName.text.toString(),
+                    sum = etSum.text.toString().toFloat()
+                )
+            )
+        }
 
         viewModel.success.observe(activity) {
             findNavController().navigate(
-                R.id.action_spendingsSourceAddFragment_to_spendingsSourcesFragment,
+                R.id.action_incomeAddFragment_to_incomesFragment,
                 null,
                 navOptions {
                     anim {
@@ -44,26 +50,16 @@ class SpendingsSourceAddScreen : Fragment(R.layout.fragment_spendings_source_add
                         exit = androidx.navigation.ui.R.anim.nav_default_exit_anim
                     }
                     launchSingleTop = true
-                    popUpTo(R.id.nav_graph_content) {
+                    popUpTo(R.id.nav_graph_transactions) {
                         inclusive = true
                     }
                 }
             )
         }
 
-        ibSave.setOnClickListener {
-            viewModel.addSpendingsSource(
-                SpendingsSource(
-                    name = etName.text.toString(),
-                    sum = etSum.text.toString().toFloat(),
-                    monthDay = etMonthDay.text.toString().toInt()
-                )
-            )
-        }
-
         ibBack.setOnClickListener {
             findNavController().navigate(
-                R.id.action_spendingsSourceAddFragment_to_spendingsSourcesFragment,
+                R.id.action_incomeAddFragment_to_incomesFragment,
                 null,
                 navOptions {
                     anim {
@@ -73,7 +69,7 @@ class SpendingsSourceAddScreen : Fragment(R.layout.fragment_spendings_source_add
                         exit = androidx.navigation.ui.R.anim.nav_default_exit_anim
                     }
                     launchSingleTop = true
-                    popUpTo(R.id.nav_graph_content) {
+                    popUpTo(R.id.nav_graph_transactions) {
                         inclusive = true
                     }
                 }

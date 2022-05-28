@@ -10,10 +10,7 @@ import rustam.urazov.budgetoffamily.ResultWrapper
 import rustam.urazov.budgetoffamily.models.GoalData
 import rustam.urazov.budgetoffamily.screen.showErrorDialog
 import rustam.urazov.budgetoffamily.usecases.*
-import rustam.urazov.budgetoffamily.usecases.goal.GetCompletedGoalsUseCase
-import rustam.urazov.budgetoffamily.usecases.goal.GetCurrentGoalsUseCase
-import rustam.urazov.budgetoffamily.usecases.goal.GetGoalsUseCase
-import rustam.urazov.budgetoffamily.usecases.goal.MapResponseToGoalUseCase
+import rustam.urazov.budgetoffamily.usecases.goal.*
 
 class GoalsScreenViewModel(
     private val fragmentManager: FragmentManager,
@@ -21,7 +18,8 @@ class GoalsScreenViewModel(
     private val getGoalsUseCase: GetGoalsUseCase,
     private val mapResponseToGoalUseCase: MapResponseToGoalUseCase,
     private val getCurrentGoalsUseCase: GetCurrentGoalsUseCase,
-    private val getCompletedGoalsUseCase: GetCompletedGoalsUseCase
+    private val getCompletedGoalsUseCase: GetCompletedGoalsUseCase,
+    private val deleteGoalUseCase: DeleteGoalUseCase
 ) : ViewModel() {
 
     val currentGoals = MutableLiveData<List<GoalData>>()
@@ -43,6 +41,22 @@ class GoalsScreenViewModel(
                 val coGs = getCompletedGoalsUseCase.execute(goals)
                 currentGoals.postValue(cuGs)
                 completedGoals.postValue(coGs)
+            }
+        }
+    }
+
+    fun deleteGoal(id: Int) = GlobalScope.launch(Dispatchers.IO) {
+        when (val result = deleteGoalUseCase.execute(getAccessToken(), id)) {
+            is ResultWrapper.Error -> showErrorDialog(
+                fragmentManager,
+                result.error?.message.toString()
+            )
+            ResultWrapper.NetworkError -> showErrorDialog(
+                fragmentManager,
+                "Ошибка с сетью. Попробуйте позже."
+            )
+            is ResultWrapper.Success -> {
+                getGoals()
             }
         }
     }

@@ -82,11 +82,11 @@ interface NetworkService {
     @GET("goal")
     suspend fun getGoals(@Header("Authorization") token: String): List<GoalResponse>
 
-    @GET("goal")
-    suspend fun getGoal(@Header("Authorization") token: String, id: Int): GoalResponse
+    @GET("goal/{id}")
+    suspend fun getGoal(@Header("Authorization") token: String, @Path("id") id: Int): GoalResponse
 
     @POST("goal")
-    suspend fun addGoal(@Header("Authorization") token: String, goalBody: GoalBody)
+    suspend fun addGoal(@Header("Authorization") token: String, @Body goalBody: GoalBody)
 
     @PUT("goal/{id}")
     suspend fun editGoal(@Header("Authorization") token: String, @Path("id") id: Int, goalBodyForEdit: GoalBodyForEdit)
@@ -98,8 +98,8 @@ interface NetworkService {
     @GET("invitation")
     suspend fun getInvitations(@Header("Authorization") token: String): List<InvitationResponse>
 
-    @GET("invitation")
-    suspend fun sendInvitation(@Header("Authorization") token: String, invitationBody: InvitationBody)
+    @POST("invitation")
+    suspend fun sendInvitation(@Header("Authorization") token: String, @Body invitationBody: InvitationBody)
 
     @POST("invitation/{id}")
     suspend fun acceptInvitation(@Header("Authorization") token: String, @Path("id") id: Int)

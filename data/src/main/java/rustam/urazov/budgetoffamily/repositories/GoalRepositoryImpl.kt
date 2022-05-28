@@ -63,6 +63,7 @@ class GoalRepositoryImpl(
             val gs = g as GoalResponse
             goalData.add(
                 GoalData(
+                    id = gs.id,
                     userId = gs.userId,
                     name = gs.name,
                     incomePercentile = gs.incomePercentile,

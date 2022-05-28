@@ -1,39 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/layout_corners_12dp"
     android:paddingHorizontal="18dp">
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvName"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0"
         android:layout_marginTop="6dp"
         android:textColor="@color/orange"
+        android:textSize="18sp"
         android:textStyle="bold"
-        android:textSize="18sp"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/ibGoalEdit"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toEndOf="@id/tvName"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="6dp"
+        android:layout_marginEnd="3dp"
+        android:background="?android:attr/selectableItemBackground"
+        android:src="@drawable/ic_edit"
+        app:layout_constraintEnd_toStartOf="@id/ibGoalDelete"
         app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toEndOf="@id/tvName"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/ibGoalDelete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:background="?android:attr/selectableItemBackground"
-        android:src="@drawable/ic_edit"/>
+        android:src="@drawable/ic_delete"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toEndOf="@id/tvName"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvCurrentSum"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/zero"
         android:layout_marginBottom="12dp"
+        android:text="@string/zero"
         android:textColor="@color/orange"
         android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -54,62 +70,67 @@
         app:layout_constraintHorizontal_bias="0"
         app:layout_constraintStart_toEndOf="@id/tvCurrentSum"
         app:layout_constraintTop_toBottomOf="@id/tvIncomePercentageTitle" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvProgress"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tvIncomePercentageTitle"
-        android:textSize="36sp"
+        android:text="@string/zero"
         android:textColor="@color/white"
-        app:layout_constraintStart_toEndOf="@id/tvRuble"
+        android:textSize="36sp"
         app:layout_constraintEnd_toStartOf="@id/tvPercent"
         app:layout_constraintHorizontal_bias="1"
-        android:text="@string/zero"/>
+        app:layout_constraintStart_toEndOf="@id/tvRuble"
+        app:layout_constraintTop_toBottomOf="@id/tvIncomePercentageTitle" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvPercent"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/tvIncomePercentageTitle"
         android:text="@string/percent"
+        android:textColor="@color/white"
         android:textSize="36sp"
-        android:textColor="@color/white"/>
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvIncomePercentageTitle" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvIncomePercentageTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
-        app:layout_constraintTop_toBottomOf="@id/tvName"
-        android:textSize="14sp"
-        android:textColor="@color/orange"
         android:text="@string/income_percentage"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textColor="@color/orange"
+        android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0"/>
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/tvName" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvIncomePercentage"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tvName"
-        app:layout_constraintStart_toEndOf="@id/tvIncomePercentageTitle"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="6dp"
+        android:text="@string/zero"
+        android:textColor="@color/orange"
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
-        android:textStyle="bold"
-        android:textSize="14sp"
-        android:layout_marginTop="6dp"
-        android:layout_marginStart="4dp"
-        android:textColor="@color/orange"
-        android:text="@string/zero"/>
+        app:layout_constraintStart_toEndOf="@id/tvIncomePercentageTitle"
+        app:layout_constraintTop_toBottomOf="@id/tvName" />
+
     <androidx.appcompat.widget.AppCompatTextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintTop_toBottomOf="@id/tvName"
-        app:layout_constraintStart_toEndOf="@id/tvIncomePercentage"
+        android:layout_marginTop="6dp"
+        android:text="@string/percent"
+        android:textColor="@color/orange"
+        android:textSize="14sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0"
-        android:textStyle="bold"
-        android:textSize="14sp"
-        android:layout_marginTop="6dp"
-        android:textColor="@color/orange"
-        android:text="@string/percent"/>
+        app:layout_constraintStart_toEndOf="@id/tvIncomePercentage"
+        app:layout_constraintTop_toBottomOf="@id/tvName" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -11,12 +11,11 @@ import androidx.navigation.navOptions
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import rustam.urazov.budgetoffamily.R
-import rustam.urazov.budgetoffamily.adapter.IncomesSourceAdapter
 import rustam.urazov.budgetoffamily.adapter.SpendingsSourceAdapter
 import rustam.urazov.budgetoffamily.observer.Observer
 import rustam.urazov.budgetoffamily.screen.incomesSourceEdit.IncomesSourceEditScreen
 
-class SpendingsSourceScreen : Fragment(R.layout.fragment_spendings), Observer {
+class SpendingsSourceScreen : Fragment(R.layout.fragment_spendings_source), Observer {
 
     private lateinit var adapter: SpendingsSourceAdapter
     private var flag = 0
@@ -30,6 +29,7 @@ class SpendingsSourceScreen : Fragment(R.layout.fragment_spendings), Observer {
 
         val rvSpendingsSources: RecyclerView = view.findViewById(R.id.rvSpendingsSources)
         val ibAddSpendingsSource: ImageButton = view.findViewById(R.id.ibEditSpendingsSource)
+        val ibBack: ImageButton = view.findViewById(R.id.ibBack)
 
         viewModel = ViewModelProvider(
             activity,
@@ -50,6 +50,25 @@ class SpendingsSourceScreen : Fragment(R.layout.fragment_spendings), Observer {
         ibAddSpendingsSource.setOnClickListener {
             findNavController().navigate(
                 R.id.action_spendingsSourcesFragment_to_spendingsSourceAddFragment,
+                null,
+                navOptions {
+                    anim {
+                        enter = androidx.navigation.ui.R.anim.nav_default_enter_anim
+                        popEnter = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
+                        popExit = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
+                        exit = androidx.navigation.ui.R.anim.nav_default_exit_anim
+                    }
+                    launchSingleTop = true
+                    popUpTo(R.id.nav_graph_content) {
+                        inclusive = true
+                    }
+                }
+            )
+        }
+
+        ibBack.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_spendingsSourcesFragment_to_profileFragment,
                 null,
                 navOptions {
                     anim {

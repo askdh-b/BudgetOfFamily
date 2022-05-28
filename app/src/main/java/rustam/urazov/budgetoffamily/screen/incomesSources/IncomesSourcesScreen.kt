@@ -29,6 +29,7 @@ class IncomesSourcesScreen : Fragment(R.layout.fragment_incomes_sources), Observ
 
         val rvIncomesSources: RecyclerView = view.findViewById(R.id.rvIncomesSources)
         val ibAddIncomesSource: ImageButton = view.findViewById(R.id.ibEditIncomesSource)
+        val ibBack: ImageButton = view.findViewById(R.id.ibBack)
 
         viewModel = ViewModelProvider(
             activity,
@@ -49,6 +50,25 @@ class IncomesSourcesScreen : Fragment(R.layout.fragment_incomes_sources), Observ
         ibAddIncomesSource.setOnClickListener {
             findNavController().navigate(
                 R.id.action_incomesSourcesFragment_to_incomesSourceAddFragment,
+                null,
+                navOptions {
+                    anim {
+                        enter = androidx.navigation.ui.R.anim.nav_default_enter_anim
+                        popEnter = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
+                        popExit = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
+                        exit = androidx.navigation.ui.R.anim.nav_default_exit_anim
+                    }
+                    launchSingleTop = true
+                    popUpTo(R.id.nav_graph_content) {
+                        inclusive = true
+                    }
+                }
+            )
+        }
+
+        ibBack.setOnClickListener {
+            findNavController().navigate(
+                R.id.action_incomesSourcesFragment_to_profileFragment,
                 null,
                 navOptions {
                     anim {

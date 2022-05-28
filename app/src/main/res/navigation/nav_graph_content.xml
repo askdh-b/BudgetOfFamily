@@ -28,7 +28,7 @@
         android:id="@+id/goalsFragment"
         android:name="rustam.urazov.budgetoffamily.screen.goals.GoalsScreen"
         android:label="@string/title_goals"
-        tools:layout="@layout/fragment_goals" >
+        tools:layout="@layout/fragment_goals">
         <action
             android:id="@+id/action_goalsFragment_to_goalEditFragment"
             app:destination="@id/goalEditFragment" />
@@ -137,7 +137,7 @@
         android:id="@+id/goalAddFragment"
         android:name="rustam.urazov.budgetoffamily.screen.goalAdd.GoalAddScreen"
         android:label="@string/goal"
-        tools:layout="@layout/fragment_goal_add" >
+        tools:layout="@layout/fragment_goal_add">
         <action
             android:id="@+id/action_goalAddFragment_to_goalsFragment"
             app:destination="@id/goalsFragment" />
@@ -146,7 +146,7 @@
         android:id="@+id/goalEditFragment"
         android:name="rustam.urazov.budgetoffamily.screen.goalEdit.GoalEditScreen"
         android:label="@string/goal"
-        tools:layout="@layout/fragment_goal_edit" >
+        tools:layout="@layout/fragment_goal_edit">
         <action
             android:id="@+id/action_goalEditFragment_to_goalsFragment"
             app:destination="@id/goalsFragment" />

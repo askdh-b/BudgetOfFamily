@@ -25,7 +25,7 @@ class SpendingsSourceAdapter(
         val tvName: TextView = itemView.findViewById(R.id.tvName)
         val tvMonthDay: TextView = itemView.findViewById(R.id.tvMonthDay)
         val tvSum: TextView = itemView.findViewById(R.id.tvSum)
-        val ibSpendingsSourceEdit: ImageButton = itemView.findViewById(R.id.ibSpendingsSourcesEdit)
+        val ibSpendingsSourceEdit: ImageButton = itemView.findViewById(R.id.ibSpendingsSourceEdit)
         val ibIncomesSourceDelete: ImageButton = itemView.findViewById(R.id.ibSpendingsSourceDelete)
     }
 

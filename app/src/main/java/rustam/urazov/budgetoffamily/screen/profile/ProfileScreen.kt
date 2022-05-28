@@ -72,7 +72,22 @@ class ProfileScreen : Fragment(R.layout.fragment_profile) {
         }
 
         ibSignOut.setOnClickListener {
-
+            findNavController().navigate(
+                R.id.action_mainFragment_to_signInScreen,
+                null,
+                navOptions {
+                    anim {
+                        enter = androidx.navigation.ui.R.anim.nav_default_enter_anim
+                        popEnter = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
+                        popExit = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
+                        exit = androidx.navigation.ui.R.anim.nav_default_exit_anim
+                    }
+                    launchSingleTop = true
+                    popUpTo(R.id.nav_graph_main) {
+                        inclusive = true
+                    }
+                }
+            )
         }
 
         ibIncomesSourcesEdit.setOnClickListener {

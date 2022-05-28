@@ -47,4 +47,8 @@
     <string name="income_percentile">Процент от дохода</string>
     <string name="actual_sum">Собранная сумма</string>
     <string name="necessary_sum">Необходимая сумма</string>
+    <string name="income">Доход</string>
+    <string name="spending">Расход</string>
+    <string name="income_add">Добавить доход</string>
+    <string name="spending_add">Добавить расход</string>
 </resources>

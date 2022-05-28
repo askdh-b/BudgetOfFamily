@@ -6,6 +6,8 @@ import android.widget.EditText
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
+import androidx.navigation.navOptions
 import rustam.urazov.budgetoffamily.R
 import rustam.urazov.budgetoffamily.models.GoalForEdit
 
@@ -39,11 +41,41 @@ class GoalEditScreen : Fragment(R.layout.fragment_goal_edit) {
         }
 
         viewModel.success.observe(activity) {
-
+            findNavController().navigate(
+                R.id.action_goalEditFragment_to_goalsFragment,
+                null,
+                navOptions {
+                    anim {
+                        enter = androidx.navigation.ui.R.anim.nav_default_enter_anim
+                        popEnter = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
+                        popExit = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
+                        exit = androidx.navigation.ui.R.anim.nav_default_exit_anim
+                    }
+                    launchSingleTop = true
+                    popUpTo(R.id.nav_graph_content) {
+                        inclusive = true
+                    }
+                }
+            )
         }
 
         ibBack.setOnClickListener {
-
+            findNavController().navigate(
+                R.id.action_goalEditFragment_to_goalsFragment,
+                null,
+                navOptions {
+                    anim {
+                        enter = androidx.navigation.ui.R.anim.nav_default_enter_anim
+                        popEnter = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
+                        popExit = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
+                        exit = androidx.navigation.ui.R.anim.nav_default_exit_anim
+                    }
+                    launchSingleTop = true
+                    popUpTo(R.id.nav_graph_content) {
+                        inclusive = true
+                    }
+                }
+            )
         }
 
         ibEditGoal.setOnClickListener {
