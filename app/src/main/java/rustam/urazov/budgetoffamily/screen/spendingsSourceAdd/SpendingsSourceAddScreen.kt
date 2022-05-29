@@ -6,6 +6,7 @@ import android.widget.EditText
 import android.widget.ImageButton
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.lifecycleScope
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import rustam.urazov.budgetoffamily.R
@@ -32,22 +33,27 @@ class SpendingsSourceAddScreen : Fragment(R.layout.fragment_spendings_source_add
         )[SpendingsSourceAddScreenViewModel::class.java]
 
         viewModel.success.observe(activity) {
-            findNavController().navigate(
-                R.id.action_spendingsSourceAddFragment_to_spendingsSourcesFragment,
-                null,
-                navOptions {
-                    anim {
-                        enter = androidx.navigation.ui.R.anim.nav_default_enter_anim
-                        popEnter = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
-                        popExit = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
-                        exit = androidx.navigation.ui.R.anim.nav_default_exit_anim
-                    }
-                    launchSingleTop = true
-                    popUpTo(R.id.nav_graph_content) {
-                        inclusive = true
-                    }
+            if (it) {
+                lifecycleScope.launchWhenResumed {
+                    findNavController().navigate(
+                        R.id.action_spendingsSourceAddFragment_to_spendingsSourcesFragment,
+                        null,
+                        navOptions {
+                            anim {
+                                enter = androidx.navigation.ui.R.anim.nav_default_enter_anim
+                                popEnter = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
+                                popExit = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
+                                exit = androidx.navigation.ui.R.anim.nav_default_exit_anim
+                            }
+                            launchSingleTop = true
+                            popUpTo(R.id.nav_graph_content) {
+                                inclusive = true
+                            }
+                        }
+                    )
+                    viewModel.success.value = false
                 }
-            )
+            }
         }
 
         ibSave.setOnClickListener {
