@@ -10,6 +10,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import rustam.urazov.budgetoffamily.R
 import rustam.urazov.budgetoffamily.models.Spending
+import java.io.IOException
+import java.lang.NumberFormatException
 
 class SpendingAddScreen : Fragment(R.layout.fragment_spending_add) {
 
@@ -30,12 +32,17 @@ class SpendingAddScreen : Fragment(R.layout.fragment_spending_add) {
         )[SpendingAddScreenViewModel::class.java]
 
         ibAddSpending.setOnClickListener {
-            viewModel.addSpending(
-                Spending(
-                    name = etName.text.toString(),
-                    sum = etSum.text.toString().toFloat()
+            try {
+                viewModel.addSpending(
+                    Spending(
+                        name = etName.text.toString(),
+                        sum = etSum.text.toString().toFloat()
+                    )
                 )
-            )
+            } catch (e: NumberFormatException) {
+                viewModel.showError()
+            }
+
         }
 
         viewModel.success.observe(activity) {

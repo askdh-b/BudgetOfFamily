@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import rustam.urazov.budgetoffamily.R
 import rustam.urazov.budgetoffamily.models.UserAuthData
+import java.lang.IllegalArgumentException
 
 class SignInScreen : Fragment(R.layout.fragment_sign_in) {
 
@@ -27,22 +28,27 @@ class SignInScreen : Fragment(R.layout.fragment_sign_in) {
         val bSignUp: Button = view.findViewById(R.id.bSignUp)
 
         viewModel.token.observe(requireActivity()) {
-            findNavController().navigate(
-                R.id.action_signInScreen_to_mainFragment,
-                null,
-                navOptions {
-                    anim {
-                        enter = androidx.navigation.ui.R.anim.nav_default_enter_anim
-                        popEnter = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
-                        popExit = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
-                        exit = androidx.navigation.ui.R.anim.nav_default_exit_anim
+            try {
+                findNavController().navigate(
+                    R.id.action_signInScreen_to_mainFragment,
+                    null,
+                    navOptions {
+                        anim {
+                            enter = androidx.navigation.ui.R.anim.nav_default_enter_anim
+                            popEnter = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
+                            popExit = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
+                            exit = androidx.navigation.ui.R.anim.nav_default_exit_anim
+                        }
+                        launchSingleTop = true
+                        popUpTo(R.id.nav_graph_main) {
+                            inclusive = true
+                        }
                     }
-                    launchSingleTop = true
-                    popUpTo(R.id.nav_graph_main) {
-                        inclusive = true
-                    }
-                }
-            )
+                )
+            } catch (e: IllegalArgumentException) {
+                viewModel.showError()
+            }
+
         }
 
         bSignIn.setOnClickListener {

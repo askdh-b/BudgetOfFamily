@@ -66,12 +66,12 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/ibSignOut"
+            android:id="@+id/ibLeave"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginStart="6dp"
             android:background="?android:attr/selectableItemBackground"
-            android:src="@drawable/ic_exit"
+            android:src="@drawable/ic_leave"
             app:layout_constraintBottom_toBottomOf="@id/cvPerson"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0"

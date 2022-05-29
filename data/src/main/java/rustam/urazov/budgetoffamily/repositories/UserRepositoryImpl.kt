@@ -17,6 +17,11 @@ class UserRepositoryImpl(
             networkService.search(accessToken.token, q)
         })
 
+    override suspend fun leave(accessToken: AccessToken): ResultWrapper<Any> =
+        safeCall(dispatcher, call = {
+            networkService.leave(accessToken.token)
+        })
+
     override suspend fun mapToUser(users: List<*>): List<UserData> {
         val userData = mutableListOf<UserData>()
         for (u in users) {

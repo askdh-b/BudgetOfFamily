@@ -60,7 +60,10 @@ interface NetworkService {
     suspend fun getSpendingsSources(@Header("Authorization") token: String): List<SpendingsSourceResponse>
 
     @GET("spendingsSource/{id}")
-    suspend fun getSpendingsSource(@Header("Authorization") token: String, @Path("id") id: Int): SpendingsSourceResponse
+    suspend fun getSpendingsSource(
+        @Header("Authorization") token: String,
+        @Path("id") id: Int
+    ): SpendingsSourceResponse
 
     @POST("spendingsSource")
     suspend fun addSpendingsSource(
@@ -89,7 +92,11 @@ interface NetworkService {
     suspend fun addGoal(@Header("Authorization") token: String, @Body goalBody: GoalBody)
 
     @PUT("goal/{id}")
-    suspend fun editGoal(@Header("Authorization") token: String, @Path("id") id: Int, goalBodyForEdit: GoalBodyForEdit)
+    suspend fun editGoal(
+        @Header("Authorization") token: String,
+        @Path("id") id: Int,
+        @Body goalBodyForEdit: GoalBodyForEdit
+    )
 
     @DELETE("goal/{id}")
     suspend fun deleteGoal(@Header("Authorization") token: String, @Path("id") id: Int)
@@ -99,7 +106,10 @@ interface NetworkService {
     suspend fun getInvitations(@Header("Authorization") token: String): List<InvitationResponse>
 
     @POST("invitation")
-    suspend fun sendInvitation(@Header("Authorization") token: String, @Body invitationBody: InvitationBody)
+    suspend fun sendInvitation(
+        @Header("Authorization") token: String,
+        @Body invitationBody: InvitationBody
+    )
 
     @POST("invitation/{id}")
     suspend fun acceptInvitation(@Header("Authorization") token: String, @Path("id") id: Int)
@@ -109,5 +119,12 @@ interface NetworkService {
 
     // Search
     @GET("search")
-    suspend fun search(@Header("authorization") token: String, @Query("q") q: String): List<UserResponse>
+    suspend fun search(
+        @Header("authorization") token: String,
+        @Query("q") q: String
+    ): List<UserResponse>
+
+    // Family
+    @POST("leave")
+    suspend fun leave(@Header("Authorization") token: String)
 }

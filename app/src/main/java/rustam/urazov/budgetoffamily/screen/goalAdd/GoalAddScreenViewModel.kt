@@ -33,5 +33,10 @@ class GoalAddScreenViewModel(
         }
     }
 
+    fun showError() = showErrorDialog(
+        fragmentManager,
+        "Введите корректные данные"
+    )
+
     private suspend fun getAccessToken() = getAccessTokenUseCase.execute()
 }

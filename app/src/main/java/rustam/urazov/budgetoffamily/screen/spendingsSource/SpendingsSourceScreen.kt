@@ -15,7 +15,7 @@ import rustam.urazov.budgetoffamily.adapter.SpendingsSourceAdapter
 import rustam.urazov.budgetoffamily.observer.Observer
 import rustam.urazov.budgetoffamily.screen.incomesSourceEdit.IncomesSourceEditScreen
 
-class SpendingsSourceScreen : Fragment(R.layout.fragment_spendings_source), Observer {
+class SpendingsSourceScreen : Fragment(R.layout.fragment_spendings_sources), Observer {
 
     private lateinit var adapter: SpendingsSourceAdapter
     private var flag = 0

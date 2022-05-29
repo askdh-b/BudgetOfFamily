@@ -44,7 +44,8 @@ class ProfileScreenViewModel(
     private val getSpendingsSourceSumUseCase: GetSpendingsSourceSumUseCase,
     private val getInvitationsUseCase: GetInvitationsUseCase,
     private val mapResponseToInvitationUseCase: MapResponseToInvitationUseCase,
-    private val getInvitationsCountUseCase: GetInvitationsCountUseCase
+    private val getInvitationsCountUseCase: GetInvitationsCountUseCase,
+    private val leaveUseCase: LeaveUseCase
 ) : ViewModel() {
 
     val balance = MutableLiveData<Float>()
@@ -146,6 +147,24 @@ class ProfileScreenViewModel(
 
     fun getBalance() = GlobalScope.launch(Dispatchers.IO) {
         balance.postValue(getBalanceUseCase.execute(getIncomes(), getSpendings()))
+    }
+
+    fun leave() = GlobalScope.launch(Dispatchers.IO) {
+        when (val result = leaveUseCase.execute(getAccessToken())) {
+            is ResultWrapper.Error -> showErrorDialog(
+                fragmentManager,
+                result.error?.message.toString()
+            )
+            ResultWrapper.NetworkError -> showErrorDialog(
+                fragmentManager,
+                "Ошибка с сетью. Попробуйте позже."
+            )
+            is ResultWrapper.Success -> {
+                getIncomesSources()
+                getSpendingsSources()
+                getBalance()
+            }
+        }
     }
 
     private suspend fun getAccessToken(): AccessToken = getAccessTokenUseCase.execute()

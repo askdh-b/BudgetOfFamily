@@ -10,6 +10,8 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import rustam.urazov.budgetoffamily.R
 import rustam.urazov.budgetoffamily.models.GoalForEdit
+import java.io.IOException
+import java.lang.NumberFormatException
 
 class GoalEditScreen : Fragment(R.layout.fragment_goal_edit) {
 
@@ -79,14 +81,18 @@ class GoalEditScreen : Fragment(R.layout.fragment_goal_edit) {
         }
 
         ibEditGoal.setOnClickListener {
-            viewModel.editGoal(
-                id, GoalForEdit(
-                    name = etName.text.toString(),
-                    incomePercentile = etIncomePercentile.text.toString().toFloat(),
-                    progress = etActualSum.text.toString().toFloat(),
-                    sum = etNecessarySum.text.toString().toFloat()
+            try {
+                viewModel.editGoal(
+                    id, GoalForEdit(
+                        name = etName.text.toString(),
+                        incomePercentile = etIncomePercentile.text.toString().toFloat(),
+                        progress = etActualSum.text.toString().toFloat(),
+                        sum = etNecessarySum.text.toString().toFloat()
+                    )
                 )
-            )
+            } catch (e: NumberFormatException) {
+                viewModel.showError()
+            }
         }
 
         viewModel.getGoal(id)

@@ -7,6 +7,7 @@
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/drawable/button_corners_40dp.xml" value="0.143" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/drawable/ic_add.xml" value="0.1465" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/drawable/ic_edit.xml" value="0.1465" />
+        <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/drawable/ic_profile.xml" value="0.145" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/drawable/ic_save.xml" value="0.1465" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/drawable/layout_corners_12dp.xml" value="0.143" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/drawable/layout_corners_orange_12dp.xml" value="0.1415" />
@@ -26,7 +27,7 @@
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_incomes_sources.xml" value="0.225" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_invitations.xml" value="0.225" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_main.xml" value="0.25" />
-        <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_profile.xml" value="0.33" />
+        <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_profile.xml" value="0.25" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_search.xml" value="0.225" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_sign_in.xml" value="0.2" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_sign_up.xml" value="0.25" />

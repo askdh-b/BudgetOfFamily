@@ -115,6 +115,13 @@ class ProfileScreenFactory(context: Context) : ViewModelProvider.Factory {
         GetInvitationsCountUseCase()
     }
 
+    private val userRepository by lazy {
+        UserRepositoryImpl(networkService, dispatcher)
+    }
+    private val leaveUseCase by lazy {
+        LeaveUseCase(userRepository)
+    }
+
     override fun <T : ViewModel> create(modelClass: Class<T>): T =
         ProfileScreenViewModel(
             fragmentManager,
@@ -134,6 +141,7 @@ class ProfileScreenFactory(context: Context) : ViewModelProvider.Factory {
             getSpendingsSourcesSumUseCase,
             getInvitationUseCase,
             mapResponseToInvitationUseCase,
-            getInvitationsCountUseCase
+            getInvitationsCountUseCase,
+            leaveUseCase
         ) as T
 }

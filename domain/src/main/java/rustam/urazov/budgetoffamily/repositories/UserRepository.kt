@@ -8,5 +8,7 @@ interface UserRepository {
 
     suspend fun search(accessToken: AccessToken, q: String): ResultWrapper<Any>
 
+    suspend fun leave(accessToken: AccessToken): ResultWrapper<Any>
+
     suspend fun mapToUser(users: List<*>): List<UserData>
 }

@@ -10,6 +10,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import rustam.urazov.budgetoffamily.R
 import rustam.urazov.budgetoffamily.models.IncomesSource
+import java.io.IOException
 
 class IncomesSourceEditScreen : Fragment(R.layout.fragment_incomes_source_edit) {
 
@@ -58,13 +59,17 @@ class IncomesSourceEditScreen : Fragment(R.layout.fragment_incomes_source_edit) 
         }
 
         ibSave.setOnClickListener {
-            viewModel.editIncomesSource(
-                IncomesSource(
-                    name = etName.text.toString(),
-                    sum = etSum.text.toString().toFloat(),
-                    monthDay = etMonthDay.text.toString().toInt()
-                ), id
-            )
+            try {
+                viewModel.editIncomesSource(
+                    IncomesSource(
+                        name = etName.text.toString(),
+                        sum = etSum.text.toString().toFloat(),
+                        monthDay = etMonthDay.text.toString().toInt()
+                    ), id
+                )
+            } catch (e: NumberFormatException) {
+                viewModel.showError()
+            }
         }
 
         ibBack.setOnClickListener {

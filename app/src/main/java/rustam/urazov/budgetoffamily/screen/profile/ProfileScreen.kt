@@ -23,7 +23,7 @@ class ProfileScreen : Fragment(R.layout.fragment_profile) {
         )[ProfileScreenViewModel::class.java]
 
         val ibNotifications: ImageButton = view.findViewById(R.id.ibNotifications)
-        val ibSignOut: ImageButton = view.findViewById(R.id.ibSignOut)
+        val ibLeave: ImageButton = view.findViewById(R.id.ibLeave)
         val ibIncomesSourcesEdit: ImageButton = view.findViewById(R.id.ibIncomesSourcesEdit)
         val ibSpendingsSourcesEdit: ImageButton = view.findViewById(R.id.ibSpendingsSourcesEdit)
         val tvBalance: TextView = view.findViewById(R.id.tvBalance)
@@ -71,23 +71,8 @@ class ProfileScreen : Fragment(R.layout.fragment_profile) {
             )
         }
 
-        ibSignOut.setOnClickListener {
-            findNavController().navigate(
-                R.id.action_mainFragment_to_signInScreen,
-                null,
-                navOptions {
-                    anim {
-                        enter = androidx.navigation.ui.R.anim.nav_default_enter_anim
-                        popEnter = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
-                        popExit = androidx.navigation.ui.R.anim.nav_default_pop_enter_anim
-                        exit = androidx.navigation.ui.R.anim.nav_default_exit_anim
-                    }
-                    launchSingleTop = true
-                    popUpTo(R.id.nav_graph_main) {
-                        inclusive = true
-                    }
-                }
-            )
+        ibLeave.setOnClickListener {
+            viewModel.leave()
         }
 
         ibIncomesSourcesEdit.setOnClickListener {

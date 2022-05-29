@@ -13,6 +13,8 @@ import rustam.urazov.budgetoffamily.models.IncomesSource
 import rustam.urazov.budgetoffamily.models.SpendingsSource
 import rustam.urazov.budgetoffamily.screen.incomesSourceAdd.IncomesSourceAddScreenFactory
 import rustam.urazov.budgetoffamily.screen.incomesSourceAdd.IncomesSourceAddScreenViewModel
+import java.io.IOException
+import java.lang.NumberFormatException
 
 class SpendingsSourceAddScreen : Fragment(R.layout.fragment_spendings_source_add) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -52,13 +54,17 @@ class SpendingsSourceAddScreen : Fragment(R.layout.fragment_spendings_source_add
         }
 
         ibSave.setOnClickListener {
-            viewModel.addSpendingsSource(
-                SpendingsSource(
-                    name = etName.text.toString(),
-                    sum = etSum.text.toString().toFloat(),
-                    monthDay = etMonthDay.text.toString().toInt()
+            try {
+                viewModel.addSpendingsSource(
+                    SpendingsSource(
+                        name = etName.text.toString(),
+                        sum = etSum.text.toString().toFloat(),
+                        monthDay = etMonthDay.text.toString().toInt()
+                    )
                 )
-            )
+            } catch (e: NumberFormatException) {
+                viewModel.showError()
+            }
         }
 
         ibBack.setOnClickListener {

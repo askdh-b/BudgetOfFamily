@@ -41,4 +41,9 @@ class SignInScreenViewModel(
             }
         }
     }
+
+    fun showError() = showErrorDialog(
+        fragmentManager,
+        "Пожалуйста подождите"
+    )
 }
