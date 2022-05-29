@@ -38,10 +38,12 @@ class IncomesSourceAdapter(
         holder.tvName.text = incomesSources[position].name
         holder.tvMonthDay.text = incomesSources[position].monthDay.toString()
         holder.tvSum.text = incomesSources[position].sum.toString()
+
         holder.ibIncomesSourceEdit.setOnClickListener {
             this.yesId = incomesSources[position].id
             this.noticePositive()
         }
+
         holder.ibIncomesSourceDelete.setOnClickListener {
             this.noId = incomesSources[position].id
             this.noticeNegative()

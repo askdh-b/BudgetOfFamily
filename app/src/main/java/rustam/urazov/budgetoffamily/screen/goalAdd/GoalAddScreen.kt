@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import rustam.urazov.budgetoffamily.R
 import rustam.urazov.budgetoffamily.models.Goal
-import java.io.IOException
 import java.lang.NumberFormatException
 
 class GoalAddScreen : Fragment(R.layout.fragment_goal_add) {
@@ -82,7 +81,6 @@ class GoalAddScreen : Fragment(R.layout.fragment_goal_add) {
             } catch (e: NumberFormatException) {
                 viewModel.showError()
             }
-
         }
     }
 }

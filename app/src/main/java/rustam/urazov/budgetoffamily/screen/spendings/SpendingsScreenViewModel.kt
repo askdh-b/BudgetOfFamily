@@ -25,8 +25,11 @@ class SpendingsScreenViewModel(
     val userId = MutableLiveData<Int>()
 
     fun getSpendings() = GlobalScope.launch {
-        when(val result = getSpendingsUseCase.execute(getAccessToken())) {
-            is ResultWrapper.Error -> showErrorDialog(fragmentManager, result.error?.message.toString())
+        when (val result = getSpendingsUseCase.execute(getAccessToken())) {
+            is ResultWrapper.Error -> showErrorDialog(
+                fragmentManager,
+                result.error?.message.toString()
+            )
             ResultWrapper.NetworkError -> showErrorDialog(
                 fragmentManager,
                 "Ошибка с сетью. Попробуйте позже."

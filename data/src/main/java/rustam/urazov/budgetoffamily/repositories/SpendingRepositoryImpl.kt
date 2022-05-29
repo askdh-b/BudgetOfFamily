@@ -14,6 +14,7 @@ class SpendingRepositoryImpl(
     private val networkService: NetworkService,
     private val dispatcher: CoroutineDispatcher
 ) : SpendingRepository {
+
     override suspend fun getSpendings(accessToken: AccessToken): ResultWrapper<Any> =
         safeCall(dispatcher, call = {
             networkService.getSpendings(accessToken.token)
@@ -35,13 +36,15 @@ class SpendingRepositoryImpl(
         val spendingsData = mutableListOf<SpendingData>()
         for (s in spendings) {
             val spn = s as SpendingResponse
-            spendingsData.add(SpendingData(
-                userId = spn.userId,
-                firstName = spn.firstName,
-                sum = spn.sum,
-                name = spn.name,
-                creationDate = spn.creationDate
-            ))
+            spendingsData.add(
+                SpendingData(
+                    userId = spn.userId,
+                    firstName = spn.firstName,
+                    sum = spn.sum,
+                    name = spn.name,
+                    creationDate = spn.creationDate
+                )
+            )
         }
         return spendingsData
     }

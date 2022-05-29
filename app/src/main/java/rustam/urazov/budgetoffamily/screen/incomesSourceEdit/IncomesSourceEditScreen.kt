@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import rustam.urazov.budgetoffamily.R
 import rustam.urazov.budgetoffamily.models.IncomesSource
-import java.io.IOException
 
 class IncomesSourceEditScreen : Fragment(R.layout.fragment_incomes_source_edit) {
 

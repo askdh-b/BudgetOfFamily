@@ -11,6 +11,7 @@ import androidx.navigation.navOptions
 import rustam.urazov.budgetoffamily.R
 
 class ProfileScreen : Fragment(R.layout.fragment_profile) {
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -46,11 +47,6 @@ class ProfileScreen : Fragment(R.layout.fragment_profile) {
         viewModel.invitationsCount.observe(activity) {
             tvNotificationsCount.text = it.toString()
         }
-
-        viewModel.getBalance()
-        viewModel.getIncomesSources()
-        viewModel.getSpendingsSources()
-        viewModel.getInvitations()
 
         ibNotifications.setOnClickListener {
             findNavController().navigate(
@@ -112,5 +108,10 @@ class ProfileScreen : Fragment(R.layout.fragment_profile) {
                 }
             )
         }
+
+        viewModel.getBalance()
+        viewModel.getIncomesSources()
+        viewModel.getSpendingsSources()
+        viewModel.getInvitations()
     }
 }

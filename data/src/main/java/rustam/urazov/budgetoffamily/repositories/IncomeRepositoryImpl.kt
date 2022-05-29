@@ -14,6 +14,7 @@ class IncomeRepositoryImpl(
     private val networkService: NetworkService,
     private val dispatcher: CoroutineDispatcher
 ) : IncomeRepository {
+
     override suspend fun getIncomes(accessToken: AccessToken): ResultWrapper<Any> =
         safeCall(dispatcher, call = {
             networkService.getIncomes(accessToken.token)
@@ -33,13 +34,15 @@ class IncomeRepositoryImpl(
         val incomesData = mutableListOf<IncomeData>()
         for (i in incomes) {
             val inc = i as IncomeResponse
-            incomesData.add(IncomeData(
-                userId = inc.userId,
-                firstName = inc.firstName,
-                sum = inc.sum,
-                name = inc.name,
-                creationDate = inc.creationDate
-            ))
+            incomesData.add(
+                IncomeData(
+                    userId = inc.userId,
+                    firstName = inc.firstName,
+                    sum = inc.sum,
+                    name = inc.name,
+                    creationDate = inc.creationDate
+                )
+            )
         }
         return incomesData
     }

@@ -41,7 +41,7 @@
         android:id="@+id/mainFragment"
         android:name="rustam.urazov.budgetoffamily.screen.main.MainScreen"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" >
+        tools:layout="@layout/fragment_main">
         <action
             android:id="@+id/action_mainFragment_to_signInScreen"
             app:destination="@id/signInScreen" />

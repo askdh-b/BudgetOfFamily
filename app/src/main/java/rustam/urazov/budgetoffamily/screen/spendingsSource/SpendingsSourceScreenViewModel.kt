@@ -21,6 +21,7 @@ class SpendingsSourceScreenViewModel(
     private val mapResponseToSpendingsSourceUseCase: MapResponseToSpendingsSourceUseCase,
     private val deleteSpendingsSourceUseCase: DeleteSpendingsSourceUseCase
 ) : ViewModel() {
+
     val spendingsSources = MutableLiveData<List<SpendingsSourceData>>()
 
     fun getSpendingsSources() = GlobalScope.launch(Dispatchers.IO) {

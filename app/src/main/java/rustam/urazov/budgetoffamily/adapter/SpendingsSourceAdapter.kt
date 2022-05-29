@@ -40,10 +40,12 @@ class SpendingsSourceAdapter(
         holder.tvName.text = spendingsSource[position].name
         holder.tvMonthDay.text = spendingsSource[position].monthDay.toString()
         holder.tvSum.text = spendingsSource[position].sum.toString()
+
         holder.ibSpendingsSourceEdit.setOnClickListener {
             this.yesId = spendingsSource[position].id
             this.noticePositive()
         }
+
         holder.ibIncomesSourceDelete.setOnClickListener {
             this.noId = spendingsSource[position].id
             this.noticeNegative()
@@ -51,6 +53,7 @@ class SpendingsSourceAdapter(
     }
 
     override fun getItemCount(): Int = spendingsSource.size
+
     override fun attach(observer: Observer) {
         observables.add(observer)
     }

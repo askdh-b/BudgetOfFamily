@@ -49,8 +49,6 @@ class GoalsScreenFactory(context: Context) : ViewModelProvider.Factory {
         GetCompletedGoalsUseCase()
     }
 
-
-
     override fun <T : ViewModel> create(modelClass: Class<T>): T = GoalsScreenViewModel(
         fragmentManager,
         getAccessTokenUseContext,

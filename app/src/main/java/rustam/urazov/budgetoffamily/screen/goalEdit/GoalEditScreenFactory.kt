@@ -6,7 +6,6 @@ import androidx.lifecycle.ViewModelProvider
 import kotlinx.coroutines.Dispatchers
 import rustam.urazov.budgetoffamily.activity.MainActivity
 import rustam.urazov.budgetoffamily.network.API
-import rustam.urazov.budgetoffamily.repositories.GoalRepository
 import rustam.urazov.budgetoffamily.repositories.GoalRepositoryImpl
 import rustam.urazov.budgetoffamily.repositories.TokenRepositoryImpl
 import rustam.urazov.budgetoffamily.storage.StorageServiceImpl

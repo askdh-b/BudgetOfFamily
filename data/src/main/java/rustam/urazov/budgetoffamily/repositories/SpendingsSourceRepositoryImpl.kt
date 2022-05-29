@@ -14,6 +14,7 @@ class SpendingsSourceRepositoryImpl(
     private val networkService: NetworkService,
     private val dispatcher: CoroutineDispatcher
 ) : SpendingsSourceRepository {
+
     override suspend fun getSpendingsSources(accessToken: AccessToken): ResultWrapper<Any> =
         safeCall(dispatcher, call = {
             networkService.getSpendingsSources(accessToken.token)

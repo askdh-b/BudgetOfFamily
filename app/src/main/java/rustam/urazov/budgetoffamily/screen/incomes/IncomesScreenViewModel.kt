@@ -19,14 +19,17 @@ class IncomesScreenViewModel(
     private val getUserIdUseCase: GetUserIdUseCase,
     private val getIncomesUseCase: GetIncomesUseCase,
     private val mapResponseToIncomeUseCase: MapResponseToIncomeUseCase
-): ViewModel() {
+) : ViewModel() {
 
     val incomes = MutableLiveData<List<IncomeData>>()
     val userId = MutableLiveData<Int>()
 
     fun getIncomes() = GlobalScope.launch {
-        when(val result = getIncomesUseCase.execute(getAccessToken())) {
-            is ResultWrapper.Error -> showErrorDialog(fragmentManager, result.error?.message.toString())
+        when (val result = getIncomesUseCase.execute(getAccessToken())) {
+            is ResultWrapper.Error -> showErrorDialog(
+                fragmentManager,
+                result.error?.message.toString()
+            )
             ResultWrapper.NetworkError -> showErrorDialog(
                 fragmentManager,
                 "Ошибка с сетью. Попробуйте позже."

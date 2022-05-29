@@ -14,6 +14,7 @@ class InvitationRepositoryImpl(
     private val networkService: NetworkService,
     private val dispatcher: CoroutineDispatcher
 ) : InvitationRepository {
+
     override suspend fun getInvitations(accessToken: AccessToken): ResultWrapper<Any> =
         safeCall(dispatcher, call = {
             networkService.getInvitations(accessToken.token)

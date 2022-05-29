@@ -16,6 +16,7 @@ class GoalRepositoryImpl(
     private val networkService: NetworkService,
     private val dispatcher: CoroutineDispatcher
 ) : GoalRepository {
+
     override suspend fun getGoals(accessToken: AccessToken): ResultWrapper<Any> =
         safeCall(dispatcher, call = {
             networkService.getGoals(accessToken.token)

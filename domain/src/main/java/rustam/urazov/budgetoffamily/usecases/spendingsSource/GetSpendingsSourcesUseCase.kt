@@ -5,5 +5,6 @@ import rustam.urazov.budgetoffamily.repositories.SpendingsSourceRepository
 
 class GetSpendingsSourcesUseCase(private val spendingsSourceRepository: SpendingsSourceRepository) {
 
-    suspend fun execute(accessToken: AccessToken) = spendingsSourceRepository.getSpendingsSources(accessToken)
+    suspend fun execute(accessToken: AccessToken) =
+        spendingsSourceRepository.getSpendingsSources(accessToken)
 }

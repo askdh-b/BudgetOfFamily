@@ -28,7 +28,10 @@ class GoalEditScreenViewModel(
 
     fun getGoal(id: Int) = GlobalScope.launch(Dispatchers.IO) {
         when (val result = getGoalUseCase.execute(getAccessToken(), id)) {
-            is ResultWrapper.Error -> showErrorDialog(fragmentManager, result.error?.message.toString())
+            is ResultWrapper.Error -> showErrorDialog(
+                fragmentManager,
+                result.error?.message.toString()
+            )
             ResultWrapper.NetworkError -> showErrorDialog(
                 fragmentManager,
                 "Ошибка с сетью. Попробуйте позже."
@@ -42,7 +45,10 @@ class GoalEditScreenViewModel(
 
     fun editGoal(id: Int, goalForEdit: GoalForEdit) = GlobalScope.launch(Dispatchers.IO) {
         when (val result = editGoalUseCase.execute(getAccessToken(), id, goalForEdit)) {
-            is ResultWrapper.Error -> showErrorDialog(fragmentManager, result.error?.message.toString())
+            is ResultWrapper.Error -> showErrorDialog(
+                fragmentManager,
+                result.error?.message.toString()
+            )
             ResultWrapper.NetworkError -> showErrorDialog(
                 fragmentManager,
                 "Ошибка с сетью. Попробуйте позже."

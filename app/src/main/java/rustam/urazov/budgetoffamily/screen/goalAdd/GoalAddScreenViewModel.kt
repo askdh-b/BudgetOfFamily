@@ -22,7 +22,10 @@ class GoalAddScreenViewModel(
 
     fun addGoal(goal: Goal) = GlobalScope.launch(Dispatchers.IO) {
         when (val result = addGoalUseCase.execute(getAccessToken(), goal)) {
-            is ResultWrapper.Error -> showErrorDialog(fragmentManager, result.error?.message.toString())
+            is ResultWrapper.Error -> showErrorDialog(
+                fragmentManager,
+                result.error?.message.toString()
+            )
             ResultWrapper.NetworkError -> showErrorDialog(
                 fragmentManager,
                 "Ошибка с сетью. Попробуйте позже."

@@ -102,7 +102,8 @@ class ProfileScreenViewModel(
                 "Ошибка с сетью. Попробуйте позже."
             )
             is ResultWrapper.Success -> {
-                val incomesSources = mapResponseToIncomesSourceUseCase.execute(result.value as List<*>)
+                val incomesSources =
+                    mapResponseToIncomesSourceUseCase.execute(result.value as List<*>)
                 val sum = getIncomesSourcesSumUseCase.execute(incomesSources)
                 incomesSourcesValue.postValue(sum)
             }
@@ -120,7 +121,8 @@ class ProfileScreenViewModel(
                 "Ошибка с сетью. Попробуйте позже."
             )
             is ResultWrapper.Success -> {
-                val spendingsSources = mapResponseToSpendingsSourceUseCase.execute(result.value as List<*>)
+                val spendingsSources =
+                    mapResponseToSpendingsSourceUseCase.execute(result.value as List<*>)
                 val sum = getSpendingsSourceSumUseCase.execute(spendingsSources)
                 spendingsSourcesValue.postValue(sum)
             }

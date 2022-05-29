@@ -36,8 +36,6 @@ class SpendingsSourceScreen : Fragment(R.layout.fragment_spendings_sources), Obs
             SpendingsSourceScreenFactory(context)
         )[SpendingsSourceScreenViewModel::class.java]
 
-        rvSpendingsSources.layoutManager = LinearLayoutManager(context)
-
         viewModel.spendingsSources.observe(activity) {
             if (flag == 0) {
                 adapter = SpendingsSourceAdapter(context, it)
@@ -46,6 +44,8 @@ class SpendingsSourceScreen : Fragment(R.layout.fragment_spendings_sources), Obs
 
             rvSpendingsSources.adapter = adapter
         }
+
+        rvSpendingsSources.layoutManager = LinearLayoutManager(context)
 
         ibAddSpendingsSource.setOnClickListener {
             findNavController().navigate(

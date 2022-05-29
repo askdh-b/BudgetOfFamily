@@ -24,7 +24,10 @@ class SignInScreenViewModel(
 
     fun authorize(userAuthData: UserAuthData) = GlobalScope.launch(Dispatchers.IO) {
         when (val result = userAuthorizationUseCase.execute(userAuthData)) {
-            is ResultWrapper.Error -> showErrorDialog(fragmentManager, result.error?.message.toString())
+            is ResultWrapper.Error -> showErrorDialog(
+                fragmentManager,
+                result.error?.message.toString()
+            )
             ResultWrapper.NetworkError -> showErrorDialog(
                 fragmentManager,
                 "Ошибка с сетью. Попробуйте позже."

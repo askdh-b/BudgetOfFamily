@@ -27,6 +27,12 @@ class SpendingsScreen : Fragment(R.layout.fragment_spendings) {
             SpendingsScreenFactory(context)
         )[SpendingsScreenViewModel::class.java]
 
+        viewModel.spendings.observe(activity) { spendings ->
+            viewModel.userId.observe(activity) { userId ->
+                rvSpendings.adapter = SpendingAdapter(context, spendings.reversed(), userId)
+            }
+        }
+
         rvSpendings.layoutManager = LinearLayoutManager(context)
 
         bAddSpending.setOnClickListener {
@@ -46,12 +52,6 @@ class SpendingsScreen : Fragment(R.layout.fragment_spendings) {
                     }
                 }
             )
-        }
-
-        viewModel.spendings.observe(activity) { spendings ->
-            viewModel.userId.observe(activity) { userId ->
-                rvSpendings.adapter = SpendingAdapter(context, spendings.reversed(), userId)
-            }
         }
 
         viewModel.getSpendings()

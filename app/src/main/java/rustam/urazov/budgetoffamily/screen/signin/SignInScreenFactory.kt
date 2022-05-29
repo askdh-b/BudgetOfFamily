@@ -12,7 +12,7 @@ import rustam.urazov.budgetoffamily.storage.StorageServiceImpl
 import rustam.urazov.budgetoffamily.usecases.SaveTokenUseCase
 import rustam.urazov.budgetoffamily.usecases.UserAuthorizationUseCase
 
-class SignInScreenFactory(context: Context): ViewModelProvider.Factory {
+class SignInScreenFactory(context: Context) : ViewModelProvider.Factory {
 
     private val dispatcher = Dispatchers.IO
 
@@ -37,6 +37,10 @@ class SignInScreenFactory(context: Context): ViewModelProvider.Factory {
     }
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return SignInScreenViewModel(userAuthorizationUseCase, saveTokenUseCase, fragmentManager) as T
+        return SignInScreenViewModel(
+            userAuthorizationUseCase,
+            saveTokenUseCase,
+            fragmentManager
+        ) as T
     }
 }

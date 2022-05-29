@@ -14,14 +14,16 @@ class IncomesSourceRepositoryImpl(
     private val networkService: NetworkService,
     private val dispatcher: CoroutineDispatcher
 ) : IncomesSourceRepository {
+
     override suspend fun getIncomesSources(accessToken: AccessToken): ResultWrapper<Any> =
         safeCall(dispatcher, call = {
             networkService.getIncomesSources(accessToken.token)
         })
 
-    override suspend fun getIncomesSource(accessToken: AccessToken, id: Int): ResultWrapper<Any> = safeCall(dispatcher, call = {
-        networkService.getIncomesSource(accessToken.token, id)
-    })
+    override suspend fun getIncomesSource(accessToken: AccessToken, id: Int): ResultWrapper<Any> =
+        safeCall(dispatcher, call = {
+            networkService.getIncomesSource(accessToken.token, id)
+        })
 
     override suspend fun addIncomesSource(
         accessToken: AccessToken,

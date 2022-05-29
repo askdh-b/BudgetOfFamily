@@ -6,7 +6,6 @@ import rustam.urazov.budgetoffamily.network.models.AuthBody
 import rustam.urazov.budgetoffamily.network.safeCall
 import rustam.urazov.budgetoffamily.ResultWrapper
 import rustam.urazov.budgetoffamily.models.UserAuthData
-import rustam.urazov.budgetoffamily.repositories.UserAuthorizationRepository
 
 class UserAuthorizationRepositoryImpl(
     private val networkService: NetworkService,

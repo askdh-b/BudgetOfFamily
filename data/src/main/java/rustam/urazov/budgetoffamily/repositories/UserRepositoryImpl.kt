@@ -12,6 +12,7 @@ class UserRepositoryImpl(
     private val networkService: NetworkService,
     private val dispatcher: CoroutineDispatcher
 ) : UserRepository {
+
     override suspend fun search(accessToken: AccessToken, q: String): ResultWrapper<Any> =
         safeCall(dispatcher, call = {
             networkService.search(accessToken.token, q)

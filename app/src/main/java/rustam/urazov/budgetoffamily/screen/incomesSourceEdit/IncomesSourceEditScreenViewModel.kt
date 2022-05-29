@@ -37,7 +37,7 @@ class IncomesSourceEditScreenViewModel(
                 "Ошибка с сетью. Попробуйте позже."
             )
             is ResultWrapper.Success -> {
-                val inS = mapResponseToIncomesSourceUseCase.execute(listOf(result.value) as List <*>)
+                val inS = mapResponseToIncomesSourceUseCase.execute(listOf(result.value) as List<*>)
                 incomesSource.postValue(inS[0])
             }
         }

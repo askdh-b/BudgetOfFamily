@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import rustam.urazov.budgetoffamily.R
 import rustam.urazov.budgetoffamily.models.SpendingsSource
-import java.io.IOException
 import java.lang.NumberFormatException
 
 class SpendingsSourceEditScreen : Fragment(R.layout.fragment_spendings_source_edit) {

@@ -3,7 +3,6 @@ package rustam.urazov.budgetoffamily.screen.incomes
 import android.os.Bundle
 import android.view.View
 import android.widget.Button
-import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -12,9 +11,9 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import rustam.urazov.budgetoffamily.R
 import rustam.urazov.budgetoffamily.adapter.IncomeAdapter
-import rustam.urazov.budgetoffamily.screen.goalEdit.GoalEditScreen
 
 class IncomesScreen : Fragment(R.layout.fragment_incomes) {
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
@@ -29,13 +28,13 @@ class IncomesScreen : Fragment(R.layout.fragment_incomes) {
             IncomesScreenFactory(context)
         )[IncomesScreenViewModel::class.java]
 
-        rvIncomes.layoutManager = LinearLayoutManager(context)
-
         viewModel.incomes.observe(activity) { incomes ->
             viewModel.userId.observe(activity) { userId ->
                 rvIncomes.adapter = IncomeAdapter(context, incomes.reversed(), userId)
             }
         }
+
+        rvIncomes.layoutManager = LinearLayoutManager(context)
 
         bAddIncome.setOnClickListener {
             findNavController().navigate(

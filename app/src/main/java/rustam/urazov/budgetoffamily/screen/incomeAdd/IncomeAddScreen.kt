@@ -10,7 +10,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import rustam.urazov.budgetoffamily.R
 import rustam.urazov.budgetoffamily.models.Income
-import java.io.IOException
 import java.lang.NumberFormatException
 
 class IncomeAddScreen : Fragment(R.layout.fragment_income_add) {
@@ -31,20 +30,6 @@ class IncomeAddScreen : Fragment(R.layout.fragment_income_add) {
             IncomeAddScreenFactory(context)
         )[IncomeAddScreenViewModel::class.java]
 
-        ibAddIncome.setOnClickListener {
-            try {
-                viewModel.addIncome(
-                    Income(
-                        name = etName.text.toString(),
-                        sum = etSum.text.toString().toFloat()
-                    )
-                )
-            } catch (e: NumberFormatException) {
-                viewModel.showError()
-            }
-
-        }
-
         viewModel.success.observe(activity) {
             findNavController().navigate(
                 R.id.action_incomeAddFragment_to_incomesFragment,
@@ -62,6 +47,19 @@ class IncomeAddScreen : Fragment(R.layout.fragment_income_add) {
                     }
                 }
             )
+        }
+
+        ibAddIncome.setOnClickListener {
+            try {
+                viewModel.addIncome(
+                    Income(
+                        name = etName.text.toString(),
+                        sum = etSum.text.toString().toFloat()
+                    )
+                )
+            } catch (e: NumberFormatException) {
+                viewModel.showError()
+            }
         }
 
         ibBack.setOnClickListener {

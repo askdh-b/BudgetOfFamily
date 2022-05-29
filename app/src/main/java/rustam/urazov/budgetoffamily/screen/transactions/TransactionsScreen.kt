@@ -13,8 +13,9 @@ class TransactionsScreen : Fragment(R.layout.fragment_transactions) {
         super.onViewCreated(view, savedInstanceState)
 
         val bnvTransactions: BottomNavigationView = view.findViewById(R.id.bnvTransactions)
-        val navController = (childFragmentManager.findFragmentById(R.id.fcvTransactions) as NavHostFragment)
-            .navController
+        val navController =
+            (childFragmentManager.findFragmentById(R.id.fcvTransactions) as NavHostFragment)
+                .navController
         bnvTransactions.setupWithNavController(navController)
     }
 }

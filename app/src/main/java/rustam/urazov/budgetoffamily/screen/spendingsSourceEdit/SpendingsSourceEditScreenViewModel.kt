@@ -37,7 +37,8 @@ class SpendingsSourceEditScreenViewModel(
                 "Ошибка с сетью. Попробуйте позже."
             )
             is ResultWrapper.Success -> {
-                val inS = mapResponseToSpendingsSourceUseCase.execute(listOf(result.value) as List <*>)
+                val inS =
+                    mapResponseToSpendingsSourceUseCase.execute(listOf(result.value) as List<*>)
                 spendingsSource.postValue(inS[0])
             }
         }

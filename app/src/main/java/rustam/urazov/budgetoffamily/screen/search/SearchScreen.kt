@@ -35,10 +35,6 @@ class SearchScreen : Fragment(R.layout.fragment_search), Observer {
             SearchScreenFactory(context)
         )[SearchScreenViewModel::class.java]
 
-        etSearch.addTextChangedListener {
-            viewModel.getUsers(it.toString())
-        }
-
         viewModel.users.observe(activity) {
             if (flag == 0) {
                 adapter = UserAdapter(context, it)
@@ -46,6 +42,10 @@ class SearchScreen : Fragment(R.layout.fragment_search), Observer {
             }
 
             rvUsers.adapter = adapter
+        }
+
+        etSearch.addTextChangedListener {
+            viewModel.getUsers(it.toString())
         }
     }
 

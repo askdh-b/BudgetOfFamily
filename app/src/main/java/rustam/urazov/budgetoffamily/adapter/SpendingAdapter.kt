@@ -14,6 +14,7 @@ class SpendingAdapter(
     private val spendings: List<SpendingData>,
     private val userId: Int
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
     class SelfSpendingsViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         private val tvName: TextView = itemView.findViewById(R.id.tvName)
         private val tvSum: TextView = itemView.findViewById(R.id.tvSum)

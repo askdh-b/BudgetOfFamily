@@ -1,48 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_height="match_parent">
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/clPanel"
-            app:layout_constraintTop_toTopOf="parent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/orange">
+            android:background="@color/orange"
+            app:layout_constraintTop_toTopOf="parent">
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/ibBack"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginVertical="6dp"
                 android:background="?android:attr/selectableItemBackground"
-                android:src="@drawable/ic_back" />
+                android:src="@drawable/ic_back"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <androidx.appcompat.widget.AppCompatTextView
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0"
-                app:layout_constraintStart_toEndOf="@id/ibBack"
-                app:layout_constraintTop_toTopOf="parent"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="6dp"
                 android:text="@string/spending"
                 android:textColor="@color/lightYellow"
-                android:textSize="32sp" />
+                android:textSize="32sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0"
+                app:layout_constraintStart_toEndOf="@id/ibBack"
+                app:layout_constraintTop_toTopOf="parent" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/etName"
-            app:layout_constraintTop_toBottomOf="@id/clPanel"
-            app:layout_constraintVertical_bias="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="18dp"
@@ -51,12 +50,12 @@
             android:backgroundTint="@color/dark"
             android:hint="@string/name"
             android:inputType="text"
-            android:textColor="@color/dark" />
+            android:textColor="@color/dark"
+            app:layout_constraintTop_toBottomOf="@id/clPanel"
+            app:layout_constraintVertical_bias="1" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/etSum"
-            app:layout_constraintTop_toBottomOf="@id/etName"
-            app:layout_constraintVertical_bias="1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginHorizontal="18dp"
@@ -65,23 +64,25 @@
             android:backgroundTint="@color/dark"
             android:hint="@string/sum"
             android:inputType="text"
-            android:textColor="@color/dark" />
+            android:textColor="@color/dark"
+            app:layout_constraintTop_toBottomOf="@id/etName"
+            app:layout_constraintVertical_bias="1" />
 
         <androidx.cardview.widget.CardView
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="18dp"
-            android:layout_marginBottom="24dp">
+            android:layout_marginBottom="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent">
 
             <androidx.appcompat.widget.AppCompatImageButton
                 android:id="@+id/ibAddSpending"
-                app:backgroundTint="@color/yellow"
                 android:layout_width="60dp"
                 android:layout_height="60dp"
                 android:background="?android:attr/selectableItemBackground"
-                android:src="@drawable/ic_save" />
+                android:src="@drawable/ic_save"
+                app:backgroundTint="@color/yellow" />
         </androidx.cardview.widget.CardView>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
