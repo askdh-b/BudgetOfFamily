@@ -19,11 +19,13 @@ class IncomeAdapter(
         private val tvName: TextView = itemView.findViewById(R.id.tvName)
         private val tvSum: TextView = itemView.findViewById(R.id.tvSum)
         private val tvUser: TextView = itemView.findViewById(R.id.tvUser)
+        private val tvTime: TextView = itemView.findViewById(R.id.tvTime)
 
         fun bind(incomeData: IncomeData) {
             tvName.text = incomeData.name
             tvSum.text = incomeData.sum.toString()
             tvUser.text = incomeData.firstName
+            tvTime.text = incomeData.creationDate
         }
     }
 
@@ -31,11 +33,13 @@ class IncomeAdapter(
         private val tvName: TextView = itemView.findViewById(R.id.tvName)
         private val tvSum: TextView = itemView.findViewById(R.id.tvSum)
         private val tvUser: TextView = itemView.findViewById(R.id.tvUser)
+        private val tvTime: TextView = itemView.findViewById(R.id.tvTime)
 
         fun bind(incomeData: IncomeData) {
             tvName.text = incomeData.name
             tvSum.text = incomeData.sum.toString()
             tvUser.text = incomeData.firstName
+            tvTime.text = incomeData.creationDate
         }
     }
 
