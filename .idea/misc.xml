@@ -23,7 +23,10 @@
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/drawable/layout_corners_yellow_12dp.xml" value="0.1415" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/drawable/layout_corners_yellow_6dp.xml" value="0.146" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/completed_goal.xml" value="0.225" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/enemy_transaction.xml" value="0.225" />
+        <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_completed_goals.xml" value="0.225" />
+        <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_current_goals.xml" value="0.225" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_goal_add.xml" value="0.225" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_goal_edit.xml" value="0.25" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/fragment_goals.xml" value="0.3333333333333333" />
@@ -55,6 +58,7 @@
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/layout/user.xml" value="0.225" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/menu/bottom_menu.xml" value="0.225" />
         <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/menu/top_menu.xml" value="0.225" />
+        <entry key="..\:/Projects/BudgetOfFamily/app/src/main/res/menu/top_menu_goals.xml" value="0.225" />
       </map>
     </option>
   </component>

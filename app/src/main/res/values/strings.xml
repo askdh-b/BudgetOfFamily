@@ -34,8 +34,8 @@
     <string name="balance">Баланс</string>
     <string name="incomes_sources">Источники доходов</string>
     <string name="spendings_sources">Источники расходов</string>
-    <string name="current_goals">Действующие цели</string>
-    <string name="completed_goals">Завершенные цели</string>
+    <string name="current">Действующие</string>
+    <string name="completed">Завершенные</string>
     <string name="income_percentage">Процент от дохода:</string>
     <string name="month_day">День месяца</string>
     <string name="incomes">Доходы</string>

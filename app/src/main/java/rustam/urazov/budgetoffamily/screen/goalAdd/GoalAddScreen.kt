@@ -36,7 +36,7 @@ class GoalAddScreen : Fragment(R.layout.fragment_goal_add) {
             if (it) {
                 lifecycleScope.launchWhenResumed {
                     findNavController().navigate(
-                        R.id.action_goalAddFragment_to_goalsFragment,
+                        R.id.action_goalAddFragment_to_currentGoalsFragment,
                         null,
                         navOptions {
                             anim {
@@ -46,7 +46,7 @@ class GoalAddScreen : Fragment(R.layout.fragment_goal_add) {
                                 exit = androidx.navigation.ui.R.anim.nav_default_exit_anim
                             }
                             launchSingleTop = true
-                            popUpTo(R.id.nav_graph_content) {
+                            popUpTo(R.id.nav_graph_goals) {
                                 inclusive = true
                             }
                         }
@@ -58,7 +58,7 @@ class GoalAddScreen : Fragment(R.layout.fragment_goal_add) {
 
         ibBack.setOnClickListener {
             findNavController().navigate(
-                R.id.action_goalAddFragment_to_goalsFragment,
+                R.id.action_goalAddFragment_to_currentGoalsFragment,
                 null,
                 navOptions {
                     anim {
@@ -68,7 +68,7 @@ class GoalAddScreen : Fragment(R.layout.fragment_goal_add) {
                         exit = androidx.navigation.ui.R.anim.nav_default_exit_anim
                     }
                     launchSingleTop = true
-                    popUpTo(R.id.nav_graph_content) {
+                    popUpTo(R.id.nav_graph_goals) {
                         inclusive = true
                     }
                 }

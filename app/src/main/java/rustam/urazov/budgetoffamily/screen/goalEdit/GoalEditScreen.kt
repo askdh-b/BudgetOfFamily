@@ -11,7 +11,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import rustam.urazov.budgetoffamily.R
 import rustam.urazov.budgetoffamily.models.GoalForEdit
-import java.io.IOException
 import java.lang.NumberFormatException
 
 class GoalEditScreen : Fragment(R.layout.fragment_goal_edit) {
@@ -47,7 +46,7 @@ class GoalEditScreen : Fragment(R.layout.fragment_goal_edit) {
             if (it) {
                 lifecycleScope.launchWhenResumed {
                     findNavController().navigate(
-                        R.id.action_goalEditFragment_to_goalsFragment,
+                        R.id.action_goalEditFragment_to_currentGoalsFragment,
                         null,
                         navOptions {
                             anim {
@@ -57,7 +56,7 @@ class GoalEditScreen : Fragment(R.layout.fragment_goal_edit) {
                                 exit = androidx.navigation.ui.R.anim.nav_default_exit_anim
                             }
                             launchSingleTop = true
-                            popUpTo(R.id.nav_graph_content) {
+                            popUpTo(R.id.nav_graph_goals) {
                                 inclusive = true
                             }
                         }
@@ -69,7 +68,7 @@ class GoalEditScreen : Fragment(R.layout.fragment_goal_edit) {
 
         ibBack.setOnClickListener {
             findNavController().navigate(
-                R.id.action_goalEditFragment_to_goalsFragment,
+                R.id.action_goalEditFragment_to_currentGoalsFragment,
                 null,
                 navOptions {
                     anim {
@@ -79,7 +78,7 @@ class GoalEditScreen : Fragment(R.layout.fragment_goal_edit) {
                         exit = androidx.navigation.ui.R.anim.nav_default_exit_anim
                     }
                     launchSingleTop = true
-                    popUpTo(R.id.nav_graph_content) {
+                    popUpTo(R.id.nav_graph_goals) {
                         inclusive = true
                     }
                 }

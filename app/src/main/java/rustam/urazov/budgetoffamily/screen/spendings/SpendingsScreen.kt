@@ -29,7 +29,8 @@ class SpendingsScreen : Fragment(R.layout.fragment_spendings) {
 
         viewModel.spendings.observe(activity) { spendings ->
             viewModel.userId.observe(activity) { userId ->
-                rvSpendings.adapter = SpendingAdapter(context, spendings.reversed(), userId)
+                rvSpendings.adapter = SpendingAdapter(context, spendings, userId)
+                rvSpendings.scrollToPosition(spendings.size - 1)
             }
         }
 

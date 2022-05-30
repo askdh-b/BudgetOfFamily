@@ -9,6 +9,7 @@ import com.google.android.material.bottomnavigation.BottomNavigationView
 import rustam.urazov.budgetoffamily.R
 
 class TransactionsScreen : Fragment(R.layout.fragment_transactions) {
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 

@@ -30,7 +30,8 @@ class IncomesScreen : Fragment(R.layout.fragment_incomes) {
 
         viewModel.incomes.observe(activity) { incomes ->
             viewModel.userId.observe(activity) { userId ->
-                rvIncomes.adapter = IncomeAdapter(context, incomes.reversed(), userId)
+                rvIncomes.adapter = IncomeAdapter(context, incomes, userId)
+                rvIncomes.scrollToPosition(incomes.size - 1)
             }
         }
 

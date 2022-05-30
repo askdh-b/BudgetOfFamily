@@ -13,14 +13,14 @@ import rustam.urazov.budgetoffamily.models.GoalData
 import rustam.urazov.budgetoffamily.observer.Observable
 import rustam.urazov.budgetoffamily.observer.Observer
 
-class GoalAdapter(private val context: Context, private val goals: List<GoalData>) :
-    RecyclerView.Adapter<GoalAdapter.ViewHolder>(), Observable {
+class CurrentGoalAdapter(private val context: Context, private val currentGoals: List<GoalData>) :
+    RecyclerView.Adapter<CurrentGoalAdapter.CurrentGoalViewHolder>(), Observable {
 
     private val observables = mutableListOf<Observer>()
     var yesId = 0
     var noId = 0
 
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class CurrentGoalViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvName: TextView = itemView.findViewById(R.id.tvName)
         val tvCurrentSum: TextView = itemView.findViewById(R.id.tvCurrentSum)
         val tvIncomePercentage: TextView = itemView.findViewById(R.id.tvIncomePercentage)
@@ -29,15 +29,15 @@ class GoalAdapter(private val context: Context, private val goals: List<GoalData
         val ibGoalDelete: ImageView = itemView.findViewById(R.id.ibGoalDelete)
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
-        ViewHolder(LayoutInflater.from(context).inflate(R.layout.goal, parent, false))
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CurrentGoalViewHolder =
+        CurrentGoalViewHolder(LayoutInflater.from(context).inflate(R.layout.current_goal, parent, false))
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.tvName.text = goals[position].name
-        holder.tvCurrentSum.text = goals[position].necessarySum.toString()
-        holder.tvIncomePercentage.text = goals[position].incomePercentile.toString()
+    override fun onBindViewHolder(holder: CurrentGoalViewHolder, position: Int) {
+        holder.tvName.text = currentGoals[position].name
+        holder.tvCurrentSum.text = currentGoals[position].necessarySum.toString()
+        holder.tvIncomePercentage.text = currentGoals[position].incomePercentile.toString()
 
-        var percentage = ((goals[position].actualSum / goals[position].necessarySum) * 100).toInt()
+        var percentage = ((currentGoals[position].actualSum / currentGoals[position].necessarySum) * 100).toInt()
         val color = (percentage * 1.33).toFloat()
         val hsl = ColorUtils.HSLToColor(floatArrayOf(color, 1.0f, 0.6f))
 
@@ -47,17 +47,17 @@ class GoalAdapter(private val context: Context, private val goals: List<GoalData
         holder.tvProgress.setTextColor(hsl)
 
         holder.ibGoalEdit.setOnClickListener {
-            yesId = goals[position].id
+            yesId = currentGoals[position].id
             noticePositive()
         }
 
         holder.ibGoalDelete.setOnClickListener {
-            noId = goals[position].id
+            noId = currentGoals[position].id
             noticeNegative()
         }
     }
 
-    override fun getItemCount(): Int = goals.size
+    override fun getItemCount(): Int = currentGoals.size
 
     override fun attach(observer: Observer) {
         observables.add(observer)

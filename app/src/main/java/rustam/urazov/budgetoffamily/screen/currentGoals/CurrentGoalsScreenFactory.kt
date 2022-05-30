@@ -1,4 +1,4 @@
-package rustam.urazov.budgetoffamily.screen.goals
+package rustam.urazov.budgetoffamily.screen.currentGoals
 
 import android.content.Context
 import androidx.lifecycle.ViewModel
@@ -9,10 +9,10 @@ import rustam.urazov.budgetoffamily.network.API
 import rustam.urazov.budgetoffamily.repositories.GoalRepositoryImpl
 import rustam.urazov.budgetoffamily.repositories.TokenRepositoryImpl
 import rustam.urazov.budgetoffamily.storage.StorageServiceImpl
-import rustam.urazov.budgetoffamily.usecases.*
+import rustam.urazov.budgetoffamily.usecases.GetAccessTokenUseCase
 import rustam.urazov.budgetoffamily.usecases.goal.*
 
-class GoalsScreenFactory(context: Context) : ViewModelProvider.Factory {
+class CurrentGoalsScreenFactory(private val context: Context) : ViewModelProvider.Factory {
 
     private val fragmentManager = (context as MainActivity).supportFragmentManager
     private val networkService = API.mInstance.networkService
@@ -45,17 +45,12 @@ class GoalsScreenFactory(context: Context) : ViewModelProvider.Factory {
         GetCurrentGoalsUseCase()
     }
 
-    private val getCompletedGoalsUseCase by lazy {
-        GetCompletedGoalsUseCase()
-    }
-
-    override fun <T : ViewModel> create(modelClass: Class<T>): T = GoalsScreenViewModel(
+    override fun <T : ViewModel> create(modelClass: Class<T>): T = CurrentGoalsScreenViewModel(
         fragmentManager,
         getAccessTokenUseContext,
         getGoalsUseCase,
         mapResponseToGoalUseCase,
         getCurrentGoalsUseCase,
-        getCompletedGoalsUseCase,
         deleteGoalUseCase
     ) as T
 }

@@ -1,4 +1,4 @@
-package rustam.urazov.budgetoffamily.screen.goals
+package rustam.urazov.budgetoffamily.screen.currentGoals
 
 import androidx.fragment.app.FragmentManager
 import androidx.lifecycle.MutableLiveData
@@ -9,21 +9,22 @@ import kotlinx.coroutines.launch
 import rustam.urazov.budgetoffamily.ResultWrapper
 import rustam.urazov.budgetoffamily.models.GoalData
 import rustam.urazov.budgetoffamily.screen.showErrorDialog
-import rustam.urazov.budgetoffamily.usecases.*
-import rustam.urazov.budgetoffamily.usecases.goal.*
+import rustam.urazov.budgetoffamily.usecases.GetAccessTokenUseCase
+import rustam.urazov.budgetoffamily.usecases.goal.DeleteGoalUseCase
+import rustam.urazov.budgetoffamily.usecases.goal.GetCurrentGoalsUseCase
+import rustam.urazov.budgetoffamily.usecases.goal.GetGoalsUseCase
+import rustam.urazov.budgetoffamily.usecases.goal.MapResponseToGoalUseCase
 
-class GoalsScreenViewModel(
+class CurrentGoalsScreenViewModel(
     private val fragmentManager: FragmentManager,
     private val getAccessTokenUseCase: GetAccessTokenUseCase,
     private val getGoalsUseCase: GetGoalsUseCase,
     private val mapResponseToGoalUseCase: MapResponseToGoalUseCase,
     private val getCurrentGoalsUseCase: GetCurrentGoalsUseCase,
-    private val getCompletedGoalsUseCase: GetCompletedGoalsUseCase,
     private val deleteGoalUseCase: DeleteGoalUseCase
-) : ViewModel() {
+) : ViewModel(){
 
     val currentGoals = MutableLiveData<List<GoalData>>()
-    val completedGoals = MutableLiveData<List<GoalData>>()
 
     fun getGoals() = GlobalScope.launch(Dispatchers.IO) {
         when (val result = getGoalsUseCase.execute(getAccessToken())) {
@@ -38,9 +39,7 @@ class GoalsScreenViewModel(
             is ResultWrapper.Success -> {
                 val goals = mapResponseToGoalUseCase.execute(result.value as List<*>)
                 val cuGs = getCurrentGoalsUseCase.execute(goals)
-                val coGs = getCompletedGoalsUseCase.execute(goals)
                 currentGoals.postValue(cuGs)
-                completedGoals.postValue(coGs)
             }
         }
     }
