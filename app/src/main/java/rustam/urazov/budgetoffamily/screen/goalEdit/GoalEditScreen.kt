@@ -87,14 +87,22 @@ class GoalEditScreen : Fragment(R.layout.fragment_goal_edit) {
 
         ibEditGoal.setOnClickListener {
             try {
-                viewModel.editGoal(
-                    id, GoalForEdit(
-                        name = etName.text.toString(),
-                        incomePercentile = etIncomePercentile.text.toString().toFloat(),
-                        progress = etActualSum.text.toString().toFloat(),
-                        sum = etNecessarySum.text.toString().toFloat()
+                if (etName.text.length in 1..30 && etIncomePercentile.text.toString()
+                        .toFloat() >= 0 && etIncomePercentile.text.toString()
+                        .toFloat() <= 25 && etNecessarySum.text.toString()
+                        .toFloat() >= 1 && etActualSum.text.toString()
+                        .toFloat() >= 0 && etActualSum.text.toString()
+                        .toFloat() <= etNecessarySum.text.toString().toFloat()
+                ) {
+                    viewModel.editGoal(
+                        id, GoalForEdit(
+                            name = etName.text.toString(),
+                            incomePercentile = etIncomePercentile.text.toString().toFloat(),
+                            progress = etActualSum.text.toString().toFloat(),
+                            sum = etNecessarySum.text.toString().toFloat()
+                        )
                     )
-                )
+                } else viewModel.showError()
             } catch (e: NumberFormatException) {
                 viewModel.showError()
             }

@@ -66,13 +66,17 @@ class SpendingsSourceEditScreen : Fragment(R.layout.fragment_spendings_source_ed
 
         ibSave.setOnClickListener {
             try {
-                viewModel.editSpendingsSource(
-                    SpendingsSource(
-                        name = etName.text.toString(),
-                        sum = etSum.text.toString().toFloat(),
-                        monthDay = etMonthDay.text.toString().toInt()
-                    ), id
-                )
+                if (etName.text.length in 1..30 && etSum.text.toString()
+                        .toFloat() >= 1 && etMonthDay.text.toString().toInt() in 1..31
+                ) {
+                    viewModel.editSpendingsSource(
+                        SpendingsSource(
+                            name = etName.text.toString(),
+                            sum = etSum.text.toString().toFloat(),
+                            monthDay = etMonthDay.text.toString().toInt()
+                        ), id
+                    )
+                } else viewModel.showError()
             } catch (e: NumberFormatException) {
                 viewModel.showError()
             }

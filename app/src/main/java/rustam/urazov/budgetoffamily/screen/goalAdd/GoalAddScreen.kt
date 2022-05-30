@@ -77,13 +77,18 @@ class GoalAddScreen : Fragment(R.layout.fragment_goal_add) {
 
         ibAddGoal.setOnClickListener {
             try {
-                viewModel.addGoal(
-                    Goal(
-                        name = etName.text.toString(),
-                        incomePercentile = etIncomePercentile.text.toString().toFloat(),
-                        sum = etNecessarySum.text.toString().toFloat()
+                if (etName.text.length in 1..30 && etIncomePercentile.text.toString()
+                        .toFloat() >= 0 && etIncomePercentile.text.toString()
+                        .toFloat() <= 25 && etNecessarySum.text.toString().toFloat() >= 1
+                ) {
+                    viewModel.addGoal(
+                        Goal(
+                            name = etName.text.toString(),
+                            incomePercentile = etIncomePercentile.text.toString().toFloat(),
+                            sum = etNecessarySum.text.toString().toFloat()
+                        )
                     )
-                )
+                } else viewModel.showError()
             } catch (e: NumberFormatException) {
                 viewModel.showError()
             }

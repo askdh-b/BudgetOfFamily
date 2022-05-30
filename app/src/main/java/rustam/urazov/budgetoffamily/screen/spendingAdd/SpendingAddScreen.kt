@@ -57,12 +57,16 @@ class SpendingAddScreen : Fragment(R.layout.fragment_spending_add) {
 
         ibAddSpending.setOnClickListener {
             try {
-                viewModel.addSpending(
-                    Spending(
-                        name = etName.text.toString(),
-                        sum = etSum.text.toString().toFloat()
+                if (etName.text.length in 1..30 && etSum.text.toString()
+                        .toFloat() >= 1
+                ) {
+                    viewModel.addSpending(
+                        Spending(
+                            name = etName.text.toString(),
+                            sum = etSum.text.toString().toFloat()
+                        )
                     )
-                )
+                } else viewModel.showError()
             } catch (e: NumberFormatException) {
                 viewModel.showError()
             }

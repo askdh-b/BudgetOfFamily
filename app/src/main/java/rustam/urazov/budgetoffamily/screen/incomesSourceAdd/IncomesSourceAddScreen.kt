@@ -58,13 +58,17 @@ class IncomesSourceAddScreen : Fragment(R.layout.fragment_incomes_source_add) {
 
         ibSave.setOnClickListener {
             try {
-                viewModel.addIncomesSource(
-                    IncomesSource(
-                        name = etName.text.toString(),
-                        sum = etSum.text.toString().toFloat(),
-                        monthDay = etMonthDay.text.toString().toInt()
+                if (etName.text.length in 1..30 && etSum.text.toString()
+                        .toFloat() >= 1 && etMonthDay.text.toString().toInt() in 1..31
+                ) {
+                    viewModel.addIncomesSource(
+                        IncomesSource(
+                            name = etName.text.toString(),
+                            sum = etSum.text.toString().toFloat(),
+                            monthDay = etMonthDay.text.toString().toInt()
+                        )
                     )
-                )
+                } else viewModel.showError()
             } catch (e: NumberFormatException) {
                 viewModel.showError()
             }

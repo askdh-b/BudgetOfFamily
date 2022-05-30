@@ -57,12 +57,16 @@ class IncomeAddScreen : Fragment(R.layout.fragment_income_add) {
 
         ibAddIncome.setOnClickListener {
             try {
-                viewModel.addIncome(
-                    Income(
-                        name = etName.text.toString(),
-                        sum = etSum.text.toString().toFloat()
+                if (etName.text.length in 1..30 && etSum.text.toString()
+                        .toFloat() >= 1
+                ) {
+                    viewModel.addIncome(
+                        Income(
+                            name = etName.text.toString(),
+                            sum = etSum.text.toString().toFloat()
+                        )
                     )
-                )
+                } else viewModel.showError()
             } catch (e: NumberFormatException) {
                 viewModel.showError()
             }
