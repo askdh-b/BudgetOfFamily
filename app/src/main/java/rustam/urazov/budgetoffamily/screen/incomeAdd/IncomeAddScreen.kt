@@ -58,7 +58,8 @@ class IncomeAddScreen : Fragment(R.layout.fragment_income_add) {
         ibAddIncome.setOnClickListener {
             try {
                 if (etName.text.length in 1..30 && etSum.text.toString()
-                        .toFloat() >= 1
+                        .toFloat() >= 1 && etSum.text.toString()
+                        .toFloat() <= 200000
                 ) {
                     viewModel.addIncome(
                         Income(

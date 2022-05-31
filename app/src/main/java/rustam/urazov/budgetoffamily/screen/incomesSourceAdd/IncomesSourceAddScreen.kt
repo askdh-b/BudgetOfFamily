@@ -59,8 +59,9 @@ class IncomesSourceAddScreen : Fragment(R.layout.fragment_incomes_source_add) {
         ibSave.setOnClickListener {
             try {
                 if (etName.text.length in 1..30 && etSum.text.toString()
-                        .toFloat() >= 1 && etMonthDay.text.toString().toInt() in 1..31
-                ) {
+                        .toFloat() >= 1 && etSum.text.toString()
+                        .toFloat() <= 200000 && etMonthDay.text.toString().toInt() in 1..31
+                ) { 
                     viewModel.addIncomesSource(
                         IncomesSource(
                             name = etName.text.toString(),

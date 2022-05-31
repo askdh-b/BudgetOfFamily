@@ -58,7 +58,8 @@ class SpendingAddScreen : Fragment(R.layout.fragment_spending_add) {
         ibAddSpending.setOnClickListener {
             try {
                 if (etName.text.length in 1..30 && etSum.text.toString()
-                        .toFloat() >= 1
+                        .toFloat() >= 1 && etSum.text.toString()
+                        .toFloat() <= 200000
                 ) {
                     viewModel.addSpending(
                         Spending(

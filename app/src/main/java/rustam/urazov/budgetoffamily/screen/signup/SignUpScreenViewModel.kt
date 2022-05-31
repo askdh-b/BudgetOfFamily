@@ -69,4 +69,9 @@ class SignUpScreenViewModel(
             } else showErrorDialog(fragmentManager, "Пожалуйста, заполните поля корректно")
         else showErrorDialog(fragmentManager, "Пожалуйста заполните все поля")
     }
+
+    fun showError() = showErrorDialog(
+        fragmentManager,
+        "Пожалуйста, заполните поля корректно"
+    )
 }

@@ -69,15 +69,17 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
         }
 
         bSignUp.setOnClickListener {
-            viewModel.register(
-                NewUser(
-                    etFirstName.text.toString(),
-                    etLastName.text.toString(),
-                    etEmail.text.toString(),
-                    etPassword.text.toString(),
-                    etPasswordAgain.text.toString()
+            if (etFirstName.text.length in 1..20 && etLastName.text.length in 1..20 && etEmail.text.length in 3..20 && etPassword.text.length in 6..20) {
+                viewModel.register(
+                    NewUser(
+                        etFirstName.text.toString(),
+                        etLastName.text.toString(),
+                        etEmail.text.toString(),
+                        etPassword.text.toString(),
+                        etPasswordAgain.text.toString()
+                    )
                 )
-            )
+            } else viewModel.showError()
         }
     }
 }
