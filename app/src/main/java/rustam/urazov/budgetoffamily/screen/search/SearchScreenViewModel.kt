@@ -10,6 +10,7 @@ import rustam.urazov.budgetoffamily.ResultWrapper
 import rustam.urazov.budgetoffamily.models.Invitation
 import rustam.urazov.budgetoffamily.models.UserData
 import rustam.urazov.budgetoffamily.screen.showErrorDialog
+import rustam.urazov.budgetoffamily.screen.showInfoDialog
 import rustam.urazov.budgetoffamily.usecases.GetAccessTokenUseCase
 import rustam.urazov.budgetoffamily.usecases.MapResponseToUserUseCase
 import rustam.urazov.budgetoffamily.usecases.SearchUseCase
@@ -57,6 +58,7 @@ class SearchScreenViewModel(
                 success.postValue(true)
             }
         }
+        showInfoDialog(fragmentManager, "Приглашение отправлено", "Приглашение отправлено")
     }
 
     private suspend fun getAccessToken() = getAccessTokenUseCase.execute()

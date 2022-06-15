@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -73,6 +76,57 @@ class GoalAddScreen : Fragment(R.layout.fragment_goal_add) {
                     }
                 }
             )
+        }
+
+        etName.addTextChangedListener {
+            if (it?.length in 1..30) DrawableCompat.setTint(
+                etName.background,
+                ContextCompat.getColor(context, R.color.green)
+            )
+            else DrawableCompat.setTint(
+                etName.background,
+                ContextCompat.getColor(context, R.color.red)
+            )
+        }
+
+        etIncomePercentile.addTextChangedListener {
+            try {
+                if (etIncomePercentile.text.toString()
+                        .toFloat() in 0.0..25.0
+                ) DrawableCompat.setTint(
+                    etIncomePercentile.background,
+                    ContextCompat.getColor(context, R.color.green)
+                )
+                else DrawableCompat.setTint(
+                    etIncomePercentile.background,
+                    ContextCompat.getColor(context, R.color.red)
+                )
+            } catch (e: NumberFormatException) {
+                DrawableCompat.setTint(
+                    etIncomePercentile.background,
+                    ContextCompat.getColor(context, R.color.red)
+                )
+            }
+        }
+
+        etNecessarySum.addTextChangedListener {
+            try {
+                if (etNecessarySum.text.toString()
+                        .toFloat() >= 1
+                ) DrawableCompat.setTint(
+                    etNecessarySum.background,
+                    ContextCompat.getColor(context, R.color.green)
+                )
+                else DrawableCompat.setTint(
+                    etNecessarySum.background,
+                    ContextCompat.getColor(context, R.color.red)
+                )
+            } catch (e: NumberFormatException) {
+                DrawableCompat.setTint(
+                    etNecessarySum.background,
+                    ContextCompat.getColor(context, R.color.red)
+                )
+            }
         }
 
         ibAddGoal.setOnClickListener {

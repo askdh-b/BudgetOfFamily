@@ -5,6 +5,9 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
+import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
@@ -17,6 +20,8 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        val context = requireContext()
 
         viewModel = ViewModelProvider(
             this,
@@ -68,6 +73,61 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
             )
         }
 
+        etFirstName.addTextChangedListener {
+            if (it?.length in 1..20) DrawableCompat.setTint(
+                etFirstName.background,
+                ContextCompat.getColor(context, R.color.green)
+            )
+            else DrawableCompat.setTint(
+                etFirstName.background,
+                ContextCompat.getColor(context, R.color.red)
+            )
+        }
+
+        etLastName.addTextChangedListener {
+            if (it?.length in 1..20) DrawableCompat.setTint(
+                etLastName.background,
+                ContextCompat.getColor(context, R.color.green)
+            )
+            else DrawableCompat.setTint(
+                etLastName.background,
+                ContextCompat.getColor(context, R.color.red)
+            )
+        }
+
+        etEmail.addTextChangedListener {
+            if (it?.length in 3..20) DrawableCompat.setTint(
+                etEmail.background,
+                ContextCompat.getColor(context, R.color.green)
+            )
+            else DrawableCompat.setTint(
+                etEmail.background,
+                ContextCompat.getColor(context, R.color.red)
+            )
+        }
+
+        etPassword.addTextChangedListener {
+            if (it?.length in 6..20) DrawableCompat.setTint(
+                etPassword.background,
+                ContextCompat.getColor(context, R.color.green)
+            )
+            else DrawableCompat.setTint(
+                etPassword.background,
+                ContextCompat.getColor(context, R.color.red)
+            )
+        }
+
+        etPasswordAgain.addTextChangedListener {
+            if (it?.length in 6..20 && it?.toString() == etPassword.text.toString()) DrawableCompat.setTint(
+                etPasswordAgain.background,
+                ContextCompat.getColor(context, R.color.green)
+            )
+            else DrawableCompat.setTint(
+                etPasswordAgain.background,
+                ContextCompat.getColor(context, R.color.red)
+            )
+        }
+
         bSignUp.setOnClickListener {
             if (etFirstName.text.length in 1..20 && etLastName.text.length in 1..20 && etEmail.text.length in 3..20 && etPassword.text.length in 6..20) {
                 viewModel.register(
@@ -79,7 +139,13 @@ class SignUpFragment : Fragment(R.layout.fragment_sign_up) {
                         etPasswordAgain.text.toString()
                     )
                 )
-            } else viewModel.showError()
+            } else {
+                viewModel.showError()
+                DrawableCompat.setTint(
+                    etEmail.background,
+                    ContextCompat.getColor(context, R.color.red)
+                )
+            }
         }
     }
 }

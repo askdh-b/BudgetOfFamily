@@ -40,6 +40,7 @@ class InvitationRepositoryImpl(
                     id = invs.id,
                     firstName = invs.firstName,
                     lastName = invs.lastName,
+                    username = invs.username,
                     senderId = invs.senderId,
                     recipientId = invs.recipientId,
                     familyId = invs.familyId

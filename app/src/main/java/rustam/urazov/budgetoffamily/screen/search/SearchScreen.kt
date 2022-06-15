@@ -12,6 +12,7 @@ import rustam.urazov.budgetoffamily.R
 import rustam.urazov.budgetoffamily.adapter.UserAdapter
 import rustam.urazov.budgetoffamily.models.Invitation
 import rustam.urazov.budgetoffamily.observer.Observer
+import rustam.urazov.budgetoffamily.screen.showInfoDialog
 
 class SearchScreen : Fragment(R.layout.fragment_search), Observer {
 
@@ -45,7 +46,9 @@ class SearchScreen : Fragment(R.layout.fragment_search), Observer {
         }
 
         etSearch.addTextChangedListener {
-            viewModel.getUsers(it.toString())
+            if (it?.length ?: 0 >= 3) {
+                viewModel.getUsers(it.toString())
+            }
         }
     }
 

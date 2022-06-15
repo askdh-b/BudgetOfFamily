@@ -4,6 +4,9 @@ import android.os.Bundle
 import android.view.View
 import android.widget.EditText
 import android.widget.ImageButton
+import androidx.core.content.ContextCompat
+import androidx.core.graphics.drawable.DrawableCompat
+import androidx.core.widget.addTextChangedListener
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.lifecycleScope
@@ -60,6 +63,57 @@ class IncomesSourceEditScreen : Fragment(R.layout.fragment_incomes_source_edit) 
                     )
                     viewModel.success.value = false
                 }
+            }
+        }
+
+        etName.addTextChangedListener {
+            if (it?.length in 1..30) DrawableCompat.setTint(
+                etName.background,
+                ContextCompat.getColor(context, R.color.green)
+            )
+            else DrawableCompat.setTint(
+                etName.background,
+                ContextCompat.getColor(context, R.color.red)
+            )
+        }
+
+        etSum.addTextChangedListener {
+            try {
+                if (etSum.text.toString()
+                        .toFloat() in 1.0..200000.0
+                ) DrawableCompat.setTint(
+                    etSum.background,
+                    ContextCompat.getColor(context, R.color.green)
+                )
+                else DrawableCompat.setTint(
+                    etSum.background,
+                    ContextCompat.getColor(context, R.color.red)
+                )
+            } catch (e: java.lang.NumberFormatException) {
+                DrawableCompat.setTint(
+                    etSum.background,
+                    ContextCompat.getColor(context, R.color.red)
+                )
+            }
+        }
+
+        etMonthDay.addTextChangedListener {
+            try {
+                if (etMonthDay.text.toString()
+                        .toInt() in 1..31
+                ) DrawableCompat.setTint(
+                    etMonthDay.background,
+                    ContextCompat.getColor(context, R.color.green)
+                )
+                else DrawableCompat.setTint(
+                    etMonthDay.background,
+                    ContextCompat.getColor(context, R.color.red)
+                )
+            } catch (e: java.lang.NumberFormatException) {
+                DrawableCompat.setTint(
+                    etMonthDay.background,
+                    ContextCompat.getColor(context, R.color.red)
+                )
             }
         }
 

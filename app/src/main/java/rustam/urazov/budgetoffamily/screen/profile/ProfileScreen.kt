@@ -9,6 +9,8 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.navOptions
 import rustam.urazov.budgetoffamily.R
+import rustam.urazov.budgetoffamily.activity.MainActivity
+import rustam.urazov.budgetoffamily.screen.showConfirmationDialog
 
 class ProfileScreen : Fragment(R.layout.fragment_profile) {
 
@@ -68,7 +70,12 @@ class ProfileScreen : Fragment(R.layout.fragment_profile) {
         }
 
         ibLeave.setOnClickListener {
-            viewModel.leave()
+            showConfirmationDialog(
+                (context as MainActivity).supportFragmentManager,
+                "Покинуть семью",
+                "Вы уверены, что хотите покинуть семью?",
+                viewModel
+            )
         }
 
         ibIncomesSourcesEdit.setOnClickListener {

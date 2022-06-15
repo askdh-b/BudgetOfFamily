@@ -29,7 +29,7 @@ class UserAdapter(
         UserViewHolder(LayoutInflater.from(context).inflate(R.layout.user, parent, false))
 
     override fun onBindViewHolder(holder: UserViewHolder, position: Int) {
-        "${users[position].firstName} ${users[position].lastName}".also {
+        "${users[position].firstName} ${users[position].lastName}(${users[position].username})".also {
             holder.tvFullName.text = it
         }
 
